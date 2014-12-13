@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DesktopClient.PageControlles;
 using DesktopClient.Pages;
 
 namespace DesktopClient
@@ -21,11 +22,15 @@ namespace DesktopClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainPageController controller;
+
         public MainWindow()
         {
             InitializeComponent();
 
-            this.Content = new UserRegistration();
+            controller = new MainPageController(this);
+
+            //this.Content = new UserRegistration();
         }
     }
 }

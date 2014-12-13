@@ -9,6 +9,8 @@
 
     <Grid>
         <Label Name="Label_IntroductionText" Content="Label" HorizontalAlignment="Left" Margin="30,34,0,0" VerticalAlignment="Top" Height="218" Width="221"/>
+        <Button Name="Button_StartTest" Content="Начать тест" HorizontalAlignment="Left" Margin="215,268,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="Button_Back" Content="Назат" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Page>

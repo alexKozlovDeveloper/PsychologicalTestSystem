@@ -81,12 +81,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\UserTypeChange.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageControlles\IPageController.cs" />
+    <Compile Include="PageControlles\MainPageController.cs" />
+    <Compile Include="PageControlles\UserIntroductionController.cs" />
+    <Compile Include="PageControlles\UserRegistrationController.cs" />
+    <Compile Include="PageControlles\UserTestController.cs" />
+    <Compile Include="PageControlles\UserTestResultController.cs" />
     <Compile Include="Pages\UserIntroduction.xaml.cs">
       <DependentUpon>UserIntroduction.xaml</DependentUpon>
     </Compile>
@@ -98,9 +100,6 @@
     </Compile>
     <Compile Include="Pages\UserTestResult.xaml.cs">
       <DependentUpon>UserTestResult.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\UserTypeChange.xaml.cs">
-      <DependentUpon>UserTypeChange.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

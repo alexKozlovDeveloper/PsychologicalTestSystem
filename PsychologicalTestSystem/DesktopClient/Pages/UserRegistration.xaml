@@ -17,6 +17,5 @@
         <TextBox Name="TextBox_UserGroupNumber" HorizontalAlignment="Left" Height="23" Margin="155,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135"/>
 
         <Button Name="Button_Continue"  Content="Вперед" HorizontalAlignment="Left" Margin="155,162,0,0" VerticalAlignment="Top" Width="135" Height="36"/>
-        <Button Name="Button_Back"  Content="Назад" HorizontalAlignment="Left" Margin="15,162,0,0" VerticalAlignment="Top" Width="135" Height="36"/>
     </Grid>
 </Page>
