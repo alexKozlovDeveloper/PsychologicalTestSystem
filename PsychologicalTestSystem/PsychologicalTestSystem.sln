@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsychologicalTestSystem", "PsychologicalTestSystem\PsychologicalTestSystem.csproj", "{4E3F80D8-279E-432B-A5F8-FE1A69E45521}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClient", "DesktopClient\DesktopClient.csproj", "{23F0C0B8-7CE3-4E6A-ABAC-88EB9385535A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{4E3F80D8-279E-432B-A5F8-FE1A69E45521}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E3F80D8-279E-432B-A5F8-FE1A69E45521}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E3F80D8-279E-432B-A5F8-FE1A69E45521}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23F0C0B8-7CE3-4E6A-ABAC-88EB9385535A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23F0C0B8-7CE3-4E6A-ABAC-88EB9385535A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23F0C0B8-7CE3-4E6A-ABAC-88EB9385535A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23F0C0B8-7CE3-4E6A-ABAC-88EB9385535A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

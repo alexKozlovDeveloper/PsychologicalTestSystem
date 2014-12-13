@@ -1,0 +1,22 @@
+﻿<Page x:Class="DesktopClient.Pages.UserRegistration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" d:DesignWidth="300"
+	Title="UserRegistration" Height="221">
+
+    <Grid>
+        <Label Content="Введите ваши данные" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="30" Width="148"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="140"/>
+        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Width="140"/>
+        <Label Content="Номер группы" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="140"/>
+
+        <TextBox Name="TextBox_UserName" HorizontalAlignment="Left" Height="23" Margin="155,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135"/>
+        <TextBox Name="TextBox_UserLastname" HorizontalAlignment="Left" Height="23" Margin="155,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135"/>
+        <TextBox Name="TextBox_UserGroupNumber" HorizontalAlignment="Left" Height="23" Margin="155,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135"/>
+
+        <Button Name="Button_Continue"  Content="Вперед" HorizontalAlignment="Left" Margin="155,162,0,0" VerticalAlignment="Top" Width="135" Height="36"/>
+        <Button Name="Button_Back"  Content="Назад" HorizontalAlignment="Left" Margin="15,162,0,0" VerticalAlignment="Top" Width="135" Height="36"/>
+    </Grid>
+</Page>
