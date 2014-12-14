@@ -39,18 +39,18 @@ namespace DesktopClient.PageControlles
         void Button_StartTest_Click(object sender, RoutedEventArgs e)
         {
             _controller.GoToUserTestPage();
-            //throw new NotImplementedException();
         }
 
         void Button_Back_Click(object sender, RoutedEventArgs e)
         {
             _controller.GoToUserRegistrationPage();
-            //throw new NotImplementedException();
         }
 
         public void SetupToWindow()
         {
             _controllerWindow.Content = _controllerPage;
+
+            _controllerPage.Label_IntroductionText.Content = _controller.Test.Introduction;
         }
     }
 }

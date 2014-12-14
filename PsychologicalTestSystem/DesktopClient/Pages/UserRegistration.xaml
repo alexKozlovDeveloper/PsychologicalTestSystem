@@ -3,19 +3,19 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" d:DesignWidth="300"
-	Title="UserRegistration" Height="221">
+      mc:Ignorable="d"
+	Title="UserRegistration" Height="300" Width="500">
 
     <Grid>
-        <Label Content="Введите ваши данные" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="30" Width="148"/>
-        <Label Content="Имя" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="140"/>
-        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Width="140"/>
-        <Label Content="Номер группы" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="140"/>
+        <Label Content="Введите ваши данные" HorizontalAlignment="Left" Margin="178,25,0,0" VerticalAlignment="Top" Height="30" Width="135"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="90,81,0,0" VerticalAlignment="Top" Width="164" Height="40"/>
+        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="90,121,0,0" VerticalAlignment="Top" Width="164" Height="40"/>
+        <Label Content="Номер группы" HorizontalAlignment="Left" Margin="90,161,0,0" VerticalAlignment="Top" Width="164" Height="40"/>
 
-        <TextBox Name="TextBox_UserName" HorizontalAlignment="Left" Height="23" Margin="155,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135"/>
-        <TextBox Name="TextBox_UserLastname" HorizontalAlignment="Left" Height="23" Margin="155,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135"/>
-        <TextBox Name="TextBox_UserGroupNumber" HorizontalAlignment="Left" Height="23" Margin="155,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135"/>
+        <TextBox Name="TextBox_UserName" HorizontalAlignment="Left" Height="35" Margin="259,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
+        <TextBox Name="TextBox_UserLastname" HorizontalAlignment="Left" Height="35" Margin="259,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
+        <TextBox Name="TextBox_UserGroupNumber" HorizontalAlignment="Left" Height="35" Margin="259,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
 
-        <Button Name="Button_Continue"  Content="Вперед" HorizontalAlignment="Left" Margin="155,162,0,0" VerticalAlignment="Top" Width="135" Height="36"/>
+        <Button Name="Button_Continue"  Content="Вперед" HorizontalAlignment="Left" Margin="178,254,0,0" VerticalAlignment="Top" Width="135" Height="36"/>
     </Grid>
 </Page>

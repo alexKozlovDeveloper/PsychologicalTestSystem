@@ -4,13 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="300" d:DesignWidth="500"
 	Title="UserIntroduction">
 
     <Grid>
-        <Label Name="Label_IntroductionText" Content="Label" HorizontalAlignment="Left" Margin="30,34,0,0" VerticalAlignment="Top" Height="218" Width="221"/>
-        <Button Name="Button_StartTest" Content="Начать тест" HorizontalAlignment="Left" Margin="215,268,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Name="Button_Back" Content="Назат" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Name="Label_IntroductionText" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="243" Width="480"/>
+        <Button Name="Button_StartTest" Content="Начать тест" HorizontalAlignment="Left" Margin="415,258,0,0" VerticalAlignment="Top" Width="75" Height="32"/>
+        <Button Name="Button_Back" Content="Назат" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Width="75" Height="32"/>
 
     </Grid>
 </Page>

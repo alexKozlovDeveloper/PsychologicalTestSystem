@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using DesktopClient.Helpers;
+using TestLogic.TestEntityes;
 
 namespace DesktopClient.PageControlles
 {
@@ -16,6 +18,16 @@ namespace DesktopClient.PageControlles
         private UserTestResultController _userTestResultController;
         private UserTestController _userTestController;
 
+        private Test _test;
+
+        public Test Test
+        {
+            get
+            {
+                return _test;
+            }
+        }
+
         public MainPageController(Window mainWindow)
         {
             _mainWindow = mainWindow;
@@ -27,6 +39,97 @@ namespace DesktopClient.PageControlles
 
             _userRegistrationController.SetupToWindow();
 
+
+            _test = new Test();
+
+            _test.Introduction = @"Для прохождения теста нажмите на кнопку <Начать тест>.
+Для внимательно читайте вопросы и отвечайте на них нажимаю на кнопку с наиболее подходяшим ответом.
+";
+            _test.Questions = new List<Question> 
+            {
+                new Question
+                {
+                    QuestionMessage = @"Иногда испытывается психологический дискомфорт ввиду отсутствия 
+возможности поделиться своими проблемами с родителями",
+                    FirstAnswer = new Answer
+                    {
+                        Text = "Да",
+                        ReportMessage = ""
+                    },
+                    SecondAnswer = new Answer
+                    {
+                        Text = "Иногда",
+                        ReportMessage = ""
+                    },
+                    ThirdAnswer = new Answer
+                    {
+                        Text = "Нет",
+                        ReportMessage = "составить распорядок дня"
+                    }
+                },
+                new Question
+                {
+                    QuestionMessage = @"Question 2 ololo",
+                    FirstAnswer = new Answer
+                    {
+                        Text = "da",
+                        ReportMessage = ""
+                    },
+                    SecondAnswer = new Answer
+                    {
+                        Text = "net",
+                        ReportMessage = ""
+                    },
+                    ThirdAnswer = new Answer
+                    {
+                        Text = "oy vse",
+                        ReportMessage = "участвовать в мероприятиях вне вуза"
+                    }
+                },
+                new Question
+                {
+                    QuestionMessage = @"Question 3 ololo",
+                    FirstAnswer = new Answer
+                    {
+                        Text = "da",
+                        ReportMessage = "lal7"
+                    },
+                    SecondAnswer = new Answer
+                    {
+                        Text = "net",
+                        ReportMessage = "lal8"
+                    },
+                    ThirdAnswer = new Answer
+                    {
+                        Text = "oy vse",
+                        ReportMessage = ""
+                    }
+                },
+                new Question
+                {
+                    QuestionMessage = @"Question 4 ololo",
+                    FirstAnswer = new Answer
+                    {
+                        Text = "da",
+                        ReportMessage = "lal10"
+                    },
+                    SecondAnswer = new Answer
+                    {
+                        Text = "net",
+                        ReportMessage = ""
+                    },
+                    ThirdAnswer = new Answer
+                    {
+                        Text = "oy vse",
+                        ReportMessage = ""
+                    }
+                }
+            };
+
+
+            //var ms = XmlSerializerHelper.Serialize<Test>(test);
+
+            //FileReaderHelper.WriteStreamInFile(ms, @"D:\test1.xml");
 
         }
 

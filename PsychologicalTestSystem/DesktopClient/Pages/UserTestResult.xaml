@@ -4,12 +4,12 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="300" d:DesignWidth="500"
 	Title="UserTestResult">
 
     <Grid>
-        <Label Name="Label_ResultInfo" Content="Label" HorizontalAlignment="Left" Margin="43,43,0,0" VerticalAlignment="Top"/>
+        <Label Name="Label_ResultInfo" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="241" Width="480"/>
 
-        <Button Name="Button_Exit" Content="Завершить" HorizontalAlignment="Left" Margin="88,251,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="Button_Exit" Content="Завершить" HorizontalAlignment="Left" Margin="196,256,0,0" VerticalAlignment="Top" Width="105" Height="34"/>
     </Grid>
 </Page>

@@ -43,6 +43,8 @@ namespace DesktopClient.PageControlles
         public void SetupToWindow()
         {
             _controllerWindow.Content = _controllerPage;
+
+            _controllerPage.Label_ResultInfo.Content = _controller.Test.GetReport();
         }
     }
 }
