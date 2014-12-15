@@ -4,18 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using DesktopClient.Pages;
 
 namespace DesktopClient.PageControlles
 {
-    class UserIntroductionController : IPageController
+    class StatisticsController : IPageController
     {
-        private readonly UserIntroduction _controllerPage;
+        private readonly Statistic _controllerPage;
         private readonly Window _controllerWindow;
         private readonly MainPageController _controller;
 
-        public UserIntroduction ControllerPage
+        public Statistic ControllerPage
         {
             get { return _controllerPage; }
         }
@@ -25,20 +24,14 @@ namespace DesktopClient.PageControlles
             get { return _controllerWindow; }
         }
 
-        public UserIntroductionController(Window window, MainPageController controller)
+        public StatisticsController(Window window, MainPageController controller)
         {
             _controllerWindow = window;
             _controller = controller;
 
-            _controllerPage = new UserIntroduction();
+            _controllerPage = new Statistic();
 
             _controllerPage.Button_Back.Click += Button_Back_Click;
-            _controllerPage.Button_StartTest.Click += Button_StartTest_Click;
-        }
-
-        void Button_StartTest_Click(object sender, RoutedEventArgs e)
-        {
-            _controller.GoToUserTestPage();
         }
 
         void Button_Back_Click(object sender, RoutedEventArgs e)
@@ -49,8 +42,6 @@ namespace DesktopClient.PageControlles
         public void SetupToWindow()
         {
             _controllerWindow.Content = _controllerPage;
-
-            _controllerPage.Label_IntroductionText.Content = _controller.Test.Introduction;
         }
     }
 }

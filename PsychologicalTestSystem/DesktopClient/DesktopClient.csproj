@@ -67,6 +67,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AdministratorLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Statistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\UserIntroduction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -85,12 +93,20 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageControlles\AdministratorLoginController.cs" />
     <Compile Include="PageControlles\IPageController.cs" />
     <Compile Include="PageControlles\MainPageController.cs" />
+    <Compile Include="PageControlles\StatisticsController.cs" />
     <Compile Include="PageControlles\UserIntroductionController.cs" />
     <Compile Include="PageControlles\UserRegistrationController.cs" />
     <Compile Include="PageControlles\UserTestController.cs" />
     <Compile Include="PageControlles\UserTestResultController.cs" />
+    <Compile Include="Pages\AdministratorLogin.xaml.cs">
+      <DependentUpon>AdministratorLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Statistics.xaml.cs">
+      <DependentUpon>Statistics.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\UserIntroduction.xaml.cs">
       <DependentUpon>UserIntroduction.xaml</DependentUpon>
     </Compile>

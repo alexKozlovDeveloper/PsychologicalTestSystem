@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
-using DesktopClient.Helpers;
 using TestLogic.TestEntityes;
 
 namespace DesktopClient.PageControlles
@@ -13,12 +8,14 @@ namespace DesktopClient.PageControlles
     {
         private Window _mainWindow;
 
-        private UserIntroductionController _userIntroductionController;
-        private UserRegistrationController _userRegistrationController;
-        private UserTestResultController _userTestResultController;
-        private UserTestController _userTestController;
+        private readonly UserIntroductionController _userIntroductionController;
+        private readonly UserRegistrationController _userRegistrationController;
+        private readonly UserTestResultController _userTestResultController;
+        private readonly UserTestController _userTestController;
+        private readonly AdministratorLoginController _administratorLoginController;
+        private readonly StatisticsController _statisticsController;
 
-        private Test _test;
+        private readonly Test _test;
 
         public Test Test
         {
@@ -36,92 +33,95 @@ namespace DesktopClient.PageControlles
             _userRegistrationController = new UserRegistrationController(mainWindow, this);
             _userTestResultController = new UserTestResultController(mainWindow, this);
             _userTestController = new UserTestController(mainWindow, this);
+            _administratorLoginController = new AdministratorLoginController(mainWindow, this);
+            _statisticsController = new StatisticsController(mainWindow, this);
 
             _userRegistrationController.SetupToWindow();
 
 
-            _test = new Test();
-
-            _test.Introduction = @"Для прохождения теста нажмите на кнопку <Начать тест>.
-Для внимательно читайте вопросы и отвечайте на них нажимаю на кнопку с наиболее подходяшим ответом.
-";
-            _test.Questions = new List<Question> 
+            _test = new Test
             {
-                new Question
+                Introduction = @"Для прохождения теста нажмите на кнопку <Начать тест>.
+Для внимательно читайте вопросы и отвечайте на них нажимаю на кнопку с наиболее подходяшим ответом.
+",
+                Questions = new List<Question>
                 {
-                    QuestionMessage = @"Иногда испытывается психологический дискомфорт ввиду отсутствия 
+                    new Question
+                    {
+                        QuestionMessage = @"Иногда испытывается психологический дискомфорт ввиду отсутствия 
 возможности поделиться своими проблемами с родителями",
-                    FirstAnswer = new Answer
-                    {
-                        Text = "Да",
-                        ReportMessage = ""
+                        FirstAnswer = new Answer
+                        {
+                            Text = "Да",
+                            ReportMessage = ""
+                        },
+                        SecondAnswer = new Answer
+                        {
+                            Text = "Иногда",
+                            ReportMessage = ""
+                        },
+                        ThirdAnswer = new Answer
+                        {
+                            Text = "Нет",
+                            ReportMessage = "составить распорядок дня"
+                        }
                     },
-                    SecondAnswer = new Answer
+                    new Question
                     {
-                        Text = "Иногда",
-                        ReportMessage = ""
+                        QuestionMessage = @"Question 2 ololo",
+                        FirstAnswer = new Answer
+                        {
+                            Text = "da",
+                            ReportMessage = ""
+                        },
+                        SecondAnswer = new Answer
+                        {
+                            Text = "net",
+                            ReportMessage = ""
+                        },
+                        ThirdAnswer = new Answer
+                        {
+                            Text = "oy vse",
+                            ReportMessage = "участвовать в мероприятиях вне вуза"
+                        }
                     },
-                    ThirdAnswer = new Answer
+                    new Question
                     {
-                        Text = "Нет",
-                        ReportMessage = "составить распорядок дня"
-                    }
-                },
-                new Question
-                {
-                    QuestionMessage = @"Question 2 ololo",
-                    FirstAnswer = new Answer
-                    {
-                        Text = "da",
-                        ReportMessage = ""
+                        QuestionMessage = @"Question 3 ololo",
+                        FirstAnswer = new Answer
+                        {
+                            Text = "da",
+                            ReportMessage = "lal7"
+                        },
+                        SecondAnswer = new Answer
+                        {
+                            Text = "net",
+                            ReportMessage = "lal8"
+                        },
+                        ThirdAnswer = new Answer
+                        {
+                            Text = "oy vse",
+                            ReportMessage = ""
+                        }
                     },
-                    SecondAnswer = new Answer
+                    new Question
                     {
-                        Text = "net",
-                        ReportMessage = ""
-                    },
-                    ThirdAnswer = new Answer
-                    {
-                        Text = "oy vse",
-                        ReportMessage = "участвовать в мероприятиях вне вуза"
-                    }
-                },
-                new Question
-                {
-                    QuestionMessage = @"Question 3 ololo",
-                    FirstAnswer = new Answer
-                    {
-                        Text = "da",
-                        ReportMessage = "lal7"
-                    },
-                    SecondAnswer = new Answer
-                    {
-                        Text = "net",
-                        ReportMessage = "lal8"
-                    },
-                    ThirdAnswer = new Answer
-                    {
-                        Text = "oy vse",
-                        ReportMessage = ""
-                    }
-                },
-                new Question
-                {
-                    QuestionMessage = @"Question 4 ololo",
-                    FirstAnswer = new Answer
-                    {
-                        Text = "da",
-                        ReportMessage = "lal10"
-                    },
-                    SecondAnswer = new Answer
-                    {
-                        Text = "net",
-                        ReportMessage = ""
-                    },
-                    ThirdAnswer = new Answer
-                    {
-                        Text = "oy vse",
-                        ReportMessage = ""
+                        QuestionMessage = @"Question 4 ololo",
+                        FirstAnswer = new Answer
+                        {
+                            Text = "da",
+                            ReportMessage = "lal10"
+                        },
+                        SecondAnswer = new Answer
+                        {
+                            Text = "net",
+                            ReportMessage = ""
+                        },
+                        ThirdAnswer = new Answer
+                        {
+                            Text = "oy vse",
+                            ReportMessage = ""
+                        }
                     }
                 }
             };
@@ -153,5 +153,14 @@ namespace DesktopClient.PageControlles
             _userTestController.SetupToWindow();
         }
 
+        public void GoToAdministratorLoginPage()
+        {
+            _administratorLoginController.SetupToWindow();
+        }
+
+        public void GoToStatisticsPage()
+        {
+            _statisticsController.SetupToWindow();
+        }
     }
 }

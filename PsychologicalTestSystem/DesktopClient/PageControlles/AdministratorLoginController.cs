@@ -4,18 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using DesktopClient.Pages;
 
 namespace DesktopClient.PageControlles
 {
-    class UserRegistrationController : IPageController
+    class AdministratorLoginController : IPageController
     {
-        private UserRegistration _controllerPage;
+        private AdministratorLogin _controllerPage;
         private Window _controllerWindow;
         private MainPageController _controller;
 
-        public UserRegistration ControllerPage
+        public AdministratorLogin ControllerPage
         {
             get { return _controllerPage; }
         }
@@ -25,25 +24,25 @@ namespace DesktopClient.PageControlles
             get { return _controllerWindow; }
         }
 
-        public UserRegistrationController(Window window, MainPageController controller)
+        public AdministratorLoginController(Window window, MainPageController controller)
         {
             _controllerWindow = window;
             _controller = controller;
 
-            _controllerPage = new UserRegistration();
+            _controllerPage = new AdministratorLogin();
 
             _controllerPage.Button_Continue.Click += Button_Continue_Click;
-            _controllerPage.Button_Administrator.Click += Button_Administrator_Click;
+            _controllerPage.Button_Back.Click += Button_Back_Click;
         }
 
-        void Button_Administrator_Click(object sender, RoutedEventArgs e)
+        void Button_Back_Click(object sender, RoutedEventArgs e)
         {
-            _controller.GoToAdministratorLoginPage();
+            _controller.GoToUserRegistrationPage();
         }
 
         void Button_Continue_Click(object sender, RoutedEventArgs e)
         {
-            _controller.GoToUserIntroductionPage();
+            _controller.GoToStatisticsPage();
         }
 
         public void SetupToWindow()
