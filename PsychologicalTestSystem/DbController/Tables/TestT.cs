@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DbController.Tables
 {
-    class UserT
+    class TestT
     {
         public Guid Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public Guid GroupId { get; set; } 
+        public string Name { get; set; }
+
+        public virtual List<QuestionT> Questions { get; set; }
     }
 }

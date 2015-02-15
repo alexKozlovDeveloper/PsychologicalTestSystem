@@ -12,28 +12,30 @@ namespace DbController.Repositoryes
 {
     class TestingRepository : ITestingRepository
     {
-        public void AddUser(string firstName, string lastName, string groupNumber)
+        public User AddUser(string firstName, string lastName, Guid groupId)
         {
-            using (var db = new TestingDbContext())
+            using (var db = new TestingDbContext2())
             {
                 UserT user = new UserT()
                 {
                     Id = Guid.NewGuid(),
                     FirstName = firstName,
                     LastName = lastName,
-                    GroupNumber = groupNumber
+                    GroupId = groupId
                 };
 
                 db.Users.Add(user);
 
                 db.SaveChanges();
+
+                return DbConverter.GetUser(user);
             }            
         }
 
-        public void AddQuestion(string message, string firstAnswer, string secondAnswer, 
+        public Question AddQuestion(string message, string firstAnswer, string secondAnswer, 
             string thirdAnswer, string firstReportMessage, string secondReportMessage, string thirdReportMessage)
         {
-            using (var db = new TestingDbContext())
+            using (var db = new TestingDbContext2())
             {
                 QuestionT question = new QuestionT()
                 {
@@ -50,12 +52,14 @@ namespace DbController.Repositoryes
                 db.Questions.Add(question);
 
                 db.SaveChanges();
+
+                return DbConverter.GetQuestion(question);
             }
         }
 
-        public void AddTestingResult(Guid userId, Guid questionId, int checedAnswer)
+        public Testing AddTestingResult(Guid userId, Guid questionId, int checedAnswer)
         {
-            using (var db = new TestingDbContext())
+            using (var db = new TestingDbContext2())
             {
                 TestingT testing = new TestingT()
                 {
@@ -68,12 +72,14 @@ namespace DbController.Repositoryes
                 db.Testing.Add(testing);
 
                 db.SaveChanges();
+
+                return DbConverter.GetTesting(testing);
             }
         }
 
         public Question GetQuestion(Guid id)
         {
-            using (var db = new TestingDbContext())
+            using (var db = new TestingDbContext2())
             {
                 QuestionT res = null;
 
@@ -91,7 +97,7 @@ namespace DbController.Repositoryes
 
         public Testing GetTesting(Guid id)
         {
-            using (var db = new TestingDbContext())
+            using (var db = new TestingDbContext2())
             {
                 TestingT res = null;
 
@@ -109,7 +115,7 @@ namespace DbController.Repositoryes
 
         public User GetUser(Guid id)
         {
-            using (var db = new TestingDbContext())
+            using (var db = new TestingDbContext2())
             {
                 UserT res = null;
 
@@ -123,6 +129,84 @@ namespace DbController.Repositoryes
 
                 return DbConverter.GetUser(res);
             }
+        }
+
+        public Group AddGroup(string number)
+        {
+            using (var db = new TestingDbContext2())
+            {
+                GroupT group = new GroupT()
+                {
+                    Id = Guid.NewGuid(),
+                    Number = number
+                };
+
+                db.Groups.Add(group);
+
+                db.SaveChanges();
+
+                return DbConverter.GetGroup(group);
+            }
+        }
+
+        public Test AddTest(string name)
+        {
+            using (var db = new TestingDbContext2())
+            {
+                TestT test = new TestT()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = name
+                };
+
+                db.Tests.Add(test);
+
+                db.SaveChanges();
+
+                return DbConverter.GetTest(test);
+            }
+        }
+
+        public void AddQuestionToTest(Guid questionId, Guid testId)
+        {
+            using (var db = new TestingDbContext2())
+            {
+                var question = GetQuestionT(questionId, db);
+
+                var test = GetTestT(testId, db);
+
+                test.Questions.Add(question);
+            }
+        }
+
+        private TestT GetTestT(Guid testId, TestingDbContext2 db)
+        {
+            TestT res = null;
+
+            foreach (var item in db.Tests)
+            {
+                if (item.Id == testId)
+                {
+                    res = item;
+                }
+            }
+
+            return res;
+        }
+
+        private QuestionT GetQuestionT(Guid questionId, TestingDbContext2 db)
+        {
+            QuestionT res = null;
+
+            foreach (var item in db.Questions)
+            {
+                if (item.Id == questionId)
+                {
+                    res = item;
+                }
+            }
+
+            return res;
         }
     }
 }

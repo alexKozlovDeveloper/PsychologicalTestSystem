@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace DbController.Tables
 {
-    class UserT
+    class GroupT
     {
         public Guid Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public Guid GroupId { get; set; } 
+        public string Number { get; set; }
     }
 }

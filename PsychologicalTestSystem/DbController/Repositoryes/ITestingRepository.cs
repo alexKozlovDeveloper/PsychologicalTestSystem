@@ -9,12 +9,19 @@ namespace DbController.Repositoryes
 {
     interface ITestingRepository
     {
-        void AddUser(string firstName, string lastName, string groupNumber);
-        void AddQuestion(string message, string firstAnswer, string secondAnswer, string thirdAnswer, 
+        User AddUser(string firstName, string lastName, Guid groupId);
+        
+        Question AddQuestion(string message, string firstAnswer, string secondAnswer, string thirdAnswer, 
             string firstReportMessage, string secondReportMessage, string thirdReportMessage);
 
-        void AddTestingResult(Guid userId, Guid questionId, int checedAnswer);
+        Testing AddTestingResult(Guid userId, Guid questionId, int checedAnswer);
 
+        Group AddGroup(string number);
+
+        Test AddTest(string name);
+
+        void AddQuestionToTest(Guid questionId, Guid testId);
+        
         Question GetQuestion(Guid id);
         Testing GetTesting(Guid id);
         User GetUser(Guid id);

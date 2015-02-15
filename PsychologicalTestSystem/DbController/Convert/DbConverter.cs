@@ -49,5 +49,24 @@ namespace DbController.Convert
         {
             return Convert<Testing, TestingT>(item);
         }
+
+        public static Group GetGroup(GroupT item)
+        {
+            return Convert<Group, GroupT>(item);
+        }
+
+        public static Test GetTest(TestT item)
+        {
+            var res = Convert<Test, TestT>(item);
+
+            res.Questions = new List<Question>();
+
+            foreach (var question in item.Questions)
+            {
+                res.Questions.Add(GetQuestion(question));
+            }
+
+            return res;
+        }
     }
 }
