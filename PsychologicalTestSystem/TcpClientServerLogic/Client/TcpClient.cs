@@ -10,6 +10,8 @@ namespace TcpClientServerLogic.Client
 {
     class TcpClient
     {
+        private const int DefaultPort = 11993;
+
         private IPHostEntry _ipHost;
         private IPAddress _ipAddr;
         private IPEndPoint _ipEndPoint;
@@ -32,7 +34,7 @@ namespace TcpClientServerLogic.Client
             {
                 _sender.Connect(_ipEndPoint);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 _ipHost = null;
                 _ipAddr = null;
@@ -44,9 +46,17 @@ namespace TcpClientServerLogic.Client
             return true;
         }
 
-        public void SendMessage()
+        public string SendMessage(string message)
         {
+            var bytes = new byte[1024];
 
+            var msg = Encoding.UTF8.GetBytes(message);
+
+            var bytesSent = _sender.Send(msg);
+
+            var bytesRec = _sender.Receive(bytes);
+
+            return Encoding.UTF8.GetString(bytes, 0, bytesRec);
         }
 
         public bool IsConnect
