@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsychologicalTestSystem", "PsychologicalTestSystem\PsychologicalTestSystem.csproj", "{4E3F80D8-279E-432B-A5F8-FE1A69E45521}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClient", "DesktopClient\DesktopClient.csproj", "{23F0C0B8-7CE3-4E6A-ABAC-88EB9385535A}"
@@ -11,7 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopAdministrator", "Des
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbController", "DbController\DbController.csproj", "{408B2A0D-8CC8-49FE-BD91-42D14774EA33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpClientServerLogic", "TcpClientServerLogic\TcpClientServerLogic.csproj", "{E6167F0C-7870-4A05-BA06-0ED8929CD5AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpClienLogic", "TcpClienLogic\TcpClienLogic.csproj", "{32A7EB98-3AAD-4B7F-BB5F-D06ED02D3283}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpServerLogic", "TcpServerLogic\TcpServerLogic.csproj", "{F23970BE-F3EE-4C60-8713-6749E5734022}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +43,14 @@ Global
 		{408B2A0D-8CC8-49FE-BD91-42D14774EA33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{408B2A0D-8CC8-49FE-BD91-42D14774EA33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{408B2A0D-8CC8-49FE-BD91-42D14774EA33}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E6167F0C-7870-4A05-BA06-0ED8929CD5AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6167F0C-7870-4A05-BA06-0ED8929CD5AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6167F0C-7870-4A05-BA06-0ED8929CD5AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6167F0C-7870-4A05-BA06-0ED8929CD5AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32A7EB98-3AAD-4B7F-BB5F-D06ED02D3283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32A7EB98-3AAD-4B7F-BB5F-D06ED02D3283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32A7EB98-3AAD-4B7F-BB5F-D06ED02D3283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32A7EB98-3AAD-4B7F-BB5F-D06ED02D3283}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F23970BE-F3EE-4C60-8713-6749E5734022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F23970BE-F3EE-4C60-8713-6749E5734022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F23970BE-F3EE-4C60-8713-6749E5734022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F23970BE-F3EE-4C60-8713-6749E5734022}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Button Name="StartServerButton" Content="Запустить сервер" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="132" Height="30" Click="StartServerButton_Click"/>
+
     </Grid>
 </Window>

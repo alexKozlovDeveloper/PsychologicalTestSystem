@@ -7,7 +7,7 @@ using DbController.TableEntityes;
 
 namespace DbController.Repositoryes
 {
-    interface ITestingRepository
+    public interface ITestingRepository
     {
         User AddUser(string firstName, string lastName, Guid groupId);
         Question AddQuestion(string message, string firstAnswer, string secondAnswer, string thirdAnswer, 

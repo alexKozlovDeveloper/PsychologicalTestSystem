@@ -10,7 +10,7 @@ using DbController.Tables.Context;
 
 namespace DbController.Repositoryes
 {
-    class TestingRepository : ITestingRepository
+    public class TestingRepository : ITestingRepository
     {
         public User AddUser(string firstName, string lastName, Guid groupId)
         {

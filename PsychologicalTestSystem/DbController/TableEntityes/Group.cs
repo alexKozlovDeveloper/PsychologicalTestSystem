@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DbController.TableEntityes
 {
-    class Group
+    public class Group
     {
         public Guid Id { get; set; }
         public string Number { get; set; }

@@ -93,6 +93,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TcpClienLogic\TcpClienLogic.csproj">
+      <Project>{32a7eb98-3aad-4b7f-bb5f-d06ed02d3283}</Project>
+      <Name>TcpClienLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TcpServerLogic\TcpServerLogic.csproj">
+      <Project>{f23970be-f3ee-4c60-8713-6749e5734022}</Project>
+      <Name>TcpServerLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TcpServerLogic;
 
 namespace DesktopAdministrator
 {
@@ -20,9 +21,20 @@ namespace DesktopAdministrator
     /// </summary>
     public partial class MainWindow : Window
     {
+        private TestTcpServer _server;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            //_server = new TestTcpServer();
         }
+
+        private void StartServerButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
     }
 }

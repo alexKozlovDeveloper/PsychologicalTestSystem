@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DbController.TableEntityes
 {
-    class Question
+    public class Question
     {
         public Guid Id { get; set; }
         public string Message { get; set; }
