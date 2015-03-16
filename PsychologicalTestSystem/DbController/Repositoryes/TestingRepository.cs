@@ -77,41 +77,55 @@ namespace DbController.Repositoryes
             }
         }
 
-        public Question GetQuestion(Guid id)
+        public Group AddGroup(string number)
         {
             using (var db = new TestingDbContext2())
             {
-                QuestionT res = null;
-
-                foreach (var item in db.Questions)
+                GroupT group = new GroupT()
                 {
-                    if (item.Id == id)
-                    {
-                        res = item;
-                    }
-                }
+                    Id = Guid.NewGuid(),
+                    Number = number
+                };
 
-                return DbConverter.GetQuestion(res);
+                db.Groups.Add(group);
+
+                db.SaveChanges();
+
+                return DbConverter.GetGroup(group);
             }
         }
-
-        public Testing GetTesting(Guid id)
+        
+        public Test AddTest(string name)
         {
             using (var db = new TestingDbContext2())
             {
-                TestingT res = null;
-
-                foreach (var item in db.Testing)
+                TestT test = new TestT()
                 {
-                    if (item.Id == id)
-                    {
-                        res = item;
-                    }
-                }
+                    Id = Guid.NewGuid(),
+                    Name = name
+                };
 
-                return DbConverter.GetTesting(res);
+                db.Tests.Add(test);
+
+                db.SaveChanges();
+
+                return DbConverter.GetTest(test);
             }
         }
+
+
+        public void AddQuestionToTest(Guid questionId, Guid testId)
+        {
+            using (var db = new TestingDbContext2())
+            {
+                var question = GetQuestionT(questionId, db);
+
+                var test = GetTestT(testId, db);
+
+                test.Questions.Add(question);
+            }
+        }
+
 
         public User GetUser(Guid id)
         {
@@ -131,53 +145,94 @@ namespace DbController.Repositoryes
             }
         }
 
-        public Group AddGroup(string number)
+        public Question GetQuestion(Guid id)
         {
             using (var db = new TestingDbContext2())
             {
-                GroupT group = new GroupT()
+                QuestionT res = null;
+
+                foreach (var item in db.Questions)
                 {
-                    Id = Guid.NewGuid(),
-                    Number = number
-                };
+                    if (item.Id == id)
+                    {
+                        res = item;
+                    }
+                }
 
-                db.Groups.Add(group);
-
-                db.SaveChanges();
-
-                return DbConverter.GetGroup(group);
+                return DbConverter.GetQuestion(res);
             }
         }
 
-        public Test AddTest(string name)
+        public Testing GetTestingResult(Guid id)
         {
             using (var db = new TestingDbContext2())
             {
-                TestT test = new TestT()
+                TestingT res = null;
+
+                foreach (var item in db.Testing)
                 {
-                    Id = Guid.NewGuid(),
-                    Name = name
-                };
+                    if (item.Id == id)
+                    {
+                        res = item;
+                    }
+                }
 
-                db.Tests.Add(test);
-
-                db.SaveChanges();
-
-                return DbConverter.GetTest(test);
+                return DbConverter.GetTesting(res);
             }
         }
 
-        public void AddQuestionToTest(Guid questionId, Guid testId)
+        public Group GetGroup(Guid id)
         {
             using (var db = new TestingDbContext2())
             {
-                var question = GetQuestionT(questionId, db);
+                GroupT res = null;
 
-                var test = GetTestT(testId, db);
+                foreach (var item in db.Groups)
+                {
+                    if (item.Id == id)
+                    {
+                        res = item;
+                    }
+                }
 
-                test.Questions.Add(question);
+                return DbConverter.GetGroup(res);
             }
         }
+
+        public Test GetTest(Guid id)
+        {
+            using (var db = new TestingDbContext2())
+            {
+                TestT res = null;
+
+                foreach (var item in db.Tests)
+                {
+                    if (item.Id == id)
+                    {
+                        res = item;
+                    }
+                }
+
+                return DbConverter.GetTest(res);
+            }
+        }
+
+
+        public IEnumerable<Group> GetAllGroup()
+        {
+            using (var db = new TestingDbContext2())
+            {
+                var res = new List<Group>();
+
+                foreach (var item in db.Groups)
+                {
+                    res.Add(DbConverter.GetGroup(item));
+                }
+
+                return res;
+            }
+        }
+        
 
         private TestT GetTestT(Guid testId, TestingDbContext2 db)
         {
