@@ -27,12 +27,12 @@ namespace DesktopAdministrator
         {
             InitializeComponent();
 
-            //_server = new TestTcpServer();
+            _server = new TestTcpServer();
         }
 
         private void StartServerButton_Click(object sender, RoutedEventArgs e)
         {
-
+            _server.Start();
         }
 
 

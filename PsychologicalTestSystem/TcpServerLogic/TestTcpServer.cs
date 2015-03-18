@@ -24,6 +24,16 @@ namespace TcpServerLogic
 
         private ITestingRepository _repository;
 
+        public ITestingRepository Repository 
+        {
+            get { return _repository; }
+        }
+
+        public TestTcpServer()
+        {
+            _repository = new TestingRepository();
+        }
+
         public TestTcpServer(ITestingRepository repository)
         {
             _repository = repository;
@@ -61,8 +71,7 @@ namespace TcpServerLogic
                 {
                     var handler = _listener.Accept();
 
-                    //Thread work = new Thread(ExecuteRequest);
-                    var rp = new RequestProcessor(handler);
+                    var rp = new RequestProcessor(handler, this);
 
                     _processors.Add(rp);
 
