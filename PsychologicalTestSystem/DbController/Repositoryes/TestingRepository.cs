@@ -217,6 +217,23 @@ namespace DbController.Repositoryes
             }
         }
 
+        public IEnumerable<User> GetUserByGroup(Guid groupId)
+        {
+            using (var db = new TestingDbContext2())
+            {
+                var result = new List<User>();
+
+                foreach (var user in db.Users)
+                {
+                    if (user.GroupId == groupId)
+                    {
+                        result.Add(DbConverter.GetUser(user));
+                    }
+                }
+
+                return result;
+            }
+        }
 
         public IEnumerable<Group> GetAllGroup()
         {

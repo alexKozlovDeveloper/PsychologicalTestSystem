@@ -24,6 +24,8 @@ namespace DbController.Repositoryes
         Group GetGroup(Guid id);
         Test GetTest(Guid id);
 
+        IEnumerable<User> GetUserByGroup(Guid groupId);
+
         IEnumerable<Group> GetAllGroup();
     }
 }

@@ -12,7 +12,7 @@ namespace TcpServerLogic
     public class RequestProcessor
     {
         private readonly Socket _handler;
-        private TestTcpServer _server;
+        private readonly TestTcpServer _server;
         private Thread _executeThread;
 
         public bool IsCompleted { get; set; }
@@ -40,7 +40,7 @@ namespace TcpServerLogic
             data += Encoding.UTF8.GetString(bytes, 0, bytesRec);
 
 
-            
+
 
 
             //Console.Write("Полученный текст: " + data + "\n\n");
@@ -50,12 +50,15 @@ namespace TcpServerLogic
             _handler.Send(msg);
 
 
-            ///////
 
+
+
+            //end Execution
             _handler.Shutdown(SocketShutdown.Both);
             _handler.Close();
 
             IsCompleted = true;
+            _server.ToRemoveProcessors.Add(this);
         }
     }
 }

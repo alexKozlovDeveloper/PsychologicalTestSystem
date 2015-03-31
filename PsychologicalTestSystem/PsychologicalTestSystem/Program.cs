@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using DbController.Repositoryes;
+using DbController.TableEntityes;
 
 namespace PsychologicalTestSystem
 {
@@ -11,6 +13,19 @@ namespace PsychologicalTestSystem
     {
         public static void Main()
         {
+
+            var rep = new TestingRepository();
+
+            var groups = rep.GetAllGroup();//rep.AddGroup("151515");
+
+            var group = groups.FirstOrDefault();
+
+            rep.AddUser("Alexey", "Griboedov", group.Id);
+            rep.AddUser("Ivan", "Genry", group.Id);
+            rep.AddUser("Slava", "Pobeda", group.Id);
+            rep.AddUser("Dovakin", "IsVindhelma", group.Id);
+
+
             String server = "";
             String message = "";
 
