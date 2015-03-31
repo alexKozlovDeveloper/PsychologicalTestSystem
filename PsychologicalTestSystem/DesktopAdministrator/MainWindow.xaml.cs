@@ -29,6 +29,7 @@ namespace DesktopAdministrator
 
         private AddGroupWindow _addGroupWindow;
         private AddUserWindow _addUserWindow;
+        private AddTestWindow _addTestWindow;
 
         public MainWindow()
         {
@@ -43,6 +44,7 @@ namespace DesktopAdministrator
         private void InitWindowElements()
         {
             SetGroupTable();
+            SetTestTable();
         }
 
         public void AddGroupToComboBox(Group group)
@@ -68,6 +70,24 @@ namespace DesktopAdministrator
             SetStudentTable(selectedGroup);
         }
 
+        private void SetTestTable()
+        {
+            var tests = _repository.GetAllTest();
+
+            ComboBoxTests.Items.Clear();
+
+            foreach (var test in tests)
+            {
+                ComboBoxTests.Items.Add(test);
+            }
+
+            ComboBoxTests.SelectedIndex = 0;
+
+            var selectedTest = ComboBoxTests.SelectedItem as Test;
+
+            SetQuestionTable(selectedTest);
+        }
+
         private void SetStudentTable(Group group)
         {
             var students = _repository.GetUserByGroup(group.Id);
@@ -80,6 +100,25 @@ namespace DesktopAdministrator
 
                 TextBoxStudents.Text += str + Environment.NewLine;
             }
+        }
+
+        private void SetQuestionTable(Test test)
+        {
+            //var q1 = _repository.AddQuestion("a1", "a2", "a3", "a4", "a5", "a6", "a7");
+            //var q2 = _repository.AddQuestion("b1", "b2", "b3", "b4", "b5", "b6", "b7");
+            //var q3 = _repository.AddQuestion("c1", "c2", "c3", "c4", "c5", "c6", "c7");
+
+
+            //_repository.AddQuestionToTest(q1.Id, test.Id);
+            //_repository.AddQuestionToTest(q2.Id, test.Id);
+            //_repository.AddQuestionToTest(q3.Id, test.Id);
+
+            //DataGridQuestion.ItemsSource = test.Questions;
+
+            //foreach (var question in test.Questions)
+            //{
+
+            //}
         }
 
         private void StartServerButton_Click(object sender, RoutedEventArgs e)
@@ -108,6 +147,16 @@ namespace DesktopAdministrator
             _addUserWindow.Show();
         }
 
+        public void AddTestToComboBox(Test test)
+        {
+            ComboBoxTests.Items.Add(test);
+        }
 
+        private void ButtonAddTest_Click(object sender, RoutedEventArgs e)
+        {
+            _addTestWindow = new AddTestWindow(this, _repository);
+
+            _addTestWindow.Show();
+        }
     }
 }

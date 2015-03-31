@@ -64,6 +64,9 @@
     <Compile Include="Windows\AddGroupWindow.xaml.cs">
       <DependentUpon>AddGroupWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddTestWindow.xaml.cs">
+      <DependentUpon>AddTestWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddUserWindow.xaml.cs">
       <DependentUpon>AddUserWindow.xaml</DependentUpon>
     </Compile>
@@ -80,6 +83,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\AddGroupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddTestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
