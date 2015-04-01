@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpClienLogic", "TcpClienLo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpServerLogic", "TcpServerLogic\TcpServerLogic.csproj", "{F23970BE-F3EE-4C60-8713-6749E5734022}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Db.Core", "Db.Core\Db.Core.csproj", "{45155C04-90C0-4BE3-BB65-892ABB5B9FC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{F23970BE-F3EE-4C60-8713-6749E5734022}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F23970BE-F3EE-4C60-8713-6749E5734022}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F23970BE-F3EE-4C60-8713-6749E5734022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45155C04-90C0-4BE3-BB65-892ABB5B9FC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45155C04-90C0-4BE3-BB65-892ABB5B9FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45155C04-90C0-4BE3-BB65-892ABB5B9FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45155C04-90C0-4BE3-BB65-892ABB5B9FC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
