@@ -287,6 +287,20 @@ namespace Db.Core.Repositoryes
             }
         }
 
+        public IEnumerable<Question> GetAllQuestion()
+        {
+            using (var db = new CoreDbContext())
+            {
+                var res = new List<Question>();
+
+                foreach (var item in db.Questions)
+                {
+                    res.Add(DbConverter.GetQuestion(item));
+                }
+
+                return res;
+            }
+        }
 
         private TestT GetTestT(Guid testId, CoreDbContext db)
         {

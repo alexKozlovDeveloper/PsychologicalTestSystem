@@ -30,6 +30,8 @@ namespace DesktopAdministrator
         private AddGroupWindow _addGroupWindow;
         private AddUserWindow _addUserWindow;
         private AddTestWindow _addTestWindow;
+        private AddQuestionWindow _addQuestionWindow;
+        private AddQuestionToTestWindow _addQuestionToTestWindow;
 
         public MainWindow()
         {
@@ -37,8 +39,6 @@ namespace DesktopAdministrator
 
             _server = new TestTcpServer();
             _repository = new TestingRepository();
-
-            _repository.AddGroup("060606");
 
             InitWindowElements();
         }
@@ -159,6 +159,20 @@ namespace DesktopAdministrator
             _addTestWindow = new AddTestWindow(this, _repository);
 
             _addTestWindow.Show();
+        }
+
+        private void ButtonAddQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            _addQuestionWindow = new AddQuestionWindow(this, _repository);
+
+            _addQuestionWindow.Show();
+        }
+
+        private void ButtonAddQuestionToTest_Click(object sender, RoutedEventArgs e)
+        {
+            _addQuestionToTestWindow = new AddQuestionToTestWindow(this, _repository);
+
+            _addQuestionToTestWindow.Show();
         }
     }
 }

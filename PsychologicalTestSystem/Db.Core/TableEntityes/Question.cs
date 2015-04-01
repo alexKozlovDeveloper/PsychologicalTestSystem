@@ -16,5 +16,24 @@ namespace Db.Core.TableEntityes
         public string FirstReportMessage { get; set; }
         public string SecondReportMessage { get; set; }
         public string ThirdReportMessage { get; set; }
+
+        public override string ToString()
+        {
+            if (Message.Length < 20)
+            {
+                return Message;
+            }
+
+            var res = "";
+
+            for (var i = 0; i < 20; i++)
+            {
+                res += Message[i];
+            }
+
+            res += "...";
+
+            return res;
+        }
     }
 }

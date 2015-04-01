@@ -1,0 +1,24 @@
+﻿<Window x:Class="DesktopAdministrator.Windows.AddQuestionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddQuestionWindow" Height="333.6" Width="757.6">
+    <Grid>
+        <Button Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Left" Margin="666,275,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAdd_Click"/>
+        <Button Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="10,275,0,0" VerticalAlignment="Top" Width="75" Click="ButtonCancel_Click"/>
+        <Label Content="Вопрос" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="TextBoxQuestion" HorizontalAlignment="Left" Height="86" Margin="66,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="675"/>
+        <TextBox Name="TextBoxAnswer1" HorizontalAlignment="Left" Height="23" Margin="66,101,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="139"/>
+        <TextBox Name="TextBoxAnswer2" HorizontalAlignment="Left" Height="23" Margin="66,158,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="139"/>
+        <TextBox Name="TextBoxAnswer3" HorizontalAlignment="Left" Height="23" Margin="66,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="139"/>
+        <TextBox Name="TextBoxReport1" HorizontalAlignment="Left" Height="52" Margin="266,101,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
+        <Label Content="Ответ 1" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ответ 2" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ответ 3" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top"/>
+        <Label Content="Отчет 1" HorizontalAlignment="Left" Margin="210,98,0,0" VerticalAlignment="Top"/>
+        <Label Content="Отчет 2" HorizontalAlignment="Left" Margin="210,155,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="TextBoxReport2" HorizontalAlignment="Left" Height="52" Margin="266,158,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
+        <TextBox Name="TextBoxReport3" HorizontalAlignment="Left" Height="52" Margin="266,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
+        <Label Content="Отчет 3" HorizontalAlignment="Left" Margin="210,215,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
