@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace DbController.Tables.Context
 {
-    class TestingDbContext2 : DbContext 
+    class TestingDbContext7 : DbContext 
     {
         public DbSet<QuestionT> Questions { get; set; }
         public DbSet<UserT> Users { get; set; }
         public DbSet<TestingT> Testing { get; set; }
         public DbSet<GroupT> Groups { get; set; }
-        public DbSet<TestT> Tests { get; set; } 
+        public DbSet<TestT> Tests { get; set; }
+        public DbSet<QuestionToTestT> QuestionsToTests { get; set; }
+        public DbSet<AvailableTestToGroupT> AvailableTestToGroup { get; set; }
     }
 }

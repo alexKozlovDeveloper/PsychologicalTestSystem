@@ -14,9 +14,9 @@ namespace DbController.Repositoryes
     {
         public User AddUser(string firstName, string lastName, Guid groupId)
         {
-            using (var db = new TestingDbContext2())
+            using (var db = new TestingDbContext7())
             {
-                UserT user = new UserT()
+                var user = new UserT()
                 {
                     Id = Guid.NewGuid(),
                     FirstName = firstName,
@@ -35,9 +35,9 @@ namespace DbController.Repositoryes
         public Question AddQuestion(string message, string firstAnswer, string secondAnswer, 
             string thirdAnswer, string firstReportMessage, string secondReportMessage, string thirdReportMessage)
         {
-            using (var db = new TestingDbContext2())
+            using (var db = new TestingDbContext7())
             {
-                QuestionT question = new QuestionT()
+                var question = new QuestionT()
                 {
                     Id = Guid.NewGuid(),
                     FirstAnswer = firstAnswer,
@@ -59,9 +59,9 @@ namespace DbController.Repositoryes
 
         public Testing AddTestingResult(Guid userId, Guid questionId, int checedAnswer)
         {
-            using (var db = new TestingDbContext2())
+            using (var db = new TestingDbContext7())
             {
-                TestingT testing = new TestingT()
+                var testing = new TestingT()
                 {
                     Id = Guid.NewGuid(),
                     QuestionId = questionId,
@@ -79,9 +79,9 @@ namespace DbController.Repositoryes
 
         public Group AddGroup(string number)
         {
-            using (var db = new TestingDbContext2())
+            using (var db = new TestingDbContext7())
             {
-                GroupT group = new GroupT()
+                var group = new GroupT()
                 {
                     Id = Guid.NewGuid(),
                     Number = number
@@ -97,9 +97,9 @@ namespace DbController.Repositoryes
         
         public Test AddTest(string name)
         {
-            using (var db = new TestingDbContext2())
+            using (var db = new TestingDbContext7())
             {
-                TestT test = new TestT()
+                var test = new TestT()
                 {
                     Id = Guid.NewGuid(),
                     Name = name
@@ -113,23 +113,25 @@ namespace DbController.Repositoryes
             }
         }
 
-
         public void AddQuestionToTest(Guid questionId, Guid testId)
         {
-            using (var db = new TestingDbContext2())
+            using (var db = new TestingDbContext7())
             {
-                var question = GetQuestionT(questionId, db);
+                var qt = new QuestionToTestT
+                {
+                    Id = Guid.NewGuid(),
+                    QuestionId = questionId,
+                    TestId = testId
+                };
 
-                var test = GetTestT(testId, db);
-
-                test.Questions.Add(question);
+                db.QuestionsToTests.Add(qt);
             }
         }
 
 
         public User GetUser(Guid id)
         {
-            using (var db = new TestingDbContext2())
+            using (var db = new TestingDbContext7())
             {
                 UserT res = null;
 
@@ -147,7 +149,7 @@ namespace DbController.Repositoryes
 
         public Question GetQuestion(Guid id)
         {
-            using (var db = new TestingDbContext2())
+            using (var db = new TestingDbContext7())
             {
                 QuestionT res = null;
 
@@ -165,7 +167,7 @@ namespace DbController.Repositoryes
 
         public Testing GetTestingResult(Guid id)
         {
-            using (var db = new TestingDbContext2())
+            using (var db = new TestingDbContext7())
             {
                 TestingT res = null;
 
@@ -183,7 +185,7 @@ namespace DbController.Repositoryes
 
         public Group GetGroup(Guid id)
         {
-            using (var db = new TestingDbContext2())
+            using (var db = new TestingDbContext7())
             {
                 GroupT res = null;
 
@@ -201,7 +203,7 @@ namespace DbController.Repositoryes
 
         public Test GetTest(Guid id)
         {
-            using (var db = new TestingDbContext2())
+            using (var db = new TestingDbContext7())
             {
                 TestT res = null;
 
@@ -218,9 +220,46 @@ namespace DbController.Repositoryes
         }
 
 
+        public IEnumerable<User> GetUserByGroup(Guid groupId)
+        {
+            using (var db = new TestingDbContext7())
+            {
+                var result = new List<User>();
+
+                foreach (var user in db.Users)
+                {
+                    if (user.GroupId == groupId)
+                    {
+                        result.Add(DbConverter.GetUser(user));
+                    }
+                }
+
+                return result;
+            }
+        }
+
+        public IEnumerable<Question> GetQuestionByTest(Guid testId)
+        {
+            using (var db = new TestingDbContext7())
+            {
+                var result = new List<Question>();
+
+                foreach (var qt in db.QuestionsToTests)
+                {
+                    if (qt.TestId == testId)
+                    {
+                        result.Add(GetQuestion(qt.QuestionId));
+                    }
+                }
+
+                return result;
+            }
+        }
+
+
         public IEnumerable<Group> GetAllGroup()
         {
-            using (var db = new TestingDbContext2())
+            using (var db = new TestingDbContext7())
             {
                 var res = new List<Group>();
 
@@ -232,9 +271,24 @@ namespace DbController.Repositoryes
                 return res;
             }
         }
-        
 
-        private TestT GetTestT(Guid testId, TestingDbContext2 db)
+        public IEnumerable<Test> GetAllTest()
+        {
+            using (var db = new TestingDbContext7())
+            {
+                var res = new List<Test>();
+
+                foreach (var item in db.Tests)
+                {
+                    res.Add(DbConverter.GetTest(item));
+                }
+
+                return res;
+            }
+        }
+
+
+        private TestT GetTestT(Guid testId, TestingDbContext7 db)
         {
             TestT res = null;
 
@@ -249,7 +303,7 @@ namespace DbController.Repositoryes
             return res;
         }
 
-        private QuestionT GetQuestionT(Guid questionId, TestingDbContext2 db)
+        private QuestionT GetQuestionT(Guid questionId, TestingDbContext7 db)
         {
             QuestionT res = null;
 

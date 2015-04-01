@@ -10,7 +10,5 @@ namespace DbController.Tables
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-
-        public virtual List<QuestionT> Questions { get; set; }
     }
 }

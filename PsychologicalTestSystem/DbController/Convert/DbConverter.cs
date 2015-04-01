@@ -59,12 +59,15 @@ namespace DbController.Convert
         {
             var res = Convert<Test, TestT>(item);
 
-            res.Questions = new List<Question>();
+            //res.Questions = new List<Question>();
 
-            foreach (var question in item.Questions)
-            {
-                res.Questions.Add(GetQuestion(question));
-            }
+            //if (item.Questions != null)
+            //{
+            //    foreach (var question in item.Questions)
+            //    {
+            //        res.Questions.Add(GetQuestion(question));
+            //    }
+            //}
 
             return res;
         }

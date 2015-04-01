@@ -17,7 +17,8 @@ namespace TcpServerLogic
         private const int ClientMaxCount = 300;
 
         private Thread _serverThread;
-        private List<RequestProcessor> _processors; 
+        private List<RequestProcessor> _processors;
+        private List<RequestProcessor> _toRemoveProcessors; 
 
         private Socket _listener;
         private IPEndPoint _ipEndPoint;
@@ -27,6 +28,16 @@ namespace TcpServerLogic
         public ITestingRepository Repository 
         {
             get { return _repository; }
+        }
+
+        public List<RequestProcessor> Processors
+        {
+            get { return _processors; }
+        }
+
+        public List<RequestProcessor> ToRemoveProcessors
+        {
+            get { return _toRemoveProcessors; }
         }
 
         public TestTcpServer()
@@ -48,6 +59,7 @@ namespace TcpServerLogic
             _serverThread = new Thread(RequestListener);
 
             _processors = new List<RequestProcessor>();
+            _toRemoveProcessors = new List<RequestProcessor>();
 
             _serverThread.Start();
         }

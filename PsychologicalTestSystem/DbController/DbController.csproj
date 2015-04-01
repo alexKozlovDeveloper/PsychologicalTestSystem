@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Convert\DbConverter.cs" />
+    <Compile Include="DbFactoryes\TestDbFactory.cs" />
+    <Compile Include="LoadEntityes\LoadTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositoryes\ITestingRepository.cs" />
@@ -58,9 +60,11 @@
     <Compile Include="TableEntityes\Test.cs" />
     <Compile Include="TableEntityes\Testing.cs" />
     <Compile Include="TableEntityes\User.cs" />
+    <Compile Include="Tables\AvailableTestToGroupT.cs" />
     <Compile Include="Tables\Context\TestingDbContext.cs" />
     <Compile Include="Tables\GroupT.cs" />
     <Compile Include="Tables\QuestionT.cs" />
+    <Compile Include="Tables\QuestionToTestT.cs" />
     <Compile Include="Tables\TestingT.cs" />
     <Compile Include="Tables\TestT.cs" />
     <Compile Include="Tables\UserT.cs" />

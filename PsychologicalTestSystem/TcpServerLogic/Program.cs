@@ -22,7 +22,7 @@ namespace TcpServerLogic
             {
                 FirstName = "FirstName", 
                 LastName = "LastName",
-                GroupNumber = Guid.NewGuid(),
+                GroupId = Guid.NewGuid(),
                 Id = Guid.NewGuid()
             };
 
