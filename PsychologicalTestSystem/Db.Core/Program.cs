@@ -17,11 +17,16 @@ namespace Db.Core
                 var g = new GroupT
                 {
                     Id = Guid.NewGuid(),
-                    Number = "010101"
+                    Number = "040404"
                 };
 
                 db.Groups.Add(g);
                 db.SaveChanges();
+
+                foreach (var t in db.Groups)
+                {
+                    Console.WriteLine(t.Number);
+                }
 
                 //var group = new GroupT() {Id = Guid.NewGuid(), Number = "010902" };
                 //var user = new UserT() { FirstName = "Alex", LastName = "dog", Id = Guid.NewGuid(), GroupId = group.Id };

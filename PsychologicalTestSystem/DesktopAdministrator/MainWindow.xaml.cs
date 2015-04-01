@@ -38,6 +38,8 @@ namespace DesktopAdministrator
             _server = new TestTcpServer();
             _repository = new TestingRepository();
 
+            _repository.AddGroup("060606");
+
             InitWindowElements();
         }
 

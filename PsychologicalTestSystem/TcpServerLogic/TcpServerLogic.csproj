@@ -51,13 +51,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DbController\DbController.csproj">
-      <Project>{408b2a0d-8cc8-49fe-bd91-42d14774ea33}</Project>
-      <Name>DbController</Name>
-    </ProjectReference>
+    <Folder Include="RequestEntityes\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="RequestEntityes\" />
+    <ProjectReference Include="..\Db.Core\Db.Core.csproj">
+      <Project>{45155c04-90c0-4be3-bb65-892abb5b9fc0}</Project>
+      <Name>Db.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

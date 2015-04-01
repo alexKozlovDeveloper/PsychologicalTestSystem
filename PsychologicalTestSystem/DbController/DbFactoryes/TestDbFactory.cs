@@ -9,19 +9,19 @@ namespace DbController.DbFactoryes
 {
     public class TestDbFactory
     {
-        public void CreateDbUseFolderInfo(string folderPath = "")
-        {
-            var rep = new TestingRepository();
+        //public void CreateDbUseFolderInfo(string folderPath = "")
+        //{
+        //    var rep = new TestingRepository();
 
-            var group = rep.AddGroup("010101");
+        //    var group = rep.AddGroup("010101");
 
-            var user = rep.AddUser("Ivan", "Ivanov", group.Id);
+        //    var user = rep.AddUser("Ivan", "Ivanov", group.Id);
 
-            var test = rep.AddTest("Sample Test");
+        //    var test = rep.AddTest("Sample Test");
 
-            var question = rep.AddQuestion("1", "2", "3", "4", "5", "6", "7");
+        //    var question = rep.AddQuestion("1", "2", "3", "4", "5", "6", "7");
 
-            rep.AddQuestionToTest(question.Id, test.Id);
-        }
+        //    rep.AddQuestionToTest(question.Id, test.Id);
+        //}
     }
 }

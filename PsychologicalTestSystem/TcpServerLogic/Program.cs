@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DbController.Repositoryes;
-using DbController.TableEntityes;
+using Db.Core.TableEntityes;
 using TcpServerLogic.Convert;
 
 namespace TcpServerLogic
