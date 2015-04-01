@@ -12,8 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DbController.Repositoryes;
-using DbController.TableEntityes;
+using Db.Core.Repositoryes;
+using Db.Core.TableEntityes;
 using DesktopAdministrator.Windows;
 using TcpServerLogic;
 

@@ -124,9 +124,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DbController\DbController.csproj">
-      <Project>{408B2A0D-8CC8-49FE-BD91-42D14774EA33}</Project>
-      <Name>DbController</Name>
+    <ProjectReference Include="..\Db.Core\Db.Core.csproj">
+      <Project>{45155c04-90c0-4be3-bb65-892abb5b9fc0}</Project>
+      <Name>Db.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\TcpClienLogic\TcpClienLogic.csproj">
       <Project>{32a7eb98-3aad-4b7f-bb5f-d06ed02d3283}</Project>

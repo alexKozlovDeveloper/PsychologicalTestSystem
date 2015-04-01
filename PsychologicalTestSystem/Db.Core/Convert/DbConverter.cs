@@ -31,19 +31,9 @@ namespace Db.Core.Convert
             return result;
         }
 
-        public static User GetUser(UserT item)
+        public static AvailableTestToGroup GetAvailableTestToGroup(AvailableTestToGroupT item)
         {
-            return Convert<User, UserT>(item);
-        }
-
-        public static Question GetQuestion(QuestionT item)
-        {
-            return Convert<Question, QuestionT>(item);
-        }
-
-        public static Testing GetTesting(TestingT item)
-        {
-            return Convert<Testing, TestingT>(item);
+            return Convert<AvailableTestToGroup, AvailableTestToGroupT>(item);
         }
 
         public static Group GetGroup(GroupT item)
@@ -51,9 +41,34 @@ namespace Db.Core.Convert
             return Convert<Group, GroupT>(item);
         }
 
+        public static PassTest GetPassTest(PassingTest item)
+        {
+            return Convert<PassTest, PassingTest>(item);
+        }
+
+        public static Question GetQuestion(QuestionT item)
+        {
+            return Convert<Question, QuestionT>(item);
+        }
+
+        public static QuestionToTest GetQuestionToTest(QuestionToTestT item)
+        {
+            return Convert<QuestionToTest, QuestionToTestT>(item);
+        }
+
         public static Test GetTest(TestT item)
         {
             return Convert<Test, TestT>(item);
+        }
+
+        public static Testing GetTesting(TestingT item)
+        {
+            return Convert<Testing, TestingT>(item);
+        }
+        
+        public static User GetUser(UserT item)
+        {
+            return Convert<User, UserT>(item);
         }
     }
 }

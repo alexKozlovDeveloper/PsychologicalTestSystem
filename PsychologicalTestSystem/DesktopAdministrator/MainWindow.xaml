@@ -11,7 +11,7 @@
         <Button Name="ButtonAddStudent" Content="Добавить" HorizontalAlignment="Left" Margin="201,76,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAddStudent_Click"/>
         <ComboBox Name="ComboBoxTests" HorizontalAlignment="Left" Margin="359,49,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="Тесты" HorizontalAlignment="Left" Margin="298,45,0,0" VerticalAlignment="Top" Width="61"/>
-        <TextBox Name="TextBoxStudents" HorizontalAlignment="Left" Height="256" Margin="10,107,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="266"/>
+        <TextBox Name="TextBoxStudents" HorizontalAlignment="Left" Height="345" Margin="10,107,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="266"/>
         <Button Name="ButtonAddTest" Content="Добавить" HorizontalAlignment="Left" Margin="484,49,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAddTest_Click"/>
         <Label Content="Вопросы" HorizontalAlignment="Left" Margin="298,76,0,0" VerticalAlignment="Top"/>
         <DataGrid Name="DataGridQuestion" HorizontalAlignment="Left" Margin="298,107,0,0" VerticalAlignment="Top" Height="345" Width="762">
