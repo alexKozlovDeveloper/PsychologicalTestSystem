@@ -23,12 +23,14 @@ namespace DesktopAdministrator.Windows
     public partial class AddUserWindow : Window
     {
         private readonly ITestingRepository _repository;
+        private readonly MainWindow _mainWindow;
 
-        public AddUserWindow(ITestingRepository repository)
+        public AddUserWindow(MainWindow mainWindow, ITestingRepository repository)
         {
             InitializeComponent();
 
             _repository = repository;
+            _mainWindow = mainWindow;
 
             var groups = _repository.GetAllGroup();
 

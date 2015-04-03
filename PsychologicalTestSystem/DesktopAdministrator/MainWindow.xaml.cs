@@ -12,8 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Db.Core.Convert;
 using Db.Core.Repositoryes;
 using Db.Core.TableEntityes;
+using DesktopAdministrator.DataGridEntityes;
+using DesktopAdministrator.Helpers;
 using DesktopAdministrator.Windows;
 using TcpServerLogic;
 
@@ -67,9 +70,7 @@ namespace DesktopAdministrator
 
             ComboBoxGroups.SelectedIndex = 0;
 
-            var selectedGroup = ComboBoxGroups.SelectedItem as Group;
-
-            SetStudentTable(selectedGroup);
+            UpdateStudentTable();
         }
 
         private void SetTestTable()
@@ -78,6 +79,8 @@ namespace DesktopAdministrator
 
             ComboBoxTests.Items.Clear();
 
+            ComboBoxTests.Items.Add(new Test {Name = "All"});
+
             foreach (var test in tests)
             {
                 ComboBoxTests.Items.Add(test);
@@ -85,13 +88,32 @@ namespace DesktopAdministrator
 
             ComboBoxTests.SelectedIndex = 0;
 
+            var item = ComboBoxTests.SelectedItem as Test;
+
+            SetQuestionTable(item);
+        }
+
+        public void UpdateQuestionTable()
+        {
             var selectedTest = ComboBoxTests.SelectedItem as Test;
 
             SetQuestionTable(selectedTest);
         }
 
+        public void UpdateStudentTable()
+        {
+            var selectedGroup = ComboBoxGroups.SelectedItem as Group;
+
+            SetStudentTable(selectedGroup);
+        }
+
         private void SetStudentTable(Group group)
         {
+            if (group == null)
+            {
+                return;
+            }
+
             var students = _repository.GetUserByGroup(group.Id);
 
             TextBoxStudents.Clear();
@@ -106,21 +128,20 @@ namespace DesktopAdministrator
 
         private void SetQuestionTable(Test test)
         {
-            //var q1 = _repository.AddQuestion("a1", "a2", "a3", "a4", "a5", "a6", "a7");
-            //var q2 = _repository.AddQuestion("b1", "b2", "b3", "b4", "b5", "b6", "b7");
-            //var q3 = _repository.AddQuestion("c1", "c2", "c3", "c4", "c5", "c6", "c7");
+            IEnumerable<Question> questions = new List<Question>();
 
+            if (test.Name == "All")
+            {
+                questions = _repository.GetAllQuestion();
+            }
+            else
+            {
+                questions = _repository.GetQuestions(test);
+            }
+            
+            var src = ConvertHelper.ConvertCollection<QuestionEntity, Question>(questions);
 
-            //_repository.AddQuestionToTest(q1.Id, test.Id);
-            //_repository.AddQuestionToTest(q2.Id, test.Id);
-            //_repository.AddQuestionToTest(q3.Id, test.Id);
-
-            //DataGridQuestion.ItemsSource = test.Questions;
-
-            //foreach (var question in test.Questions)
-            //{
-
-            //}
+            DataGridQuestion.ItemsSource = src;
         }
 
         private void StartServerButton_Click(object sender, RoutedEventArgs e)
@@ -144,7 +165,7 @@ namespace DesktopAdministrator
 
         private void ButtonAddStudent_Click(object sender, RoutedEventArgs e)
         {
-            _addUserWindow = new AddUserWindow(_repository);
+            _addUserWindow = new AddUserWindow(this, _repository);
 
             _addUserWindow.Show();
         }
@@ -173,6 +194,11 @@ namespace DesktopAdministrator
             _addQuestionToTestWindow = new AddQuestionToTestWindow(this, _repository);
 
             _addQuestionToTestWindow.Show();
+        }
+
+        private void ComboBoxTests_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateQuestionTable();
         }
     }
 }

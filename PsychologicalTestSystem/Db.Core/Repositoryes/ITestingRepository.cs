@@ -29,5 +29,7 @@ namespace Db.Core.Repositoryes
         IEnumerable<Group> GetAllGroup();
         IEnumerable<Test> GetAllTest();
         IEnumerable<Question> GetAllQuestion();
+
+        IEnumerable<Question> GetQuestions(Test test);
     }
 }
