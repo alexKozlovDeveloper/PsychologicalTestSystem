@@ -41,9 +41,9 @@ namespace Db.Core.Convert
             return Convert<Group, GroupT>(item);
         }
 
-        public static PassTest GetPassTest(PassingTest item)
+        public static PassingTest GetPassTest(PassingTestT item)
         {
-            return Convert<PassTest, PassingTest>(item);
+            return Convert<PassingTest, PassingTestT>(item);
         }
 
         public static Question GetQuestion(QuestionT item)

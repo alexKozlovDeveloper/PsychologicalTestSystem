@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Db.Core.Tables.Context
 {
-    class CoreDbContext : DbContext 
+    class CoreDbContext1 : DbContext
     {
         public DbSet<AvailableTestToGroupT> AvailableTestToGroup { get; set; }
         public DbSet<GroupT> Groups { get; set; }
+        public DbSet<PassingTestT> PassingsTest { get; set; }
         public DbSet<QuestionT> Questions { get; set; }
         public DbSet<QuestionToTestT> QuestionsToTests { get; set; }
         public DbSet<TestingT> Testing { get; set; }

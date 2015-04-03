@@ -55,7 +55,7 @@
     <Compile Include="Repositoryes\TestingRepository.cs" />
     <Compile Include="TableEntityes\AvailableTestToGroup.cs" />
     <Compile Include="TableEntityes\Group.cs" />
-    <Compile Include="TableEntityes\PassTest.cs" />
+    <Compile Include="TableEntityes\PassingTest.cs" />
     <Compile Include="TableEntityes\Question.cs" />
     <Compile Include="TableEntityes\QuestionToTest.cs" />
     <Compile Include="TableEntityes\Test.cs" />
@@ -64,7 +64,7 @@
     <Compile Include="Tables\AvailableTestToGroupT.cs" />
     <Compile Include="Tables\Context\CoreDbContext.cs" />
     <Compile Include="Tables\GroupT.cs" />
-    <Compile Include="Tables\PassingTest.cs" />
+    <Compile Include="Tables\PassingTestT.cs" />
     <Compile Include="Tables\QuestionT.cs" />
     <Compile Include="Tables\QuestionToTestT.cs" />
     <Compile Include="Tables\TestingT.cs" />

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Db.Core.TableEntityes
 {
-    class PassTest
+    class PassingTest
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }

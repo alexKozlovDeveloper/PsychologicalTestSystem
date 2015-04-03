@@ -12,12 +12,12 @@ namespace Db.Core
     {
         static void Main(string[] args)
         {
-            using (var db = new CoreDbContext())
+            using (var db = new CoreDbContext1())
             {
                 var g = new GroupT
                 {
                     Id = Guid.NewGuid(),
-                    Number = "040404"
+                    Number = "030303"
                 };
 
                 db.Groups.Add(g);
