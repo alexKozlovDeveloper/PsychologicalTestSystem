@@ -30,7 +30,7 @@ namespace Db.Core.Repositoryes
         IEnumerable<Test> GetAllTest();
         IEnumerable<Question> GetAllQuestion();
 
-        IEnumerable<Question> GetQuestions(Test test);
+        IEnumerable<Question> GetQuestions(Guid testId);
 
         bool IsAvailableGroup(Guid testId, Guid groupId);
 

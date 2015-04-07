@@ -303,7 +303,7 @@ namespace Db.Core.Repositoryes
             }
         }
 
-        public IEnumerable<Question> GetQuestions(Test test)
+        public IEnumerable<Question> GetQuestions(Guid testId)
         {
             using (var db = new CoreDbContext3())
             {
@@ -311,7 +311,7 @@ namespace Db.Core.Repositoryes
  
                 foreach (var questionsToTest in db.QuestionsToTests)
                 {
-                    if (questionsToTest.TestId == test.Id)
+                    if (questionsToTest.TestId == testId)
                     {
                         res.Add(GetQuestion(questionsToTest.QuestionId));
                     }

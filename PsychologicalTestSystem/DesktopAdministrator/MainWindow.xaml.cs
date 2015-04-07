@@ -142,7 +142,7 @@ namespace DesktopAdministrator
             }
             else
             {
-                questions = _repository.GetQuestions(test);
+                questions = _repository.GetQuestions(test.Id);
             }
             
             var src = ConvertHelper.ConvertCollection<QuestionEntity, Question>(questions);
