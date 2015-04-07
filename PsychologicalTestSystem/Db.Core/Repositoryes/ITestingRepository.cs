@@ -12,7 +12,7 @@ namespace Db.Core.Repositoryes
         User AddUser(string firstName, string lastName, Guid groupId);
         Question AddQuestion(string message, string firstAnswer, string secondAnswer, string thirdAnswer,
             string firstReportMessage, string secondReportMessage, string thirdReportMessage);
-        Testing AddTestingResult(Guid userId, Guid questionId, int checedAnswer);
+        Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId);
         Group AddGroup(string number);
         Test AddTest(string name);
 
@@ -31,5 +31,11 @@ namespace Db.Core.Repositoryes
         IEnumerable<Question> GetAllQuestion();
 
         IEnumerable<Question> GetQuestions(Test test);
+
+        bool IsAvailableGroup(Guid testId, Guid groupId);
+
+        IEnumerable<Testing> GetAllTesting();
+        IEnumerable<PassingTest> GetAllPassingTest();
+        IEnumerable<Testing> GetTesting(Guid passingTestId);
     }
 }

@@ -11,6 +11,5 @@ namespace Db.Core.Tables
         public Guid Id { get; set; }
         public Guid QuestionId { get; set; }
         public Guid TestId { get; set; }
-        public Guid PassingTestId { get; set; }
     }
 }

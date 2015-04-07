@@ -14,7 +14,7 @@ namespace Db.Core.Repositoryes
     {
         public User AddUser(string firstName, string lastName, Guid groupId)
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 var user = new UserT()
                 {
@@ -35,7 +35,7 @@ namespace Db.Core.Repositoryes
         public Question AddQuestion(string message, string firstAnswer, string secondAnswer,
             string thirdAnswer, string firstReportMessage, string secondReportMessage, string thirdReportMessage)
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 var question = new QuestionT()
                 {
@@ -57,16 +57,16 @@ namespace Db.Core.Repositoryes
             }
         }
 
-        public Testing AddTestingResult(Guid userId, Guid questionId, int checedAnswer)
+        public Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId)
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 var testing = new TestingT()
                 {
                     Id = Guid.NewGuid(),
                     QuestionId = questionId,
-                    UserId = userId,
-                    ChekedAnswer = checedAnswer
+                    ChekedAnswer = checedAnswer,
+                    PassingTestId = passingTestId
                 };
 
                 db.Testing.Add(testing);
@@ -79,7 +79,7 @@ namespace Db.Core.Repositoryes
 
         public Group AddGroup(string number)
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 var group = new GroupT()
                 {
@@ -97,7 +97,7 @@ namespace Db.Core.Repositoryes
 
         public Test AddTest(string name)
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 var test = new TestT()
                 {
@@ -115,7 +115,7 @@ namespace Db.Core.Repositoryes
 
         public void AddQuestionToTest(Guid questionId, Guid testId)
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 var qt = new QuestionToTestT
                 {
@@ -132,7 +132,7 @@ namespace Db.Core.Repositoryes
 
         public User GetUser(Guid id)
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 UserT res = null;
 
@@ -150,7 +150,7 @@ namespace Db.Core.Repositoryes
 
         public Question GetQuestion(Guid id)
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 QuestionT res = null;
 
@@ -168,7 +168,7 @@ namespace Db.Core.Repositoryes
 
         public Testing GetTestingResult(Guid id)
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 TestingT res = null;
 
@@ -186,7 +186,7 @@ namespace Db.Core.Repositoryes
 
         public Group GetGroup(Guid id)
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 GroupT res = null;
 
@@ -204,7 +204,7 @@ namespace Db.Core.Repositoryes
 
         public Test GetTest(Guid id)
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 TestT res = null;
 
@@ -223,7 +223,7 @@ namespace Db.Core.Repositoryes
 
         public IEnumerable<User> GetUserByGroup(Guid groupId)
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 var result = new List<User>();
 
@@ -241,7 +241,7 @@ namespace Db.Core.Repositoryes
 
         public IEnumerable<Question> GetQuestionByTest(Guid testId)
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 var result = new List<Question>();
 
@@ -260,7 +260,7 @@ namespace Db.Core.Repositoryes
 
         public IEnumerable<Group> GetAllGroup()
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 var res = new List<Group>();
 
@@ -275,7 +275,7 @@ namespace Db.Core.Repositoryes
 
         public IEnumerable<Test> GetAllTest()
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 var res = new List<Test>();
 
@@ -290,7 +290,7 @@ namespace Db.Core.Repositoryes
 
         public IEnumerable<Question> GetAllQuestion()
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 var res = new List<Question>();
 
@@ -305,7 +305,7 @@ namespace Db.Core.Repositoryes
 
         public IEnumerable<Question> GetQuestions(Test test)
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 var res = new List<Question>();
  
@@ -321,7 +321,73 @@ namespace Db.Core.Repositoryes
             }
         }
 
-        private TestT GetTestT(Guid testId, CoreDbContext2 db)
+        public bool IsAvailableGroup(Guid testId, Guid groupId)
+        {
+            using (var db = new CoreDbContext3())
+            {
+                var res = false;
+
+                foreach (var availableTest in db.AvailableTestToGroup)
+                {
+                    if (availableTest.TestId == testId && availableTest.GroupId == groupId)
+                    {
+                        res = true;
+                    }
+                }
+
+                return res;
+            }
+        }
+
+        public IEnumerable<Testing> GetAllTesting()
+        {
+            using (var db = new CoreDbContext3())
+            {
+                var res = new List<Testing>();
+
+                foreach (var item in db.Testing)
+                {
+                    res.Add(DbConverter.GetTesting(item));
+                }
+
+                return res;
+            }
+        }
+
+        public IEnumerable<PassingTest> GetAllPassingTest()
+        {
+            using (var db = new CoreDbContext3())
+            {
+                var res = new List<PassingTest>();
+
+                foreach (var item in db.PassingsTest)
+                {
+                    res.Add(DbConverter.GetPassTest(item));
+                }
+
+                return res;
+            }
+        }
+
+        public IEnumerable<Testing> GetTesting(Guid passingTestId)
+        {
+            using (var db = new CoreDbContext3())
+            {
+                var res = new List<Testing>();
+
+                foreach (var item in db.Testing)
+                {
+                    if (item.PassingTestId == passingTestId)
+                    {
+                        res.Add(DbConverter.GetTesting(item));
+                    }
+                }
+
+                return res;
+            }
+        }
+
+        private TestT GetTestT(Guid testId, CoreDbContext3 db)
         {
             TestT res = null;
 
@@ -336,7 +402,7 @@ namespace Db.Core.Repositoryes
             return res;
         }
 
-        private QuestionT GetQuestionT(Guid questionId, CoreDbContext2 db)
+        private QuestionT GetQuestionT(Guid questionId, CoreDbContext3 db)
         {
             QuestionT res = null;
 

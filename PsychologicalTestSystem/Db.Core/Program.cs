@@ -12,7 +12,7 @@ namespace Db.Core
     {
         static void Main(string[] args)
         {
-            using (var db = new CoreDbContext2())
+            using (var db = new CoreDbContext3())
             {
                 var g = new GroupT
                 {

@@ -35,6 +35,9 @@ namespace DesktopAdministrator
         private AddTestWindow _addTestWindow;
         private AddQuestionWindow _addQuestionWindow;
         private AddQuestionToTestWindow _addQuestionToTestWindow;
+        private ShowTestingDetailsWindow _showTestingDetailsWindow;
+
+        private List<AvailableGroups> entity;
 
         public MainWindow()
         {
@@ -50,6 +53,9 @@ namespace DesktopAdministrator
         {
             SetGroupTable();
             SetTestTable();
+            SetTestingTable();
+            SetComboBoxAvailableTests();
+            SetAvailableGroupsTable();
         }
 
         public void AddGroupToComboBox(Group group)
@@ -199,6 +205,79 @@ namespace DesktopAdministrator
         private void ComboBoxTests_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateQuestionTable();
+        }
+
+        private void ComboBoxAvailableTests_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SetAvailableGroupsTable();
+        }
+
+        private void SetTestingTable()
+        {
+            var testing = _repository.GetAllPassingTest();
+
+            var entity = new List<TestingUser>();
+
+            foreach (var passingTest in testing)
+            {
+                var user = _repository.GetUser(passingTest.UserId);
+
+                var group = _repository.GetGroup(user.GroupId);
+
+                entity.Add(new TestingUser
+                {
+                    Date = passingTest.Date,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    GroupNumber = group.Number
+                });
+            }
+
+            DataGridTesting.ItemsSource = entity;
+        }
+
+        private void SetComboBoxAvailableTests()
+        {
+            var tests = _repository.GetAllTest();
+
+            ComboBoxAvailableTests.Items.Clear();
+
+            foreach (var test in tests)
+            {
+                ComboBoxAvailableTests.Items.Add(test);
+            }
+
+            ComboBoxAvailableTests.SelectedIndex = 0;
+        }
+
+        private void SetAvailableGroupsTable()
+        {
+            var selectedTest = ComboBoxAvailableTests.SelectedItem as Test;
+
+            if (selectedTest == null)
+            {
+                return;
+            }
+
+            var groups = _repository.GetAllGroup();
+
+            entity = new List<AvailableGroups>();
+
+            foreach (var group in groups)
+            {
+                var isAvailable = _repository.IsAvailableGroup(selectedTest.Id, group.Id);
+
+                entity.Add(new AvailableGroups { GroupName = group.Number, IsAvailable = isAvailable });
+            }
+
+            DataGridAvailableGroups.ItemsSource = entity;
+        }
+
+        private void ShowTestingDetails(object sender, RoutedEventArgs e)
+        {
+            _showTestingDetailsWindow = new ShowTestingDetailsWindow(this, _repository, Guid.NewGuid());
+
+            _showTestingDetailsWindow.Show();
         }
     }
 }
