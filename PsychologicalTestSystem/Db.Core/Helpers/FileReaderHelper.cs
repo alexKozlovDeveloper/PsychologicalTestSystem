@@ -51,5 +51,17 @@ namespace Db.Core.Helpers
 
             WriteStreamInFile(fs, filePath);
         }
+
+        public static T ReadFromFileWithDeserialize<T>(string filePath)
+        {
+            if (File.Exists(filePath) == false)
+            {
+                throw new FileNotFoundException(string.Format("Not Found file [{0}]", filePath));
+            }
+
+            var fs = ReadStreamFromFile(filePath);
+
+            return XmlSerializerHelper.Deserialize<T>(fs);
+        }
     }
 }

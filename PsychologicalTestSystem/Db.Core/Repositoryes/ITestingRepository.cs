@@ -37,5 +37,6 @@ namespace Db.Core.Repositoryes
         IEnumerable<Testing> GetAllTesting();
         IEnumerable<PassingTest> GetAllPassingTest();
         IEnumerable<Testing> GetTesting(Guid passingTestId);
+        PassingTest AddPassingTest(Guid userId, Guid testId, DateTime date);
     }
 }

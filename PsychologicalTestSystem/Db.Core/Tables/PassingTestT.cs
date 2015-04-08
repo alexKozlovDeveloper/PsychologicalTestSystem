@@ -10,6 +10,7 @@ namespace Db.Core.Tables
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
+        public Guid TestId { get; set; }
         public DateTime Date { get; set; }
     }
 }
