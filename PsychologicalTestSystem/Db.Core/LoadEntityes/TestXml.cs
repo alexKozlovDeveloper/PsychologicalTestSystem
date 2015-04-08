@@ -8,16 +8,16 @@ using Db.Core.TableEntityes;
 
 namespace Db.Core.LoadEntityes
 {
-    class TestXml
-    {
-        public string Name { get; set; }
-        public Guid Id { get; set; }
+    //class TestXml
+    //{
+    //    public string Name { get; set; }
+    //    public Guid Id { get; set; }
 
-        public List<Question> Questions { get; set; }
+    //    public List<Question> Questions { get; set; }
 
-        public TestXml()
-        {
-            //Questions = new List<Question>();
-        }
-    }
+    //    public TestXml()
+    //    {
+    //        //Questions = new List<Question>();
+    //    }
+    //}
 }

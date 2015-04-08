@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Db.Core.Loading.XmlToDb
+namespace Db.Core.Loading
 {
     class XmlToDbLoader
     {

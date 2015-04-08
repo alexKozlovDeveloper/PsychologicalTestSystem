@@ -49,11 +49,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Convert\DbConverter.cs" />
+    <Compile Include="Helpers\FileReaderHelper.cs" />
+    <Compile Include="Helpers\XmlSerializerHelper.cs" />
     <Compile Include="LoadEntityes\ResultTestXml.cs" />
     <Compile Include="LoadEntityes\TestXml.cs" />
     <Compile Include="LoadEntityes\XmlLoadHelper.cs" />
-    <Compile Include="Loading\DbToXml\DbToXmlLoader.cs" />
-    <Compile Include="Loading\XmlToDb\XmlToDbLoader.cs" />
+    <Compile Include="Loading\DbToXmlLoader.cs" />
+    <Compile Include="Loading\XmlGroups.cs" />
+    <Compile Include="Loading\XmlTest.cs" />
+    <Compile Include="Loading\XmlToDbLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositoryes\ITestingRepository.cs" />

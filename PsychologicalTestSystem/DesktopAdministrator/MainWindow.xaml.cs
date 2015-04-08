@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Db.Core.Convert;
+using Db.Core.Loading;
 using Db.Core.Repositoryes;
 using Db.Core.TableEntityes;
 using DesktopAdministrator.DataGridEntityes;
@@ -278,6 +280,18 @@ namespace DesktopAdministrator
             _showTestingDetailsWindow = new ShowTestingDetailsWindow(this, _repository, Guid.NewGuid());
 
             _showTestingDetailsWindow.Show();
+        }
+
+        private void ButtonWriteDbToXml_Click(object sender, RoutedEventArgs e)
+        {
+            var folder = "XmlDb";
+
+            if (Directory.Exists(folder) == false)
+            {
+                Directory.CreateDirectory(folder);
+            }
+
+            DbToXmlLoader.SaveDbToFolder(_repository, folder);
         }
     }
 }

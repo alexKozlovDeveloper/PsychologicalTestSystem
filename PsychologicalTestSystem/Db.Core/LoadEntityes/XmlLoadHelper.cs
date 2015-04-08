@@ -7,26 +7,26 @@ using Db.Core.Repositoryes;
 
 namespace Db.Core.LoadEntityes
 {
-    class XmlLoadHelper
-    {
-        public static TestXml LoadTestFromDb(ITestingRepository repository, Guid testId)
-        {
-            var test = repository.GetTest(testId);
+    //class XmlLoadHelper
+    //{
+    //    public static TestXml LoadTestFromDb(ITestingRepository repository, Guid testId)
+    //    {
+    //        var test = repository.GetTest(testId);
 
-            var res = new TestXml
-            {
-                Name = test.Name,
-                Id = test.Id
-            };
+    //        var res = new TestXml
+    //        {
+    //            Name = test.Name,
+    //            Id = test.Id
+    //        };
 
-            res.Questions.AddRange(repository.GetQuestions(test.Id));
+    //        res.Questions.AddRange(repository.GetQuestions(test.Id));
 
-            return res;
-        }
+    //        return res;
+    //    }
 
-        public static void LoadTestingResultToDb(ITestingRepository repository, TestXml result)
-        {
+    //    public static void LoadTestingResultToDb(ITestingRepository repository, TestXml result)
+    //    {
 
-        }
-    }
+    //    }
+    //}
 }
