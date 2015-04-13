@@ -12,8 +12,8 @@ namespace DesktopClient.PageControlles
         private readonly UserRegistrationController _userRegistrationController;
         private readonly UserTestResultController _userTestResultController;
         private readonly UserTestController _userTestController;
-        private readonly AdministratorLoginController _administratorLoginController;
-        private readonly StatisticsController _statisticsController;
+        private readonly UserChoiceController _userChoiceController;
+        private readonly TestChoiceController _testChoiceController;
 
         private readonly Test _test;
 
@@ -33,10 +33,10 @@ namespace DesktopClient.PageControlles
             _userRegistrationController = new UserRegistrationController(mainWindow, this);
             _userTestResultController = new UserTestResultController(mainWindow, this);
             _userTestController = new UserTestController(mainWindow, this);
-            _administratorLoginController = new AdministratorLoginController(mainWindow, this);
-            _statisticsController = new StatisticsController(mainWindow, this);
+            _userChoiceController = new UserChoiceController(mainWindow, this);
+            _testChoiceController = new TestChoiceController(mainWindow, this);
 
-            _userRegistrationController.SetupToWindow();
+            _userChoiceController.SetupToWindow();
 
 
             _test = new Test
@@ -125,12 +125,6 @@ namespace DesktopClient.PageControlles
                     }
                 }
             };
-
-
-            //var ms = XmlSerializerHelper.Serialize<Test>(test);
-
-            //FileReaderHelper.WriteStreamInFile(ms, @"D:\test1.xml");
-
         }
 
         public void GoToUserIntroductionPage()
@@ -155,12 +149,12 @@ namespace DesktopClient.PageControlles
 
         public void GoToAdministratorLoginPage()
         {
-            _administratorLoginController.SetupToWindow();
+            _userChoiceController.SetupToWindow();
         }
 
         public void GoToStatisticsPage()
         {
-            _statisticsController.SetupToWindow();
+            _testChoiceController.SetupToWindow();
         }
     }
 }

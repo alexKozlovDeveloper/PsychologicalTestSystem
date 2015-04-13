@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DesktopClient.Pages
 {
     /// <summary>
-    /// Interaction logic for AdministratorLogin.xaml
+    /// Interaction logic for UserChoice.xaml
     /// </summary>
-    public partial class AdministratorLogin : Page
+    public partial class UserChoice : Page
     {
-        public AdministratorLogin()
+        public UserChoice()
         {
             InitializeComponent();
         }

@@ -14,9 +14,9 @@
 
         <TextBox Name="TextBox_UserName" HorizontalAlignment="Left" Height="35" Margin="259,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
         <TextBox Name="TextBox_UserLastname" HorizontalAlignment="Left" Height="35" Margin="259,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
-        <TextBox Name="TextBox_UserGroupNumber" HorizontalAlignment="Left" Height="35" Margin="259,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
 
-        <Button Name="Button_Continue"  Content="Вперед" HorizontalAlignment="Left" Margin="178,254,0,0" VerticalAlignment="Top" Width="135" Height="36"/>
-        <Button Name="Button_Administrator" Content="Администрирование" HorizontalAlignment="Left" Margin="354,10,0,0" VerticalAlignment="Top" Width="136" Height="24"/>
+        <Button Name="Button_Continue" Content="Зарегистрировать" HorizontalAlignment="Left" Margin="355,254,0,0" VerticalAlignment="Top" Width="135" Height="36"/>
+        <ComboBox HorizontalAlignment="Left" Margin="259,161,0,0" VerticalAlignment="Top" Width="158" Height="30"/>
+        <Button Name="ButtonCancel" Content="Назад" HorizontalAlignment="Left" Margin="10,254,0,0" VerticalAlignment="Top" Width="139" Height="36"/>
     </Grid>
 </Page>

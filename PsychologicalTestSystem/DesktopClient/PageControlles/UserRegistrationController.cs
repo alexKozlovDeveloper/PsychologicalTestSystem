@@ -33,7 +33,7 @@ namespace DesktopClient.PageControlles
             _controllerPage = new UserRegistration();
 
             _controllerPage.Button_Continue.Click += Button_Continue_Click;
-            _controllerPage.Button_Administrator.Click += Button_Administrator_Click;
+            //_controllerPage.Button_Administrator.Click += Button_Administrator_Click;
         }
 
         void Button_Administrator_Click(object sender, RoutedEventArgs e)

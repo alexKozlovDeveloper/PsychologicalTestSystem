@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DesktopClient.Pages
 {
     /// <summary>
-    /// Interaction logic for Statistic.xaml
+    /// Interaction logic for TestChoice.xaml
     /// </summary>
-    public partial class Statistic : Page
+    public partial class TestChoice : Page
     {
-        public Statistic()
+        public TestChoice()
         {
             InitializeComponent();
         }

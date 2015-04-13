@@ -1,0 +1,18 @@
+﻿<Page x:Class="DesktopClient.Pages.UserChoice"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d"
+	Title="UserChoice" Height="324.8" Width="501.6">
+
+    <Grid>
+        <Button Name="ButtonRegistration" Content="Регистрация нового студента" HorizontalAlignment="Left" Margin="307,60,0,0" VerticalAlignment="Top" Width="185" Height="66"/>
+        <ComboBox Name="ComboBoxGroups" HorizontalAlignment="Left" Margin="90,60,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name="ComboBoxUsers" HorizontalAlignment="Left" Margin="90,87,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Группы" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Студенты" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="ButtonContinue" Content="Продолжить" HorizontalAlignment="Left" Margin="148,208,0,0" VerticalAlignment="Top" Width="144" Height="58"/>
+
+    </Grid>
+</Page>
