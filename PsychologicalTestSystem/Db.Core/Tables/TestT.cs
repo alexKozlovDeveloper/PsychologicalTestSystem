@@ -10,5 +10,6 @@ namespace Db.Core.Tables
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public string Introduction { get; set; }
     }
 }

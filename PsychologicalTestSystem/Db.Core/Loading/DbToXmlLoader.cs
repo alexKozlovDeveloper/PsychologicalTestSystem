@@ -41,7 +41,7 @@ namespace Db.Core.Loading
 
             foreach (var group in groups)
             {
-                var item = new XmlGroups.XmlUsers
+                var item = new XmlGroups.XmlGroup
                 {
                     GroupInfo = group
                 };
@@ -76,7 +76,16 @@ namespace Db.Core.Loading
             {
                 var xmlTest = LoadTest(repository, test.Id);
 
-                var filePath = testsFolder + @"\" + test.Name.Substring(0, 10) + "_" + test.Id + ".xml";
+                var filePath = string.Empty;
+
+                if (test.Name.Length <= 10)
+                {
+                    filePath = testsFolder + @"\" + test.Name + "_" + test.Id + ".xml";
+                }
+                else
+                {
+                    filePath = testsFolder + @"\" + test.Name.Substring(0, 10) + "_" + test.Id + ".xml";
+                }
 
                 FileReaderHelper.WriteInFileWithSerialize(xmlTest, filePath);
             }

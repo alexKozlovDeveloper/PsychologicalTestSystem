@@ -44,7 +44,7 @@ namespace DesktopClient.PageControlles
         {
             _controllerWindow.Content = _controllerPage;
 
-            _controllerPage.Label_ResultInfo.Content = _controller.Test.GetReport();
+            //_controllerPage.Label_ResultInfo.Content = _controller.Test.GetReport();
         }
     }
 }

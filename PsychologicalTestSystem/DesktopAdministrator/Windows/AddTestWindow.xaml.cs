@@ -39,8 +39,9 @@ namespace DesktopAdministrator.Windows
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
             var testName = TextBoxTestName.Text;
+            var introduction = TextBoxIntroduction.Text;
 
-            var test = _repository.AddTest(testName);
+            var test = _repository.AddTest(testName, introduction);
 
             _mainWindow.AddTestToComboBox(test);
 

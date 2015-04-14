@@ -1,0 +1,261 @@
+﻿<?xml version="1.0"?>
+<XmlTest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TestInfo>
+    <Id>32450793-074f-4d0d-a79c-f46a1a840c31</Id>
+    <Name>Определение доминирующих трудностей у студентов 1-го курса</Name>
+    <Introduction>Описание теста "Определение доминирующих трудностей у студентов 1-го курса":</Introduction>
+  </TestInfo>
+  <Questions>
+    <Question>
+      <Id>912a6b92-0ea7-45e3-bd9a-03e418daa0df</Id>
+      <Message>Вы всегда стараетесь соблюдать установленные правила поведения в Вузе, но это не всегда Вам удаётся?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Иногда</SecondAnswer>
+      <ThirdAnswer>Нет</ThirdAnswer>
+      <FirstReportMessage>Сложность выполнения отдельных правил поведения установленных в Вузе</FirstReportMessage>
+      <SecondReportMessage>Иногда испытывается сложность в выполнении отдельных правил поведения, установленных  в Вузе</SecondReportMessage>
+      <ThirdReportMessage>Желание всегда соблюдать  установленные правила поведения в Вузе</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>45541a34-a16a-4424-a6af-404bc6064ead</Id>
+      <Message>Есть ли у Вас девушка(парень), с которой(ым) Вы общаетесь?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Нет</SecondAnswer>
+      <ThirdAnswer>Был(а)</ThirdAnswer>
+      <FirstReportMessage>По возможности общается с девушкой (парнем)</FirstReportMessage>
+      <SecondReportMessage>Отсутствие возможности реализации опыта общения с противоположным полом</SecondReportMessage>
+      <ThirdReportMessage>Отсутствие постоянной возможности реализации потребности общения с противоположным полом</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>66ec32cd-8e1e-4628-a11f-5071d38ec35c</Id>
+      <Message>Удалось ли Вам приобрести новых друзей?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Еще не разобрался</SecondAnswer>
+      <ThirdAnswer>Нет</ThirdAnswer>
+      <FirstReportMessage>Установлены постоянные дружеские отношения</FirstReportMessage>
+      <SecondReportMessage>Постоянные дружеские отношения еще не установились, но для этого имеются возможности</SecondReportMessage>
+      <ThirdReportMessage>Сложности в приобретения новых друзей</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>ccec63b0-9da0-4062-8941-dec212e99f45</Id>
+      <Message>Часто ли Вы испытываете желание побыть в одиночестве?</Message>
+      <FirstAnswer>Часто</FirstAnswer>
+      <SecondAnswer>Иногда</SecondAnswer>
+      <ThirdAnswer>Никогда</ThirdAnswer>
+      <FirstReportMessage>Отсутствие дискомфорта вследствие необходимости постоянного существования в составе коллектива</FirstReportMessage>
+      <SecondReportMessage>Иногда испытывается эмоциональная усталость вследствие необходимости постоянного существования в составе коллектива</SecondReportMessage>
+      <ThirdReportMessage>Отсутствие возможности полностью распоряжаться своим временем чтобы какое-то время в отдохнуть в одиночестве</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>db8ab563-8c79-40e2-a84c-8b87a91e6f52</Id>
+      <Message>Легко ли Вам смериться с необходимостью соблюдать субординацию?</Message>
+      <FirstAnswer>Легко</FirstAnswer>
+      <SecondAnswer>Не всегда</SecondAnswer>
+      <ThirdAnswer>Тяжело</ThirdAnswer>
+      <FirstReportMessage>Легко справляется с необходимостью соблюдать субординацию</FirstReportMessage>
+      <SecondReportMessage>Нелегко формируется привычка соблюдать субординацию</SecondReportMessage>
+      <ThirdReportMessage>Трудно смириться с необходимостью соблюдать субординацию</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>72eac4d6-d271-4d36-9560-974952251417</Id>
+      <Message>Часто ли Вы вспоминаете своих школьных друзей?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Иногда</SecondAnswer>
+      <ThirdAnswer>Нет</ThirdAnswer>
+      <FirstReportMessage>Необходимость преодоления дискомфорта ввиду отсутствия школьных друзей</FirstReportMessage>
+      <SecondReportMessage>Иногда испытывается дискомфорт ввиду отсутствия школьных друзей</SecondReportMessage>
+      <ThirdReportMessage>Новое социальное окружение в определенной степени заменило школьных друзей</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>fec782ea-eef7-4a9e-bf5d-8e24fb575f5d</Id>
+      <Message>Наказания и критика Вас очень огорчают, если они более суровые, чем Вам кажется?</Message>
+      <FirstAnswer>Нет</FirstAnswer>
+      <SecondAnswer>Редко</SecondAnswer>
+      <ThirdAnswer>Да</ThirdAnswer>
+      <FirstReportMessage>Адекватно воспринимает наказания и критику, даже если они более суровые, чем ожидалось</FirstReportMessage>
+      <SecondReportMessage>Иногда случается переживание напряженности из-за наказаний и критики в случае, если они более суровые, чем ожидалось</SecondReportMessage>
+      <ThirdReportMessage>Возникновение психологической напряженности из-за любых наказаний и критики</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>6e954311-ff70-490f-aaea-1d54a80cb30a</Id>
+      <Message>Необдуманные поступки и высказывания окружающих в Ваш адрес не обижают и не огорчают Вас?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Иногда</SecondAnswer>
+      <ThirdAnswer>Нет</ThirdAnswer>
+      <FirstReportMessage>Неспособность противостоять необдуманным поступкам и высказываниям окружающих</FirstReportMessage>
+      <SecondReportMessage>Иногда проявляется уязвимость в отношении колкостей и издёвок в свой адрес</SecondReportMessage>
+      <ThirdReportMessage>Приобретена устойчивость в отношении к необдуманным поступкам и высказываниям окружающих</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>78b74d42-8c9b-47f1-bfe5-9b504f7b62d8</Id>
+      <Message>Увеличилась ли у Вас тяга к спиртным напиткам?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Иногда</SecondAnswer>
+      <ThirdAnswer>Нет</ThirdAnswer>
+      <FirstReportMessage>Отсутствие возможности осуществления желаний снять накопленную усталость и стресс посредством спиртного как бывало до поступления в ВУЗ</FirstReportMessage>
+      <SecondReportMessage>Иногда возникает желание снять накопленную усталость и стресс посредством спиртного как бывало до поступления в ВУЗ</SecondReportMessage>
+      <ThirdReportMessage>Отсутствие желаний снять накопленную усталость и стресс посредством спиртного</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>21ba191a-782c-405d-95fc-b02858e893d8</Id>
+      <Message>Часто ли у Вас возникает желание пообщаться с родителями?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Иногда</SecondAnswer>
+      <ThirdAnswer>Нет</ThirdAnswer>
+      <FirstReportMessage>Необходимость преодоления дискомфорта ввиду отсутствия возможности поделиться своими проблемами с родителями</FirstReportMessage>
+      <SecondReportMessage>Иногда испытывается психологический дискомфорт ввиду отсутствия возможности поделиться своими проблемами с родителями</SecondReportMessage>
+      <ThirdReportMessage>Приобретена свобода от родительской опеки</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>66ec32cd-8e1e-4628-a11f-5071d38ec35c</Id>
+      <Message>Удалось ли Вам приобрести новых друзей?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Еще не разобрался</SecondAnswer>
+      <ThirdAnswer>Нет</ThirdAnswer>
+      <FirstReportMessage>Установлены постоянные дружеские отношения</FirstReportMessage>
+      <SecondReportMessage>Постоянные дружеские отношения еще не установились, но для этого имеются возможности</SecondReportMessage>
+      <ThirdReportMessage>Сложности в приобретения новых друзей</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>b63b3b9a-ad63-45c1-b1bd-3b22c042c675</Id>
+      <Message>Вы избегаете общественной работы и связанной с этим ответственности?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Иногда</SecondAnswer>
+      <ThirdAnswer>Нет</ThirdAnswer>
+      <FirstReportMessage>Нежелание перегружать себя общественной работой и связанной с этим ответственностью</FirstReportMessage>
+      <SecondReportMessage>Избирательное отношение к выполнению общественной работы, чтобы избежать ответственности за ее выполнение</SecondReportMessage>
+      <ThirdReportMessage>Желание участвовать в общественной работе</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>80b3a817-56b0-4079-9a9a-700206052995</Id>
+      <Message>Находясь в обществе одногруппников, Вы обычно чувствуете себя одиноко?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Иногда</SecondAnswer>
+      <ThirdAnswer>Нет</ThirdAnswer>
+      <FirstReportMessage>Отсутствие возможности самовыражения среди членов своего коллектива</FirstReportMessage>
+      <SecondReportMessage>Временами испытывается психологический дискомфорт в атмосфере студенческого коллектива</SecondReportMessage>
+      <ThirdReportMessage>В обществе одногруппников  чувствует себя комфортно</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>3624d80f-f6d7-424f-a087-dcf88770eafd</Id>
+      <Message>Есть ли преподаватели, которым Вы подчиняетесь нехотя?</Message>
+      <FirstAnswer>Нет</FirstAnswer>
+      <SecondAnswer>Трудно сказать</SecondAnswer>
+      <ThirdAnswer>Есть</ThirdAnswer>
+      <FirstReportMessage>Установлены нормальные связи подчинения и взаимодействия с преподавателями</FirstReportMessage>
+      <SecondReportMessage>Нормальные связи подчинения и взаимодействия с преподавателями полностью еще не сформировались, но для этого имеются возможности</SecondReportMessage>
+      <ThirdReportMessage>Необходимость преодоления разногласий с отдельными преподавателями на почве личной неприязни</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>7e2ade68-e3f0-4028-9c12-1d9d3867699f</Id>
+      <Message>Часто ли у Вас возникает впечатление, что Вас недопонимают?</Message>
+      <FirstAnswer>Никогда</FirstAnswer>
+      <SecondAnswer>Иногда</SecondAnswer>
+      <ThirdAnswer>Часто</ThirdAnswer>
+      <FirstReportMessage>Возможность взаимопонимания с окружающими</FirstReportMessage>
+      <SecondReportMessage>Иногда возникает несовпадение самооценки и мнений о личности в коллективе</SecondReportMessage>
+      <ThirdReportMessage>Несовпадение самооценки и мнений о личности в коллективе</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>a0274afa-2b26-48be-9976-6011c382a8ba</Id>
+      <Message>Вам безразлично, что думают о Вас окружающие?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Иногда</SecondAnswer>
+      <ThirdAnswer>Нет</ThirdAnswer>
+      <FirstReportMessage>Невозможность преодоления собственного безразличия к мнению членов коллектива</FirstReportMessage>
+      <SecondReportMessage>Иногда проявляется безразличие к мнению других</SecondReportMessage>
+      <ThirdReportMessage>Забота о собственной репутации у членов коллектива</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>a0274afa-2b26-48be-9976-6011c382a8ba</Id>
+      <Message>Вам безразлично, что думают о Вас окружающие?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Иногда</SecondAnswer>
+      <ThirdAnswer>Нет</ThirdAnswer>
+      <FirstReportMessage>Невозможность преодоления собственного безразличия к мнению членов коллектива</FirstReportMessage>
+      <SecondReportMessage>Иногда проявляется безразличие к мнению других</SecondReportMessage>
+      <ThirdReportMessage>Забота о собственной репутации у членов коллектива</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>8b443de7-aa00-4171-aec5-5a4dcc869591</Id>
+      <Message>Перешли бы Вы в другую группу, если б представилась такая возможность?</Message>
+      <FirstAnswer>Нет</FirstAnswer>
+      <SecondAnswer>Незнаю</SecondAnswer>
+      <ThirdAnswer>Да</ThirdAnswer>
+      <FirstReportMessage>Удовлетворение отношениями с одногруппниками</FirstReportMessage>
+      <SecondReportMessage>Периодическое неудовлетворение отношениями с одноруппниками</SecondReportMessage>
+      <ThirdReportMessage>Невозможность преодоления психологического дискомфорта в данном конкретном коллективе</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>6ff30a4f-0c15-4662-a39c-1957e630f6c7</Id>
+      <Message>Допускаете ли Вы, что во избежание неприятностей иногда можно солгать?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Иногда</SecondAnswer>
+      <ThirdAnswer>Нет</ThirdAnswer>
+      <FirstReportMessage>Трудность в сохранении искренности  в отношениях с окружающими</FirstReportMessage>
+      <SecondReportMessage>Иногда проявляется способность с помощью хитрости и лжи избегать неприятности</SecondReportMessage>
+      <ThirdReportMessage>Принципиально негативное отношение к проявлениям хитрости и лжи во избежание неприятностей</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>3c017784-fa6a-4a83-82d6-14c6e45c44ec</Id>
+      <Message>Находиться в одиночестве для Вас более худшее наказание, чем тяжелая работа?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Трудно сказать</SecondAnswer>
+      <ThirdAnswer>Нет</ThirdAnswer>
+      <FirstReportMessage>Готовность действовать не испытывая дискомфорт как в одиночку, так и в составе группы </FirstReportMessage>
+      <SecondReportMessage>Невозможность представить себя в ситуации депривации (сенсорного и эмоционального голода)</SecondReportMessage>
+      <ThirdReportMessage>Постоянная потребность в общении вследствие неспособности действовать автономно в одиночестве</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>72e8b0e0-f935-463b-8bf6-4d577fed99de</Id>
+      <Message>Не кажется ли Вам, что окружающие Вас люди — будь то преподаватели  или сокурсники — недооценивают ваши способности?</Message>
+      <FirstAnswer>Нет</FirstAnswer>
+      <SecondAnswer>Иногда</SecondAnswer>
+      <ThirdAnswer>Да</ThirdAnswer>
+      <FirstReportMessage>Удовлетворение оценкой собственных способностей преподавателями и сокурсниками</FirstReportMessage>
+      <SecondReportMessage>Иногда переживается несоответствие самооценки собственных способностей и их оценки преподавателями или сокурсниками</SecondReportMessage>
+      <ThirdReportMessage>Нереализованная потребность в адекватной оценке собственных способностей преподавателями и сокурсниками</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>3624d80f-f6d7-424f-a087-dcf88770eafd</Id>
+      <Message>Есть ли преподаватели, которым Вы подчиняетесь нехотя?</Message>
+      <FirstAnswer>Нет</FirstAnswer>
+      <SecondAnswer>Трудно сказать</SecondAnswer>
+      <ThirdAnswer>Есть</ThirdAnswer>
+      <FirstReportMessage>Установлены нормальные связи подчинения и взаимодействия с преподавателями</FirstReportMessage>
+      <SecondReportMessage>Нормальные связи подчинения и взаимодействия с преподавателями полностью еще не сформировались, но для этого имеются возможности</SecondReportMessage>
+      <ThirdReportMessage>Необходимость преодоления разногласий с отдельными преподавателями на почве личной неприязни</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>db8ab563-8c79-40e2-a84c-8b87a91e6f52</Id>
+      <Message>Легко ли Вам смериться с необходимостью соблюдать субординацию?</Message>
+      <FirstAnswer>Легко</FirstAnswer>
+      <SecondAnswer>Не всегда</SecondAnswer>
+      <ThirdAnswer>Тяжело</ThirdAnswer>
+      <FirstReportMessage>Легко справляется с необходимостью соблюдать субординацию</FirstReportMessage>
+      <SecondReportMessage>Нелегко формируется привычка соблюдать субординацию</SecondReportMessage>
+      <ThirdReportMessage>Трудно смириться с необходимостью соблюдать субординацию</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>d256b8d3-ac44-4b1f-9021-7ea3ba20308c</Id>
+      <Message>Вы можете забыть о своих обязанностях, когда Вам это выгодно?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Иногда</SecondAnswer>
+      <ThirdAnswer>Нет</ThirdAnswer>
+      <FirstReportMessage>Неспособность противостоять «соблазнам» при отсутствии внешнего контроля</FirstReportMessage>
+      <SecondReportMessage>Иногда проявляется легкомысленное отношение к своим обязанностям при появлении «соблазнов»</SecondReportMessage>
+      <ThirdReportMessage>Ответственное отношение к выполнению своих обязанностей</ThirdReportMessage>
+    </Question>
+    <Question>
+      <Id>21ba191a-782c-405d-95fc-b02858e893d8</Id>
+      <Message>Часто ли у Вас возникает желание пообщаться с родителями?</Message>
+      <FirstAnswer>Да</FirstAnswer>
+      <SecondAnswer>Иногда</SecondAnswer>
+      <ThirdAnswer>Нет</ThirdAnswer>
+      <FirstReportMessage>Необходимость преодоления дискомфорта ввиду отсутствия возможности поделиться своими проблемами с родителями</FirstReportMessage>
+      <SecondReportMessage>Иногда испытывается психологический дискомфорт ввиду отсутствия возможности поделиться своими проблемами с родителями</SecondReportMessage>
+      <ThirdReportMessage>Приобретена свобода от родительской опеки</ThirdReportMessage>
+    </Question>
+  </Questions>
+  <AvailableGroups />
+</XmlTest>

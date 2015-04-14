@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using DesktopClient.Pages;
-using TestLogic.TestEntityes;
+using Db.Core.TableEntityes;
 
 namespace DesktopClient.PageControlles
 {
@@ -48,7 +48,7 @@ namespace DesktopClient.PageControlles
             {
                 var currentQuestion = GetCurrentQuestion();
 
-                currentQuestion.FirstAnswer.IsCheked = true;
+                //currentQuestion.FirstAnswer.IsCheked = true;
 
                 _controller.GoToTestResultPage();
             }
@@ -56,7 +56,7 @@ namespace DesktopClient.PageControlles
             {
                 var currentQuestion = GetCurrentQuestion();
 
-                currentQuestion.FirstAnswer.IsCheked = true;
+                //currentQuestion.FirstAnswer.IsCheked = true;
 
                 CurrentQuestion++;
 
@@ -70,7 +70,7 @@ namespace DesktopClient.PageControlles
             {
                 var currentQuestion = GetCurrentQuestion();
 
-                currentQuestion.SecondAnswer.IsCheked = true;
+                //currentQuestion.SecondAnswer.IsCheked = true;
 
                 _controller.GoToTestResultPage();
             }
@@ -78,7 +78,7 @@ namespace DesktopClient.PageControlles
             {
                 var currentQuestion = GetCurrentQuestion();
 
-                currentQuestion.SecondAnswer.IsCheked = true;
+                //currentQuestion.SecondAnswer.IsCheked = true;
 
                 CurrentQuestion++;
 
@@ -92,7 +92,7 @@ namespace DesktopClient.PageControlles
             {
                 var currentQuestion = GetCurrentQuestion();
 
-                currentQuestion.ThirdAnswer.IsCheked = true;
+                //currentQuestion.ThirdAnswer.IsCheked = true;
 
                 _controller.GoToTestResultPage();
             }
@@ -100,7 +100,7 @@ namespace DesktopClient.PageControlles
             {
                 var currentQuestion = GetCurrentQuestion();
 
-                currentQuestion.ThirdAnswer.IsCheked = true;
+                //currentQuestion.ThirdAnswer.IsCheked = true;
 
                 CurrentQuestion++;
 
@@ -119,21 +119,23 @@ namespace DesktopClient.PageControlles
         {
             var currentQuestion = GetCurrentQuestion();
 
-            _controllerPage.Label_Question.Content = currentQuestion.QuestionMessage;
+            _controllerPage.Label_Question.Content = currentQuestion.Message;
 
-            _controllerPage.Button_Yes.Content = currentQuestion.FirstAnswer.Text;
-            _controllerPage.Button_Sometimes.Content = currentQuestion.SecondAnswer.Text;
-            _controllerPage.Button_No.Content = currentQuestion.ThirdAnswer.Text;
+            _controllerPage.Button_Yes.Content = currentQuestion.FirstAnswer;
+            _controllerPage.Button_Sometimes.Content = currentQuestion.SecondAnswer;
+            _controllerPage.Button_No.Content = currentQuestion.ThirdAnswer;
         }
 
         private Question GetCurrentQuestion()
         {
-            return _controller.Test.Questions[CurrentQuestion];
+            var questions = _controller.Repository.GetQuestions(_controller.CurrentTestId).ToList();
+            return questions[CurrentQuestion];
         }
 
         private bool IsLast()
         {
-            return _controller.Test.Questions.Count - 1 == CurrentQuestion;
+            var questions = _controller.Repository.GetQuestions(_controller.CurrentTestId).ToList();
+            return questions.Count - 1 == CurrentQuestion;
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Db.Core.TableEntityes
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public string Introduction { get; set; }
 
         public override string ToString()
         {

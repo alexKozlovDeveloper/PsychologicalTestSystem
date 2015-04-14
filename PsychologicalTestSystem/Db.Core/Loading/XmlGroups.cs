@@ -9,22 +9,22 @@ namespace Db.Core.Loading
 {
     public class XmlGroups
     {
-        public class XmlUsers
+        public class XmlGroup
         {
             public Group GroupInfo { get; set; }
             public List<User> Users { get; set; }
 
-            public XmlUsers()
+            public XmlGroup()
             {
                 Users = new List<User>();
             }
         }
 
-        public List<XmlUsers> GroupsWithUsers { get; set; }
+        public List<XmlGroup> GroupsWithUsers { get; set; }
 
         public XmlGroups()
         {
-            GroupsWithUsers = new List<XmlUsers>();
+            GroupsWithUsers = new List<XmlGroup>();
         }
     }
 }

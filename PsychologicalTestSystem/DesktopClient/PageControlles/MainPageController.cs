@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
-using TestLogic.TestEntityes;
+using Db.Core.Helpers;
+using Db.Core.Loading;
+using Db.Core.Repositoryes;
 
 namespace DesktopClient.PageControlles
 {
@@ -15,19 +19,22 @@ namespace DesktopClient.PageControlles
         private readonly UserChoiceController _userChoiceController;
         private readonly TestChoiceController _testChoiceController;
 
-        private readonly Test _test;
+        //public XmlGroups Groups { get; private set; }
+        //public XmlTest Test { get; private set; }
 
-        public Test Test
-        {
-            get
-            {
-                return _test;
-            }
-        }
+        public ITestingRepository Repository { get; private set; }
+        public Guid CurrentTestId { get; set; }
 
         public MainPageController(Window mainWindow)
         {
             _mainWindow = mainWindow;
+
+            //Groups = FileReaderHelper.ReadFromFileWithDeserialize<XmlGroups>("Groups.xml");
+            //Test = FileReaderHelper.ReadFromFileWithDeserialize<XmlTest>("Tests.xml");
+
+            Repository = new TestingRepository();
+
+            CurrentTestId = Repository.GetAllTest().FirstOrDefault().Id;
 
             _userIntroductionController = new UserIntroductionController(mainWindow, this);
             _userRegistrationController = new UserRegistrationController(mainWindow, this);
@@ -37,94 +44,6 @@ namespace DesktopClient.PageControlles
             _testChoiceController = new TestChoiceController(mainWindow, this);
 
             _userChoiceController.SetupToWindow();
-
-
-            _test = new Test
-            {
-                Introduction = @"Для прохождения теста нажмите на кнопку <Начать тест>.
-Для внимательно читайте вопросы и отвечайте на них нажимаю на кнопку с наиболее подходяшим ответом.
-",
-                Questions = new List<Question>
-                {
-                    new Question
-                    {
-                        QuestionMessage = @"Иногда испытывается психологический дискомфорт ввиду отсутствия 
-возможности поделиться своими проблемами с родителями",
-                        FirstAnswer = new Answer
-                        {
-                            Text = "Да",
-                            ReportMessage = ""
-                        },
-                        SecondAnswer = new Answer
-                        {
-                            Text = "Иногда",
-                            ReportMessage = ""
-                        },
-                        ThirdAnswer = new Answer
-                        {
-                            Text = "Нет",
-                            ReportMessage = "составить распорядок дня"
-                        }
-                    },
-                    new Question
-                    {
-                        QuestionMessage = @"Question 2 ololo",
-                        FirstAnswer = new Answer
-                        {
-                            Text = "da",
-                            ReportMessage = ""
-                        },
-                        SecondAnswer = new Answer
-                        {
-                            Text = "net",
-                            ReportMessage = ""
-                        },
-                        ThirdAnswer = new Answer
-                        {
-                            Text = "oy vse",
-                            ReportMessage = "участвовать в мероприятиях вне вуза"
-                        }
-                    },
-                    new Question
-                    {
-                        QuestionMessage = @"Question 3 ololo",
-                        FirstAnswer = new Answer
-                        {
-                            Text = "da",
-                            ReportMessage = "lal7"
-                        },
-                        SecondAnswer = new Answer
-                        {
-                            Text = "net",
-                            ReportMessage = "lal8"
-                        },
-                        ThirdAnswer = new Answer
-                        {
-                            Text = "oy vse",
-                            ReportMessage = ""
-                        }
-                    },
-                    new Question
-                    {
-                        QuestionMessage = @"Question 4 ololo",
-                        FirstAnswer = new Answer
-                        {
-                            Text = "da",
-                            ReportMessage = "lal10"
-                        },
-                        SecondAnswer = new Answer
-                        {
-                            Text = "net",
-                            ReportMessage = ""
-                        },
-                        ThirdAnswer = new Answer
-                        {
-                            Text = "oy vse",
-                            ReportMessage = ""
-                        }
-                    }
-                }
-            };
         }
 
         public void GoToUserIntroductionPage()
@@ -147,14 +66,19 @@ namespace DesktopClient.PageControlles
             _userTestController.SetupToWindow();
         }
 
-        public void GoToAdministratorLoginPage()
+        public void GoToUserChoicePage()
         {
             _userChoiceController.SetupToWindow();
         }
 
-        public void GoToStatisticsPage()
+        public void GoToTestChoicePage()
         {
             _testChoiceController.SetupToWindow();
+        }
+
+        public void Exit()
+        {
+            _mainWindow.Close();
         }
     }
 }

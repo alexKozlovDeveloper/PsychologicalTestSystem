@@ -14,7 +14,7 @@ namespace Db.Core.Repositoryes
             string firstReportMessage, string secondReportMessage, string thirdReportMessage);
         Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId);
         Group AddGroup(string number);
-        Test AddTest(string name);
+        Test AddTest(string name, string introduction);
 
         void AddQuestionToTest(Guid questionId, Guid testId);
 

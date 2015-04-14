@@ -50,7 +50,8 @@ namespace DesktopClient.PageControlles
         {
             _controllerWindow.Content = _controllerPage;
 
-            _controllerPage.Label_IntroductionText.Content = _controller.Test.Introduction;
+            var test = _controller.Repository.GetTest(_controller.CurrentTestId);
+            _controllerPage.Label_IntroductionText.Content = test.Introduction;
         }
     }
 }

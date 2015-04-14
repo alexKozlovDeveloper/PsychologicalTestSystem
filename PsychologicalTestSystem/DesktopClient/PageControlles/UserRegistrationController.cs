@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using Db.Core.TableEntityes;
 using DesktopClient.Pages;
 
 namespace DesktopClient.PageControlles
@@ -32,18 +33,33 @@ namespace DesktopClient.PageControlles
 
             _controllerPage = new UserRegistration();
 
-            _controllerPage.Button_Continue.Click += Button_Continue_Click;
-            //_controllerPage.Button_Administrator.Click += Button_Administrator_Click;
+            _controllerPage.ButtonRegistration.Click += ButtonRegistration_Click;
+            _controllerPage.ButtonCancel.Click += ButtonCancel_Click;
+
+            _controllerPage.ComboBoxGroups.Items.Clear();
+
+            var groups = _controller.Repository.GetAllGroup();
+
+            foreach (var group in groups)
+            {
+                _controllerPage.ComboBoxGroups.Items.Add(group);
+            }
         }
 
-        void Button_Administrator_Click(object sender, RoutedEventArgs e)
+        void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
-            _controller.GoToAdministratorLoginPage();
+            _controller.GoToUserChoicePage();
         }
 
-        void Button_Continue_Click(object sender, RoutedEventArgs e)
+        void ButtonRegistration_Click(object sender, RoutedEventArgs e)
         {
-            _controller.GoToUserIntroductionPage();
+            var firstName = _controllerPage.TextBox_UserName.Text;
+            var lastName = _controllerPage.TextBox_UserLastname.Text;
+            var group = _controllerPage.ComboBoxGroups.SelectedItem as Group;
+
+            _controller.Repository.AddUser(firstName, lastName, group.Id);
+
+            _controller.GoToUserChoicePage();
         }
 
         public void SetupToWindow()
