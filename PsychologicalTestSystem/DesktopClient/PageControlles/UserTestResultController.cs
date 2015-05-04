@@ -37,7 +37,7 @@ namespace DesktopClient.PageControlles
 
         void Button_Exit_Click(object sender, RoutedEventArgs e)
         {
-            _controller.GoToUserRegistrationPage();
+            _controller.GoToUserChoicePage();
         }
 
         public void SetupToWindow()

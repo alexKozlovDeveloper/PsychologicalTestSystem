@@ -38,5 +38,7 @@ namespace Db.Core.Repositoryes
         IEnumerable<PassingTest> GetAllPassingTest();
         IEnumerable<Testing> GetTesting(Guid passingTestId);
         PassingTest AddPassingTest(Guid userId, Guid testId, DateTime date);
+
+        int GetQuestionsCount(Guid testId);
     }
 }

@@ -57,6 +57,12 @@ namespace DesktopClient.PageControlles
             var lastName = _controllerPage.TextBox_UserLastname.Text;
             var group = _controllerPage.ComboBoxGroups.SelectedItem as Group;
 
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName))
+            {
+                MessageBox.Show("Поля 'Имя' и 'Фамилия' не должны быть пустыми");
+                return;
+            }
+
             _controller.Repository.AddUser(firstName, lastName, group.Id);
 
             _controller.GoToUserChoicePage();
