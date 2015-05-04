@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using DesktopClient.Conf;
 using DesktopClient.Pages;
 using Db.Core.TableEntityes;
 
@@ -44,20 +45,14 @@ namespace DesktopClient.PageControlles
 
         void Button_Yes_Click(object sender, RoutedEventArgs e)
         {
+            AddQuestionResult(1);
+
             if (IsLast())
             {
-                var currentQuestion = GetCurrentQuestion();
-
-                //currentQuestion.FirstAnswer.IsCheked = true;
-
                 _controller.GoToTestResultPage();
             }
             else
             {
-                var currentQuestion = GetCurrentQuestion();
-
-                //currentQuestion.FirstAnswer.IsCheked = true;
-
                 CurrentQuestion++;
 
                 Init();
@@ -66,20 +61,14 @@ namespace DesktopClient.PageControlles
 
         void Button_Sometimes_Click(object sender, RoutedEventArgs e)
         {
+            AddQuestionResult(2);
+
             if (IsLast())
             {
-                var currentQuestion = GetCurrentQuestion();
-
-                //currentQuestion.SecondAnswer.IsCheked = true;
-
                 _controller.GoToTestResultPage();
             }
             else
             {
-                var currentQuestion = GetCurrentQuestion();
-
-                //currentQuestion.SecondAnswer.IsCheked = true;
-
                 CurrentQuestion++;
 
                 Init();
@@ -88,24 +77,25 @@ namespace DesktopClient.PageControlles
 
         void Button_No_Click(object sender, RoutedEventArgs e)
         {
+            AddQuestionResult(3);
+
             if (IsLast())
             {
-                var currentQuestion = GetCurrentQuestion();
-
-                //currentQuestion.ThirdAnswer.IsCheked = true;
-
                 _controller.GoToTestResultPage();
             }
             else
             {
-                var currentQuestion = GetCurrentQuestion();
-
-                //currentQuestion.ThirdAnswer.IsCheked = true;
-
                 CurrentQuestion++;
 
                 Init();
             }           
+        }
+
+        private void AddQuestionResult(int answerNumber)
+        {
+            var ques = GetCurrentQuestion();
+
+            _controller.Repository.AddTestingResult(ques.Id, answerNumber, AppConfig.CurrentPassingTest.Id);
         }
 
         public void SetupToWindow()
@@ -128,13 +118,13 @@ namespace DesktopClient.PageControlles
 
         private Question GetCurrentQuestion()
         {
-            var questions = _controller.Repository.GetQuestions(_controller.CurrentTestId).ToList();
+            var questions = _controller.Repository.GetQuestions(AppConfig.SelectedTest.Id).ToList();
             return questions[CurrentQuestion];
         }
 
         private bool IsLast()
         {
-            var questions = _controller.Repository.GetQuestions(_controller.CurrentTestId).ToList();
+            var questions = _controller.Repository.GetQuestions(AppConfig.SelectedTest.Id).ToList();
             return questions.Count - 1 == CurrentQuestion;
         }
     }

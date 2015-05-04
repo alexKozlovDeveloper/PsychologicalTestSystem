@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ShowTestingDetailsWindow" Height="440" Width="624">
     <Grid>
-        <DataGrid Name="DataGridTestingReport" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="10,10,0,0" VerticalAlignment="Top" Height="390" Width="596">
+        <DataGrid Name="DataGridTestingReport" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="10,10,0,0" VerticalAlignment="Top" Height="390" Width="596" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Вопрос" Binding="{Binding Path=Message}" Width="200"/>
                 <DataGridTextColumn Header="Ответ" Binding="{Binding Path=Answer}" Width="200"/>

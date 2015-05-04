@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Db.Core.TableEntityes;
+using DesktopClient.Conf;
 using DesktopClient.Pages;
 
 namespace DesktopClient.PageControlles
@@ -41,7 +42,9 @@ namespace DesktopClient.PageControlles
         {
             var test = _controllerPage.ComboBoxTests.SelectedItem as Test;
 
-            _controller.CurrentTestId = test.Id;
+            //_controller.CurrentTestId = test.Id;
+
+            AppConfig.SelectedTest = _controllerPage.ComboBoxTests.SelectedItem as Test;
 
             _controller.GoToUserIntroductionPage();
         }

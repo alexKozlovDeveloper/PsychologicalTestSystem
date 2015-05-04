@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using DesktopClient.Conf;
 using DesktopClient.Pages;
 
 namespace DesktopClient.PageControlles
@@ -38,6 +39,8 @@ namespace DesktopClient.PageControlles
 
         void Button_StartTest_Click(object sender, RoutedEventArgs e)
         {
+            AppConfig.CurrentPassingTest = _controller.Repository.AddPassingTest(AppConfig.CurrentUser.Id, AppConfig.SelectedTest.Id, DateTime.Now);
+
             _controller.GoToUserTestPage();
         }
 
@@ -50,8 +53,7 @@ namespace DesktopClient.PageControlles
         {
             _controllerWindow.Content = _controllerPage;
 
-            var test = _controller.Repository.GetTest(_controller.CurrentTestId);
-            _controllerPage.Label_IntroductionText.Content = test.Introduction;
+            _controllerPage.Label_IntroductionText.Content = AppConfig.SelectedTest.Introduction;
         }
     }
 }

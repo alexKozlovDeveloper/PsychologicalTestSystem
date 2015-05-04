@@ -33,7 +33,7 @@ namespace DesktopAdministrator.Windows
             _mainWindow = mainWindow;
             _passingTestId = passingTestId;
 
-            //InitTable();
+            InitTable();
         }
 
         private void InitTable()
@@ -61,6 +61,8 @@ namespace DesktopAdministrator.Windows
                     ToReport = toReport
                 });
             }
+
+            DataGridTestingReport.ItemsSource = entity;
         }
     }
 }

@@ -231,7 +231,8 @@ namespace DesktopAdministrator
                     Date = passingTest.Date,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
-                    GroupNumber = group.Number
+                    GroupNumber = group.Number,
+                    PassingTestId = passingTest.Id
                 });
             }
 
@@ -277,7 +278,14 @@ namespace DesktopAdministrator
 
         private void ShowTestingDetails(object sender, RoutedEventArgs e)
         {
-            _showTestingDetailsWindow = new ShowTestingDetailsWindow(this, _repository, Guid.NewGuid());
+            var item = DataGridTesting.SelectedItem as TestingUser;
+
+            if (item == null)
+            {
+                return;
+            }
+
+            _showTestingDetailsWindow = new ShowTestingDetailsWindow(this, _repository, item.PassingTestId);
 
             _showTestingDetailsWindow.Show();
         }

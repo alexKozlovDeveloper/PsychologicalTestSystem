@@ -12,5 +12,6 @@ namespace DesktopAdministrator.DataGridEntityes
         public string LastName { get; set; }
         public string GroupNumber { get; set; }
         public DateTime Date { get; set; }
+        public Guid PassingTestId { get; set; }
     }
 }

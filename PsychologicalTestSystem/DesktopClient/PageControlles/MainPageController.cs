@@ -23,7 +23,7 @@ namespace DesktopClient.PageControlles
         //public XmlTest Test { get; private set; }
 
         public ITestingRepository Repository { get; private set; }
-        public Guid CurrentTestId { get; set; }
+        //public Guid CurrentTestId { get; set; }
 
         public MainPageController(Window mainWindow)
         {
@@ -34,7 +34,7 @@ namespace DesktopClient.PageControlles
 
             Repository = new TestingRepository();
 
-            CurrentTestId = Repository.GetAllTest().FirstOrDefault().Id;
+            //CurrentTestId = Repository.GetAllTest().FirstOrDefault().Id;
 
             _userIntroductionController = new UserIntroductionController(mainWindow, this);
             _userRegistrationController = new UserRegistrationController(mainWindow, this);

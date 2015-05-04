@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Db.Core.Loading;
 using Db.Core.TableEntityes;
+using DesktopClient.Conf;
 using DesktopClient.Pages;
 
 namespace DesktopClient.PageControlles
@@ -47,6 +48,8 @@ namespace DesktopClient.PageControlles
 
         void ButtonContinue_Click(object sender, RoutedEventArgs e)
         {
+            AppConfig.CurrentUser = _controllerPage.ComboBoxUsers.SelectedItem as User;
+
             _controller.GoToTestChoicePage();
         }
 
