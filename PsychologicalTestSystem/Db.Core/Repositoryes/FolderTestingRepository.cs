@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Db.Core.Loading;
+using Db.Core.TableEntityes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,18 +8,38 @@ using System.Threading.Tasks;
 
 namespace Db.Core.Repositoryes
 {
-    class FolderTestingRepository : ITestingRepository
+    public class FolderTestingRepository : ITestingRepository
     {
         private string XmlDbFolder;
+
+        private List<XmlTest> _tests;
+        private List<XmlGroup> _groups;
+
+        private List<User> _newUsers;
 
         public FolderTestingRepository(string xmlDbFolder)
         {
             XmlDbFolder = xmlDbFolder;
+
+            _tests = XmlToDbLoader.LoadTestsFromFolder(XmlDbFolder + "\\Tests");
+            _groups = XmlToDbLoader.LoadGroupsFromFolder(XmlDbFolder + "\\Groups");
+
+            _newUsers = new List<User>();
         }
 
         public TableEntityes.User AddUser(string firstName, string lastName, Guid groupId)
         {
-            throw new NotImplementedException();
+            var user = new User()
+            {
+                Id = Guid.NewGuid(),
+                FirstName = firstName,
+                LastName = lastName,
+                GroupId = groupId
+            };
+
+            _newUsers.Add(user);
+
+            return user;
         }
 
         public TableEntityes.Question AddQuestion(string message, string firstAnswer, string secondAnswer, string thirdAnswer, string firstReportMessage, string secondReportMessage, string thirdReportMessage)
@@ -57,17 +79,65 @@ namespace Db.Core.Repositoryes
 
         public TableEntityes.User GetUser(Guid id)
         {
-            throw new NotImplementedException();
+            User res = null;
+
+            foreach (var item in _groups)
+            {
+                foreach (var user in item.Users)
+                {
+                    if (user.Id == id)
+                    {
+                        res = user;
+                        break;
+                    }
+                }
+            }
+
+            if (res == null)
+            {
+                foreach (var user in _newUsers)
+                {
+                    if (user.Id == id)
+                    {
+                        res = user;
+                        break;
+                    }
+                }
+            }
+
+            return res;
         }
 
         public TableEntityes.Group GetGroup(Guid id)
         {
-            throw new NotImplementedException();
+            Group res = null;
+
+            foreach (var item in _groups)
+            {
+                if (item.GroupInfo.Id == id)
+                {
+                    res = item.GroupInfo;
+                    break;
+                }
+            }
+
+            return res;
         }
 
         public TableEntityes.Test GetTest(Guid id)
         {
-            throw new NotImplementedException();
+            Test res = null;
+
+            foreach (var item in _tests)
+            {
+                if (item.TestInfo.Id == id)
+                {
+                    res = item.TestInfo;
+                    break;
+                }
+            }
+
+            return res;
         }
 
         public IEnumerable<TableEntityes.User> GetUserByGroup(Guid groupId)

@@ -24,7 +24,7 @@ namespace DesktopClient.PageControlles
 
         public ITestingRepository Repository { get; private set; }
         //public Guid CurrentTestId { get; set; }
-
+        public FolderTestingRepository folderRepository { get; private set; }
         //public XmlToDbLoader XmlLoader { get; private set; }
 
         public MainPageController(Window mainWindow)
@@ -32,12 +32,9 @@ namespace DesktopClient.PageControlles
             _mainWindow = mainWindow;
 
             //XmlLoader = new XmlToDbLoader();
-
             var folder = @"C:\Users\Алексей\Documents\PsychologicalTestSystem\PsychologicalTestSystem\DesktopAdministrator\bin\Debug\XmlDb";
 
-            var groups = XmlToDbLoader.LoadTestsFromFolder(folder + "\\Groups");
-            var tests = XmlToDbLoader.LoadGroupsFromFolder(folder + "\\Tests");
-
+            folderRepository = new FolderTestingRepository(folder);
 
             //Groups = FileReaderHelper.ReadFromFileWithDeserialize<XmlGroups>("Groups.xml");
             //Test = FileReaderHelper.ReadFromFileWithDeserialize<XmlTest>("Tests.xml");
