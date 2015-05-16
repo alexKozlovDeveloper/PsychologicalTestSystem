@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Db.Core.Helpers;
 using Db.Core.Repositoryes;
+using System.IO;
 
 namespace Db.Core.Loading
 {
-    class XmlToDbLoader
+    public class XmlToDbLoader
     {
         public static void LoadTestingResultToDb(ITestingRepository repository, string filePath)
         {
@@ -27,6 +28,38 @@ namespace Db.Core.Loading
             {
                 repository.AddTestingResult(result.QuestionId, result.ChekedAnswer, passingTest.Id);
             }
+        }
+
+        public static List<XmlTest> LoadTestsFromFolder(string folderPath)
+        {
+            var res = new List<XmlTest>();
+
+            var files = Directory.GetFiles(folderPath);
+
+            foreach (var item in files)
+            {
+                var test = FileReaderHelper.ReadFromFileWithDeserialize<XmlTest>(item);
+
+                res.Add(test);
+            }
+
+            return res;
+        }
+
+        public static List<XmlGroup> LoadGroupsFromFolder(string folderPath)
+        {
+            var res = new List<XmlGroup>();
+
+            var files = Directory.GetFiles(folderPath);
+
+            foreach (var item in files)
+            {
+                var test = FileReaderHelper.ReadFromFileWithDeserialize<XmlGroup>(item);
+
+                res.Add(test);
+            }
+
+            return res;
         }
     }
 }

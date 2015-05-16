@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Db.Core.Helpers;
 using Db.Core.Repositoryes;
+using Db.Core.TableEntityes;
 
 namespace Db.Core.Loading
 {
@@ -33,25 +34,18 @@ namespace Db.Core.Loading
             return res;
         }
 
-        public static XmlGroups LoadGroups(ITestingRepository repository)
+        public static XmlGroup LoadGroup(ITestingRepository repository, Guid groupId)
         {
-            var res = new XmlGroups();
+            var group = repository.GetGroup(groupId);
 
-            var groups = repository.GetAllGroup();
-
-            foreach (var group in groups)
+            var item = new XmlGroup
             {
-                var item = new XmlGroups.XmlGroup
-                {
-                    GroupInfo = group
-                };
+                GroupInfo = group
+            };
 
-                item.Users.AddRange(repository.GetUserByGroup(group.Id));
+            item.Users.AddRange(repository.GetUserByGroup(group.Id));
 
-                res.GroupsWithUsers.Add(item);
-            }
-
-            return res;
+            return item;
         }
 
         public static void SaveDbToFolder(ITestingRepository repository, string folderPath)
@@ -63,7 +57,7 @@ namespace Db.Core.Loading
 
             //Tests
 
-            var testsFolder = folderPath + @"\Test";
+            var testsFolder = folderPath + @"\Tests";
 
             if (Directory.Exists(testsFolder) == false)
             {
@@ -99,9 +93,16 @@ namespace Db.Core.Loading
                 Directory.CreateDirectory(groupsFolder);
             }
 
-            var groups = LoadGroups(repository);
+            var groups = repository.GetAllGroup();
 
-            FileReaderHelper.WriteInFileWithSerialize(groups, groupsFolder + @"\" + "Groups.xml");
+            foreach (var item in groups)
+            {
+                var xmlGroup = LoadGroup(repository, item.Id);
+
+                var fileName = string.Format("{0}\\{1}{2}.xml", groupsFolder, "Group", item.Id.ToString());
+
+                FileReaderHelper.WriteInFileWithSerialize(xmlGroup, fileName);
+            }
         }
     }
 }

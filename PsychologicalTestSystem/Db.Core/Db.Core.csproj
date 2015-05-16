@@ -52,12 +52,13 @@
     <Compile Include="Helpers\FileReaderHelper.cs" />
     <Compile Include="Helpers\XmlSerializerHelper.cs" />
     <Compile Include="Loading\DbToXmlLoader.cs" />
-    <Compile Include="Loading\XmlGroups.cs" />
+    <Compile Include="Loading\XmlGroup.cs" />
     <Compile Include="Loading\XmlTest.cs" />
     <Compile Include="Loading\XmlTestingResult.cs" />
     <Compile Include="Loading\XmlToDbLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositoryes\FolderTestingRepository.cs" />
     <Compile Include="Repositoryes\ITestingRepository.cs" />
     <Compile Include="Repositoryes\TestingRepository.cs" />
     <Compile Include="TableEntityes\AvailableTestToGroup.cs" />
