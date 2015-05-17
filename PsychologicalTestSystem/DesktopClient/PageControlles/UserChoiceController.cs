@@ -9,6 +9,8 @@ using Db.Core.TableEntityes;
 using DesktopClient.Conf;
 using DesktopClient.Pages;
 using System.IO;
+using System.Configuration;
+using Helpers.Keys;
 
 namespace DesktopClient.PageControlles
 {
@@ -45,12 +47,7 @@ namespace DesktopClient.PageControlles
 
         void ButtonWriteInFolder_Click(object sender, RoutedEventArgs e)
         {
-            if (Directory.Exists("Xml") == false)
-            {
-                Directory.CreateDirectory("Xml");
-            }
-
-            _controller.Repository.WriteToFolder("Xml");
+            _controller.Repository.WriteToFolder(ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey]);
         }
 
         void ButtonExit_Click(object sender, RoutedEventArgs e)

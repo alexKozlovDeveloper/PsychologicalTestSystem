@@ -10,6 +10,7 @@ using Db.Core.Tables.Context;
 using System.IO;
 using Db.Core.Loading;
 using Db.Core.Helpers;
+using Helpers.Keys;
 
 namespace Db.Core.Repositoryes
 {
@@ -462,29 +463,13 @@ namespace Db.Core.Repositoryes
 
         public void WriteToFolder(string folderPath)
         {
-            var folder = string.Empty;
-
-            if (string.IsNullOrEmpty(folderPath) == false)
-            {
-                folder = folderPath + "\\XmlDb";
-            }
-            else
-            {
-                folder = "XmlDb";
-            }           
-
-            if (Directory.Exists(folder) == false)
-            {
-                Directory.CreateDirectory(folder);
-            }
-
-            DbToXmlLoader.SaveDbToFolder(this, folder);
+            DbToXmlLoader.SaveDbToFolder(this, folderPath);
         }
 
 
         public void ReadFromFolder(string folderPath)
         {
-            var newUsersFolder = folderPath + "\\NewUsers";
+            var newUsersFolder = folderPath + "\\" + FolderNames.NewUsers;
 
             var newUsers = Directory.GetFiles(newUsersFolder);
 
@@ -496,7 +481,7 @@ namespace Db.Core.Repositoryes
             }
 
 
-            var newTestingFolder = folderPath + "\\NewTesting";
+            var newTestingFolder = folderPath + "\\" + FolderNames.NewTesting;
 
             var newTestings = Directory.GetFiles(newTestingFolder);
 
@@ -508,7 +493,7 @@ namespace Db.Core.Repositoryes
             }
 
 
-            var newPassingTestFolder = folderPath + "\\NewPassingTest";
+            var newPassingTestFolder = folderPath + "\\" + FolderNames.NewPassingTest;
 
             var newPassingTests = Directory.GetFiles(newPassingTestFolder);
 

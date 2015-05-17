@@ -21,6 +21,8 @@ using DesktopAdministrator.DataGridEntityes;
 using DesktopAdministrator.Helpers;
 using DesktopAdministrator.Windows;
 using TcpServerLogic;
+using System.Configuration;
+using Helpers.Keys;
 
 namespace DesktopAdministrator
 {
@@ -292,12 +294,12 @@ namespace DesktopAdministrator
 
         private void ButtonWriteDbToXml_Click(object sender, RoutedEventArgs e)
         {
-            _repository.WriteToFolder("");
+            _repository.WriteToFolder(ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey]);
         }
 
         private void ButtonReadFromXml_Click(object sender, RoutedEventArgs e)
         {
-            _repository.ReadFromFolder(@"C:\Users\Алексей\Documents\PsychologicalTestSystem\PsychologicalTestSystem\DesktopClient\bin\Debug\Xml");
+            _repository.ReadFromFolder(ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey]);
         }
     }
 }

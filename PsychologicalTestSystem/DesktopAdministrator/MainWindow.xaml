@@ -64,6 +64,11 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
+            <TabItem Header="Статистика">
+                <Grid Background="#FFE5E5E5">
+
+                </Grid>
+            </TabItem>
         </TabControl>
         <Button Name="ButtonWriteDbToXml" Content="Write to xml" HorizontalAlignment="Left" Margin="939,45,0,0" VerticalAlignment="Top" Width="120" Height="37" Click="ButtonWriteDbToXml_Click"/>
         <Button Name="ButtonReadFromXml" Content="Read from Xml" HorizontalAlignment="Left" Margin="939,87,0,0" VerticalAlignment="Top" Width="120" Height="37" Click="ButtonReadFromXml_Click"/>

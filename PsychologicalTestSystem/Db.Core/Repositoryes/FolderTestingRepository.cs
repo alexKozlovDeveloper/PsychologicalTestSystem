@@ -1,6 +1,7 @@
 ﻿using Db.Core.Helpers;
 using Db.Core.Loading;
 using Db.Core.TableEntityes;
+using Helpers.Keys;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -267,7 +268,7 @@ namespace Db.Core.Repositoryes
 
         public void WriteToFolder(string folderPath)
         {
-            var newUserPath = folderPath + @"\NewUsers";
+            var newUserPath = folderPath + @"\" + FolderNames.NewUsers;
 
             if (Directory.Exists(newUserPath) == false)
             {
@@ -283,7 +284,7 @@ namespace Db.Core.Repositoryes
 
 
 
-            var newPassingTestPath = folderPath + @"\NewPassingTest";
+            var newPassingTestPath = folderPath + @"\" + FolderNames.NewPassingTest;
 
             if (Directory.Exists(newPassingTestPath) == false)
             {
@@ -299,7 +300,7 @@ namespace Db.Core.Repositoryes
 
 
 
-            var newTestingPath = folderPath + @"\NewTesting";
+            var newTestingPath = folderPath + @"\" + FolderNames.NewTesting;
 
             if (Directory.Exists(newTestingPath) == false)
             {
