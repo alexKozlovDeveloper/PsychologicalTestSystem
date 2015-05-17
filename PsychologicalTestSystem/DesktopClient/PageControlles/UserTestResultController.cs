@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using DesktopClient.Pages;
+using System.Configuration;
+using Helpers.Keys;
 
 namespace DesktopClient.PageControlles
 {
@@ -37,6 +39,8 @@ namespace DesktopClient.PageControlles
 
         void Button_Exit_Click(object sender, RoutedEventArgs e)
         {
+            _controller.Repository.WriteToFolder(ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey]);
+
             _controller.GoToUserChoicePage();
         }
 

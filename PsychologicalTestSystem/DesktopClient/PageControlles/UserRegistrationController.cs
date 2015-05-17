@@ -7,6 +7,8 @@ using System.Windows;
 using System.Windows.Controls;
 using Db.Core.TableEntityes;
 using DesktopClient.Pages;
+using System.Configuration;
+using Helpers.Keys;
 
 namespace DesktopClient.PageControlles
 {
@@ -64,6 +66,8 @@ namespace DesktopClient.PageControlles
             }
 
             _controller.Repository.AddUser(firstName, lastName, group.Id);
+
+            _controller.Repository.WriteToFolder(ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey]);
 
             _controller.GoToUserChoicePage();
         }
