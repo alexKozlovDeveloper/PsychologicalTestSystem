@@ -16,6 +16,8 @@ namespace Db.Core.Repositoryes
         private List<XmlGroup> _groups;
 
         private List<User> _newUsers;
+        private List<PassingTest> _newPassingTests;
+        private List<Testing> _newTesting;
 
         public FolderTestingRepository(string xmlDbFolder)
         {
@@ -25,9 +27,11 @@ namespace Db.Core.Repositoryes
             _groups = XmlToDbLoader.LoadGroupsFromFolder(XmlDbFolder + "\\Groups");
 
             _newUsers = new List<User>();
+            _newPassingTests = new List<PassingTest>();
+            _newTesting = new List<Testing>();
         }
 
-        public TableEntityes.User AddUser(string firstName, string lastName, Guid groupId)
+        public User AddUser(string firstName, string lastName, Guid groupId)
         {
             var user = new User()
             {
@@ -42,22 +46,32 @@ namespace Db.Core.Repositoryes
             return user;
         }
 
-        public TableEntityes.Question AddQuestion(string message, string firstAnswer, string secondAnswer, string thirdAnswer, string firstReportMessage, string secondReportMessage, string thirdReportMessage)
+        public Question AddQuestion(string message, string firstAnswer, string secondAnswer, string thirdAnswer, string firstReportMessage, string secondReportMessage, string thirdReportMessage)
         {
             throw new NotImplementedException();
         }
 
-        public TableEntityes.Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId)
+        public Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId)
+        {
+            var t = new Testing 
+            {
+                Id = Guid.NewGuid(),
+                ChekedAnswer = checedAnswer,
+                PassingTestId = passingTestId,
+                QuestionId = questionId
+            };
+
+            _newTesting.Add(t);
+
+            return t;
+        }
+
+        public Group AddGroup(string number)
         {
             throw new NotImplementedException();
         }
 
-        public TableEntityes.Group AddGroup(string number)
-        {
-            throw new NotImplementedException();
-        }
-
-        public TableEntityes.Test AddTest(string name, string introduction)
+        public Test AddTest(string name, string introduction)
         {
             throw new NotImplementedException();
         }
@@ -67,17 +81,17 @@ namespace Db.Core.Repositoryes
             throw new NotImplementedException();
         }
 
-        public TableEntityes.Question GetQuestion(Guid id)
+        public Question GetQuestion(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public TableEntityes.Testing GetTestingResult(Guid id)
+        public Testing GetTestingResult(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public TableEntityes.User GetUser(Guid id)
+        public User GetUser(Guid id)
         {
             User res = null;
 
@@ -108,7 +122,7 @@ namespace Db.Core.Repositoryes
             return res;
         }
 
-        public TableEntityes.Group GetGroup(Guid id)
+        public Group GetGroup(Guid id)
         {
             Group res = null;
 
@@ -124,7 +138,7 @@ namespace Db.Core.Repositoryes
             return res;
         }
 
-        public TableEntityes.Test GetTest(Guid id)
+        public Test GetTest(Guid id)
         {
             Test res = null;
 
@@ -140,29 +154,72 @@ namespace Db.Core.Repositoryes
             return res;
         }
 
-        public IEnumerable<TableEntityes.User> GetUserByGroup(Guid groupId)
+        public IEnumerable<User> GetUserByGroup(Guid groupId)
+        {
+            var res = new List<User>();
+
+            foreach (var item in _groups)
+            {
+                if (item.GroupInfo.Id == groupId)
+                {
+                    res.AddRange(item.Users);
+                    break;
+                }
+            }
+
+            foreach (var item in _newUsers)
+            {
+                if (item.GroupId == groupId)
+                {
+                    res.Add(item);
+                }
+            }
+
+            return res;
+        }
+
+        public IEnumerable<Group> GetAllGroup()
+        {
+            var res = new List<Group>();
+
+            foreach (var item in _groups)
+            {
+                res.Add(item.GroupInfo);
+            }
+
+            return res;
+        }
+
+        public IEnumerable<Test> GetAllTest()
+        {
+            var res = new List<Test>();
+
+            foreach (var item in _tests)
+            {
+                res.Add(item.TestInfo);
+            }
+
+            return res;
+        }
+
+        public IEnumerable<Question> GetAllQuestion()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TableEntityes.Group> GetAllGroup()
+        public IEnumerable<Question> GetQuestions(Guid testId)
         {
-            throw new NotImplementedException();
-        }
+            var res = new List<Question>();
 
-        public IEnumerable<TableEntityes.Test> GetAllTest()
-        {
-            throw new NotImplementedException();
-        }
+            foreach (var item in _tests)
+            {
+                if (item.TestInfo.Id == testId)
+                {
+                    res.AddRange(item.Questions);
+                }
+            }
 
-        public IEnumerable<TableEntityes.Question> GetAllQuestion()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<TableEntityes.Question> GetQuestions(Guid testId)
-        {
-            throw new NotImplementedException();
+            return res;
         }
 
         public bool IsAvailableGroup(Guid testId, Guid groupId)
@@ -170,24 +227,34 @@ namespace Db.Core.Repositoryes
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TableEntityes.Testing> GetAllTesting()
+        public IEnumerable<Testing> GetAllTesting()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TableEntityes.PassingTest> GetAllPassingTest()
+        public IEnumerable<PassingTest> GetAllPassingTest()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TableEntityes.Testing> GetTesting(Guid passingTestId)
+        public IEnumerable<Testing> GetTesting(Guid passingTestId)
         {
             throw new NotImplementedException();
         }
 
-        public TableEntityes.PassingTest AddPassingTest(Guid userId, Guid testId, DateTime date)
+        public PassingTest AddPassingTest(Guid userId, Guid testId, DateTime date)
         {
-            throw new NotImplementedException();
+            var pt = new PassingTest
+            {
+                Id = Guid.NewGuid(),
+                Date = date,
+                TestId = testId,
+                UserId = userId
+            };
+
+            _newPassingTests.Add(pt);
+
+            return pt;
         }
 
         public int GetQuestionsCount(Guid testId)

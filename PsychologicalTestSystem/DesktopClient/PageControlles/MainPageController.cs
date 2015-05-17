@@ -39,7 +39,7 @@ namespace DesktopClient.PageControlles
             //Groups = FileReaderHelper.ReadFromFileWithDeserialize<XmlGroups>("Groups.xml");
             //Test = FileReaderHelper.ReadFromFileWithDeserialize<XmlTest>("Tests.xml");
 
-            Repository = new TestingRepository();
+            Repository = new FolderTestingRepository(folder);//new TestingRepository();
 
             //CurrentTestId = Repository.GetAllTest().FirstOrDefault().Id;
 
