@@ -313,5 +313,28 @@ namespace Db.Core.Repositoryes
                 FileReaderHelper.WriteInFileWithSerialize(item, filePath);
             }
         }
+
+
+        public void ReadFromFolder(string folderPath)
+        {
+            _tests = XmlToDbLoader.LoadTestsFromFolder(XmlDbFolder + "\\Tests");
+            _groups = XmlToDbLoader.LoadGroupsFromFolder(XmlDbFolder + "\\Groups");
+        }
+
+
+        public User AddUser(string firstName, string lastName, Guid groupId, Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId, Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public PassingTest AddPassingTest(Guid userId, Guid testId, DateTime date, Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

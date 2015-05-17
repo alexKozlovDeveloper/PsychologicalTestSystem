@@ -10,9 +10,11 @@ namespace Db.Core.Repositoryes
     public interface ITestingRepository
     {
         User AddUser(string firstName, string lastName, Guid groupId);
+        User AddUser(string firstName, string lastName, Guid groupId, Guid id);
         Question AddQuestion(string message, string firstAnswer, string secondAnswer, string thirdAnswer,
             string firstReportMessage, string secondReportMessage, string thirdReportMessage);
         Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId);
+        Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId, Guid id);
         Group AddGroup(string number);
         Test AddTest(string name, string introduction);
 
@@ -38,9 +40,11 @@ namespace Db.Core.Repositoryes
         IEnumerable<PassingTest> GetAllPassingTest();
         IEnumerable<Testing> GetTesting(Guid passingTestId);
         PassingTest AddPassingTest(Guid userId, Guid testId, DateTime date);
+        PassingTest AddPassingTest(Guid userId, Guid testId, DateTime date, Guid id);
 
         int GetQuestionsCount(Guid testId);
 
         void WriteToFolder(string folderPath);
+        void ReadFromFolder(string folderPath);
     }
 }

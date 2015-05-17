@@ -7,6 +7,9 @@ using Db.Core.Convert;
 using Db.Core.TableEntityes;
 using Db.Core.Tables;
 using Db.Core.Tables.Context;
+using System.IO;
+using Db.Core.Loading;
+using Db.Core.Helpers;
 
 namespace Db.Core.Repositoryes
 {
@@ -459,7 +462,147 @@ namespace Db.Core.Repositoryes
 
         public void WriteToFolder(string folderPath)
         {
-            throw new NotImplementedException();
+            var folder = string.Empty;
+
+            if (string.IsNullOrEmpty(folderPath) == false)
+            {
+                folder = folderPath + "\\XmlDb";
+            }
+            else
+            {
+                folder = "XmlDb";
+            }           
+
+            if (Directory.Exists(folder) == false)
+            {
+                Directory.CreateDirectory(folder);
+            }
+
+            DbToXmlLoader.SaveDbToFolder(this, folder);
+        }
+
+
+        public void ReadFromFolder(string folderPath)
+        {
+            var newUsersFolder = folderPath + "\\NewUsers";
+
+            var newUsers = Directory.GetFiles(newUsersFolder);
+
+            foreach (var item in newUsers)
+            {
+                var newUser = FileReaderHelper.ReadFromFileWithDeserialize<User>(item);
+
+                this.AddUser(newUser.FirstName, newUser.LastName, newUser.GroupId, newUser.Id);
+            }
+
+
+            var newTestingFolder = folderPath + "\\NewTesting";
+
+            var newTestings = Directory.GetFiles(newTestingFolder);
+
+            foreach (var item in newTestings)
+            {
+                var newTesting = FileReaderHelper.ReadFromFileWithDeserialize<Testing>(item);
+
+                this.AddTestingResult(newTesting.QuestionId, newTesting.ChekedAnswer, newTesting.PassingTestId, newTesting.Id);
+            }
+
+
+            var newPassingTestFolder = folderPath + "\\NewPassingTest";
+
+            var newPassingTests = Directory.GetFiles(newPassingTestFolder);
+
+            foreach (var item in newPassingTests)
+            {
+                var newPassingTest = FileReaderHelper.ReadFromFileWithDeserialize<PassingTest>(item);
+
+                this.AddPassingTest(newPassingTest.UserId, newPassingTest.TestId, newPassingTest.Date, newPassingTest.Id);
+            }
+        }
+
+
+        public User AddUser(string firstName, string lastName, Guid groupId, Guid id)
+        {
+            using (var db = new CoreDbContextV7())
+            {
+                foreach (var item in db.Users)
+                {
+                    if (item.Id == id)
+                    {
+                        return null;
+                    }
+                }
+
+                var user = new UserT()
+                {
+                    Id = id,
+                    FirstName = firstName,
+                    LastName = lastName,
+                    GroupId = groupId
+                };
+
+                db.Users.Add(user);
+
+                db.SaveChanges();
+
+                return DbConverter.GetUser(user);
+            }
+        }
+
+        public Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId, Guid id)
+        {
+            using (var db = new CoreDbContextV7())
+            {
+                foreach (var item in db.Testing)
+                {
+                    if (item.Id == id)
+                    {
+                        return null;
+                    }
+                }
+
+                var testing = new TestingT()
+                {
+                    Id = id,
+                    QuestionId = questionId,
+                    ChekedAnswer = checedAnswer,
+                    PassingTestId = passingTestId
+                };
+
+                db.Testing.Add(testing);
+
+                db.SaveChanges();
+
+                return DbConverter.GetTesting(testing);
+            }
+        }
+
+        public PassingTest AddPassingTest(Guid userId, Guid testId, DateTime date, Guid id)
+        {
+            using (var db = new CoreDbContextV7())
+            {
+                foreach (var item in db.PassingsTest)
+                {
+                    if (item.Id == id)
+                    {
+                        return null;
+                    }
+                }
+
+                var passingTest = new PassingTestT()
+                {
+                    Id = id,
+                    UserId = userId,
+                    TestId = testId,
+                    Date = date
+                };
+
+                db.PassingsTest.Add(passingTest);
+
+                db.SaveChanges();
+
+                return DbConverter.GetPassingTest(passingTest);
+            }
         }
     }
 }

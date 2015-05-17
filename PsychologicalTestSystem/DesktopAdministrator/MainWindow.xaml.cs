@@ -292,14 +292,12 @@ namespace DesktopAdministrator
 
         private void ButtonWriteDbToXml_Click(object sender, RoutedEventArgs e)
         {
-            var folder = "XmlDb";
+            _repository.WriteToFolder("");
+        }
 
-            if (Directory.Exists(folder) == false)
-            {
-                Directory.CreateDirectory(folder);
-            }
-
-            DbToXmlLoader.SaveDbToFolder(_repository, folder);
+        private void ButtonReadFromXml_Click(object sender, RoutedEventArgs e)
+        {
+            _repository.ReadFromFolder(@"C:\Users\Алексей\Documents\PsychologicalTestSystem\PsychologicalTestSystem\DesktopClient\bin\Debug\Xml");
         }
     }
 }
