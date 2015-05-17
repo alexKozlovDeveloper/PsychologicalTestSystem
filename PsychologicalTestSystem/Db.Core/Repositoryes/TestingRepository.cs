@@ -455,5 +455,11 @@ namespace Db.Core.Repositoryes
 
             return res;
         }
+
+
+        public void WriteToFolder(string folderPath)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

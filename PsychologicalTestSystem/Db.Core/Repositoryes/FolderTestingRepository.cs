@@ -1,7 +1,9 @@
-﻿using Db.Core.Loading;
+﻿using Db.Core.Helpers;
+using Db.Core.Loading;
 using Db.Core.TableEntityes;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -260,6 +262,56 @@ namespace Db.Core.Repositoryes
         public int GetQuestionsCount(Guid testId)
         {
             throw new NotImplementedException();
+        }
+
+
+        public void WriteToFolder(string folderPath)
+        {
+            var newUserPath = folderPath + @"\NewUsers";
+
+            if (Directory.Exists(newUserPath) == false)
+            {
+                Directory.CreateDirectory(newUserPath);
+            }
+
+            foreach (var item in _newUsers)
+            {
+                var filePath = newUserPath + @"\" + item.Id + ".xml";
+
+                FileReaderHelper.WriteInFileWithSerialize(item, filePath);            
+            }
+
+
+
+            var newPassingTestPath = folderPath + @"\NewPassingTest";
+
+            if (Directory.Exists(newPassingTestPath) == false)
+            {
+                Directory.CreateDirectory(newPassingTestPath);
+            }
+
+            foreach (var item in _newPassingTests)
+            {
+                var filePath = newPassingTestPath + @"\" + item.Id + ".xml";
+
+                FileReaderHelper.WriteInFileWithSerialize(item, filePath);
+            }
+
+
+
+            var newTestingPath = folderPath + @"\NewTesting";
+
+            if (Directory.Exists(newTestingPath) == false)
+            {
+                Directory.CreateDirectory(newTestingPath);
+            }
+
+            foreach (var item in _newTesting)
+            {
+                var filePath = newTestingPath + @"\" + item.Id + ".xml";
+
+                FileReaderHelper.WriteInFileWithSerialize(item, filePath);
+            }
         }
     }
 }

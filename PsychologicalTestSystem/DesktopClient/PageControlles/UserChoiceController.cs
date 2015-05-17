@@ -8,6 +8,7 @@ using Db.Core.Loading;
 using Db.Core.TableEntityes;
 using DesktopClient.Conf;
 using DesktopClient.Pages;
+using System.IO;
 
 namespace DesktopClient.PageControlles
 {
@@ -39,6 +40,17 @@ namespace DesktopClient.PageControlles
             _controllerPage.ButtonRegistration.Click += ButtonRegistration_Click;
             _controllerPage.ButtonContinue.Click += ButtonContinue_Click;
             _controllerPage.ButtonExit.Click += ButtonExit_Click;
+            _controllerPage.ButtonWriteInFolder.Click += ButtonWriteInFolder_Click;
+        }
+
+        void ButtonWriteInFolder_Click(object sender, RoutedEventArgs e)
+        {
+            if (Directory.Exists("Xml") == false)
+            {
+                Directory.CreateDirectory("Xml");
+            }
+
+            _controller.Repository.WriteToFolder("Xml");
         }
 
         void ButtonExit_Click(object sender, RoutedEventArgs e)

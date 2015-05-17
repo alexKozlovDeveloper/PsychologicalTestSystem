@@ -40,5 +40,7 @@ namespace Db.Core.Repositoryes
         PassingTest AddPassingTest(Guid userId, Guid testId, DateTime date);
 
         int GetQuestionsCount(Guid testId);
+
+        void WriteToFolder(string folderPath);
     }
 }
