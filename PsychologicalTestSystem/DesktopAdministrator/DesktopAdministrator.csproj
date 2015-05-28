@@ -67,6 +67,8 @@
     <Compile Include="DataGridEntityes\TestingReport.cs" />
     <Compile Include="DataGridEntityes\TestingUser.cs" />
     <Compile Include="Helpers\ConvertHelper.cs" />
+    <Compile Include="Helpers\TestingChart.cs" />
+    <Compile Include="Helpers\TestingChartItem.cs" />
     <Compile Include="Windows\AddGroupWindow.xaml.cs">
       <DependentUpon>AddGroupWindow.xaml</DependentUpon>
     </Compile>

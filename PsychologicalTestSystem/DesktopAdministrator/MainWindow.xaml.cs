@@ -41,6 +41,8 @@ namespace DesktopAdministrator
         private AddQuestionToTestWindow _addQuestionToTestWindow;
         private ShowTestingDetailsWindow _showTestingDetailsWindow;
 
+        private TestingChart _chart;
+
         private List<AvailableGroups> entity;
 
         public MainWindow()
@@ -51,6 +53,33 @@ namespace DesktopAdministrator
             _repository = new TestingRepository();
 
             InitWindowElements();
+
+            _chart = new TestingChart(GridStatistic);
+
+
+            var count = 75;
+
+            var rnd = new Random();
+
+            _chart.AddItem(new TestingChartItem { AveragePercent = 0, Number = 0, HighPercent = 0 });
+            _chart.AddItem(new TestingChartItem { AveragePercent = 1, Number = 0, HighPercent = 0 });
+            _chart.AddItem(new TestingChartItem { AveragePercent = 2, Number = 0, HighPercent = 0 });
+            _chart.AddItem(new TestingChartItem { AveragePercent = 3, Number = 0, HighPercent = 0 });
+            _chart.AddItem(new TestingChartItem { AveragePercent = 4, Number = 0, HighPercent = 0 });
+            _chart.AddItem(new TestingChartItem { AveragePercent = 5, Number = 0, HighPercent = 0 });
+            _chart.AddItem(new TestingChartItem { AveragePercent = 100, Number = 0, HighPercent = 100 });
+
+            for (int i = 0; i < count; i++)
+            {
+                var t = new TestingChartItem
+                {
+                    AveragePercent = rnd.Next(0, 100),
+                    HighPercent = rnd.Next(0, 100),
+                    Number = i
+                };
+
+                _chart.AddItem(t);
+            }
         }
 
         private void InitWindowElements()
