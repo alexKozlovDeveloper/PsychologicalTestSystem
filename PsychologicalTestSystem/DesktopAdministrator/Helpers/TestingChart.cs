@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Db.Core.TableEntityes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

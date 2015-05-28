@@ -46,5 +46,7 @@ namespace Db.Core.Repositoryes
 
         void WriteToFolder(string folderPath);
         void ReadFromFolder(string folderPath);
+
+        List<TestingChartItem> GetTestStatistics(Guid testId, List<Guid> groups);
     }
 }

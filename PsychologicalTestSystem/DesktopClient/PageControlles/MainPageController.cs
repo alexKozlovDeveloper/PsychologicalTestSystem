@@ -51,8 +51,9 @@ namespace DesktopClient.PageControlles
             _userRegistrationController.SetupToWindow();
         }
 
-        public void GoToTestResultPage()
+        public void GoToTestResultPage(List<string> report)
         {
+            _userTestResultController.Report = report;
             _userTestResultController.SetupToWindow();
         }
 

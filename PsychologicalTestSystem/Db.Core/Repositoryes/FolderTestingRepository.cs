@@ -337,5 +337,11 @@ namespace Db.Core.Repositoryes
         {
             throw new NotImplementedException();
         }
+
+
+        public List<TestingChartItem> GetTestStatistics(Guid testId, List<Guid> groups)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

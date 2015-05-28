@@ -8,8 +8,9 @@
 	Title="UserTestResult">
 
     <Grid>
-        <Label Name="Label_ResultInfo" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="241" Width="480"/>
+
 
         <Button Name="Button_Exit" Content="Завершить" HorizontalAlignment="Left" Margin="196,256,0,0" VerticalAlignment="Top" Width="105" Height="34"/>
+        <TextBox Name="Label_ResultInfo" HorizontalAlignment="Left" Height="241" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="480"/>
     </Grid>
 </Page>

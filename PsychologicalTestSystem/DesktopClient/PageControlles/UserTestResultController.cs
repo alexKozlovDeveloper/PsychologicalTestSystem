@@ -27,6 +27,8 @@ namespace DesktopClient.PageControlles
             get { return _controllerWindow; }
         }
 
+        public List<string> Report { get; set; }
+
         public UserTestResultController(Window window, MainPageController controller)
         {
             _controllerWindow = window;
@@ -48,7 +50,14 @@ namespace DesktopClient.PageControlles
         {
             _controllerWindow.Content = _controllerPage;
 
-            //_controllerPage.Label_ResultInfo.Content = _controller.Test.GetReport();
+            var str = string.Empty;
+
+            foreach (var item in Report)
+            {
+                str += item + Environment.NewLine;
+            }
+
+            _controllerPage.Label_ResultInfo.Text = "Отчет теста:" + Environment.NewLine + str;//_controller.Test.GetReport();
         }
     }
 }

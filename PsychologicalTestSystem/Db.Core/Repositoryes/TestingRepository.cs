@@ -589,5 +589,10 @@ namespace Db.Core.Repositoryes
                 return DbConverter.GetPassingTest(passingTest);
             }
         }
+
+        public List<TestingChartItem> GetTestStatistics(Guid testId, List<Guid> groups)
+        {
+            return new List<TestingChartItem>();
+        }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesktopAdministrator.Helpers
+namespace Db.Core.TableEntityes
 {
     public class TestingChartItem
     {

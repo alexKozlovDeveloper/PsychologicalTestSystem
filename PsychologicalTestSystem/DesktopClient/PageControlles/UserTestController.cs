@@ -19,6 +19,8 @@ namespace DesktopClient.PageControlles
 
         private int CurrentQuestion;
 
+        private List<string> report;
+
         public UserTest ControllerPage
         {
             get { return _controllerPage; }
@@ -41,6 +43,8 @@ namespace DesktopClient.PageControlles
             _controllerPage.Button_Yes.Click += Button_Yes_Click;
 
             CurrentQuestion = 0;
+
+            report = new List<string>();
         }
 
         void Button_Yes_Click(object sender, RoutedEventArgs e)
@@ -49,7 +53,7 @@ namespace DesktopClient.PageControlles
 
             if (IsLast())
             {
-                _controller.GoToTestResultPage();
+                _controller.GoToTestResultPage(report);
             }
             else
             {
@@ -65,7 +69,7 @@ namespace DesktopClient.PageControlles
 
             if (IsLast())
             {
-                _controller.GoToTestResultPage();
+                _controller.GoToTestResultPage(report);
             }
             else
             {
@@ -81,7 +85,7 @@ namespace DesktopClient.PageControlles
 
             if (IsLast())
             {
-                _controller.GoToTestResultPage();
+                _controller.GoToTestResultPage(report);
             }
             else
             {
@@ -95,12 +99,18 @@ namespace DesktopClient.PageControlles
         {
             var ques = GetCurrentQuestion();
 
+            var reportMes = answerNumber == 1 ? ques.FirstReportMessage : answerNumber == 2 ? ques.SecondReportMessage : ques.ThirdReportMessage;
+
+            report.Add(reportMes);
+
             _controller.Repository.AddTestingResult(ques.Id, answerNumber, AppConfig.CurrentPassingTest.Id);
         }
 
         public void SetupToWindow()
         {
             _controllerWindow.Content = _controllerPage;
+
+            CurrentQuestion = 0;
 
             Init();
         }

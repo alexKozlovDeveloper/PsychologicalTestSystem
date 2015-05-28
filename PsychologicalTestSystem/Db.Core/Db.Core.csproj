@@ -68,6 +68,7 @@
     <Compile Include="TableEntityes\QuestionToTest.cs" />
     <Compile Include="TableEntityes\Test.cs" />
     <Compile Include="TableEntityes\Testing.cs" />
+    <Compile Include="TableEntityes\TestingChartItem.cs" />
     <Compile Include="TableEntityes\User.cs" />
     <Compile Include="Tables\AvailableTestToGroupT.cs" />
     <Compile Include="Tables\Context\CoreDbContext.cs" />
