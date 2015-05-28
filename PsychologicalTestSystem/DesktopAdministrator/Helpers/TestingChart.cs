@@ -62,47 +62,36 @@ namespace DesktopAdministrator.Helpers
 
         public void AddItem(TestingChartItem item)
         {
-            //var grid = new Grid();
-
-            //grid.Width = _itemWidth;
-            //grid.Height = _itemHeight;
-
-            //grid.Margin = new Thickness(10, _itemCount * _itemHeight + 5, 0, 0);
-
             var label = new Label();
 
             label.Content = item.Number;
             label.Margin = new Thickness(285, 22 + _itemCount * _itemHeight, 0, 0);
 
-            var labelVal = new Label();
+            var labelVal1 = new Label();
 
-            labelVal.Content = item.AveragePercent + " %";
-            labelVal.Margin = new Thickness(15, 22 + _itemCount * _itemHeight, 0, 0);
+            labelVal1.Content = item.AveragePercent + " %";
+            labelVal1.Margin = new Thickness(15, 22 + _itemCount * _itemHeight, 0, 0);
+
+            var labelVal2 = new Label();
+
+            labelVal2.Content = item.HighPercent + " %";
+            labelVal2.Margin = new Thickness(560, 22 + _itemCount * _itemHeight, 0, 0);
 
             var rec1 = new Rectangle();
 
-            //rec1.Height = 10;
-            //rec1.Width = 10;//item.AveragePercent * 2;
-
-            //rec1.Margin = new Thickness(10 + 200 - item.AveragePercent * 2, 
-            //    20 + _itemCount * _itemHeight - 400, 
-            //    90, 
-            //    0);
-
             rec1.Margin = new Thickness(71 + 200 - item.AveragePercent * 2, 30 + _itemCount * _itemHeight, _grid.Width - 270, _grid.Height - (30 + _itemCount * _itemHeight) - 10);
+            rec1.Fill = new SolidColorBrush(System.Windows.Media.Colors.LightSeaGreen);
 
-            rec1.Fill = new SolidColorBrush(System.Windows.Media.Colors.DarkOrange);
+            var rec2 = new Rectangle();
 
+            rec2.Margin = new Thickness(330, 30 + _itemCount * _itemHeight, _grid.Width - 330 - item.HighPercent * 2, _grid.Height - (30 + _itemCount * _itemHeight) - 10);
+            rec2.Fill = new SolidColorBrush(System.Windows.Media.Colors.DarkOrange);
 
-
-            //grid.Children.Add(rec1);
-            //grid.Children.Add(label);
-
-
-            //_grid.Children.Add(grid);
             _grid.Children.Add(rec1);
+            _grid.Children.Add(rec2);
             _grid.Children.Add(label);
-            _grid.Children.Add(labelVal);
+            _grid.Children.Add(labelVal1);
+            _grid.Children.Add(labelVal2);
 
             _itemCount++;
         }

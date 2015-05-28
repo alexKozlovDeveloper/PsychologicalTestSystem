@@ -62,11 +62,11 @@ namespace DesktopAdministrator
             var rnd = new Random();
 
             _chart.AddItem(new TestingChartItem { AveragePercent = 0, Number = 0, HighPercent = 0 });
-            _chart.AddItem(new TestingChartItem { AveragePercent = 1, Number = 0, HighPercent = 0 });
-            _chart.AddItem(new TestingChartItem { AveragePercent = 2, Number = 0, HighPercent = 0 });
-            _chart.AddItem(new TestingChartItem { AveragePercent = 3, Number = 0, HighPercent = 0 });
-            _chart.AddItem(new TestingChartItem { AveragePercent = 4, Number = 0, HighPercent = 0 });
-            _chart.AddItem(new TestingChartItem { AveragePercent = 5, Number = 0, HighPercent = 0 });
+            _chart.AddItem(new TestingChartItem { AveragePercent = 1, Number = 0, HighPercent = 1 });
+            _chart.AddItem(new TestingChartItem { AveragePercent = 2, Number = 0, HighPercent = 2 });
+            _chart.AddItem(new TestingChartItem { AveragePercent = 3, Number = 0, HighPercent = 3 });
+            _chart.AddItem(new TestingChartItem { AveragePercent = 4, Number = 0, HighPercent = 4 });
+            _chart.AddItem(new TestingChartItem { AveragePercent = 5, Number = 0, HighPercent = 5 });
             _chart.AddItem(new TestingChartItem { AveragePercent = 100, Number = 0, HighPercent = 100 });
 
             for (int i = 0; i < count; i++)

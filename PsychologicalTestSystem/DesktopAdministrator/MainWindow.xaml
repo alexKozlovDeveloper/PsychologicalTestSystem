@@ -67,8 +67,9 @@
             <TabItem Header="Статистика">
                 <Grid Background="#FFE5E5E5">
                     <ScrollViewer HorizontalAlignment="Left" Height="451" Margin="10,10,0,0" VerticalAlignment="Top" Width="682">
-                        <Grid Name="GridStatistic" Height="2700" Width="680">
+                        <Grid Name="GridStatistic" Height="1830" Width="680">
                             <Rectangle Fill="Gray" HorizontalAlignment="Left" Height="14" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="591"/>
+                            <Rectangle Fill="Gray" HorizontalAlignment="Left" Height="14" Margin="10,1798,0,0" Stroke="Black" VerticalAlignment="Top" Width="591"/>
                             <Rectangle Fill="Gray" HorizontalAlignment="Left" Height="1800" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1"/>
                             <Rectangle Fill="Gray" HorizontalAlignment="Left" Height="1800" Margin="600,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1"/>
                             <Rectangle Fill="Gray" HorizontalAlignment="Left" Height="1800" Margin="280,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1"/>
