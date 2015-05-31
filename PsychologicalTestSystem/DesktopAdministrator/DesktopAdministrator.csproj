@@ -83,6 +83,12 @@
     <Compile Include="Windows\AddUserWindow.xaml.cs">
       <DependentUpon>AddUserWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\RemoveGroupWindow.xaml.cs">
+      <DependentUpon>RemoveGroupWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\RemoveStudentWindow.xaml.cs">
+      <DependentUpon>RemoveStudentWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ShowTestingDetailsWindow.xaml.cs">
       <DependentUpon>ShowTestingDetailsWindow.xaml</DependentUpon>
     </Compile>
@@ -115,6 +121,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AddUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\RemoveGroupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\RemoveStudentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

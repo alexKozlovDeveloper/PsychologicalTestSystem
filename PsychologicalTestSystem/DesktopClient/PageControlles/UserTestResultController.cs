@@ -57,7 +57,9 @@ namespace DesktopClient.PageControlles
                 str += item + Environment.NewLine;
             }
 
-            _controllerPage.Label_ResultInfo.Text = "Отчет теста:" + Environment.NewLine + str;//_controller.Test.GetReport();
+            _controllerPage.Label_ResultInfo.Text = "Отчет теста:" + Environment.NewLine + str;
+
+            _controller.Repository.WriteToFolder(ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey]);
         }
     }
 }

@@ -7,11 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsychologicalTestSystem", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopClient", "DesktopClient\DesktopClient.csproj", "{23F0C0B8-7CE3-4E6A-ABAC-88EB9385535A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLogic", "TestLogic\TestLogic.csproj", "{861935BF-44DC-4E27-954B-858A2052E544}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopAdministrator", "DesktopAdministrator\DesktopAdministrator.csproj", "{E1BC87C0-DEFC-45E7-A67C-80F141F940D2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbController", "DbController\DbController.csproj", "{408B2A0D-8CC8-49FE-BD91-42D14774EA33}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpClienLogic", "TcpClienLogic\TcpClienLogic.csproj", "{32A7EB98-3AAD-4B7F-BB5F-D06ED02D3283}"
 EndProject
@@ -35,18 +31,10 @@ Global
 		{23F0C0B8-7CE3-4E6A-ABAC-88EB9385535A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23F0C0B8-7CE3-4E6A-ABAC-88EB9385535A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23F0C0B8-7CE3-4E6A-ABAC-88EB9385535A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{861935BF-44DC-4E27-954B-858A2052E544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{861935BF-44DC-4E27-954B-858A2052E544}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{861935BF-44DC-4E27-954B-858A2052E544}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{861935BF-44DC-4E27-954B-858A2052E544}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E1BC87C0-DEFC-45E7-A67C-80F141F940D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E1BC87C0-DEFC-45E7-A67C-80F141F940D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1BC87C0-DEFC-45E7-A67C-80F141F940D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1BC87C0-DEFC-45E7-A67C-80F141F940D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{408B2A0D-8CC8-49FE-BD91-42D14774EA33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{408B2A0D-8CC8-49FE-BD91-42D14774EA33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{408B2A0D-8CC8-49FE-BD91-42D14774EA33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{408B2A0D-8CC8-49FE-BD91-42D14774EA33}.Release|Any CPU.Build.0 = Release|Any CPU
 		{32A7EB98-3AAD-4B7F-BB5F-D06ED02D3283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{32A7EB98-3AAD-4B7F-BB5F-D06ED02D3283}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32A7EB98-3AAD-4B7F-BB5F-D06ED02D3283}.Release|Any CPU.ActiveCfg = Release|Any CPU

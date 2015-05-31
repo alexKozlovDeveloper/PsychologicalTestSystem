@@ -48,5 +48,8 @@ namespace Db.Core.Repositoryes
         void ReadFromFolder(string folderPath);
 
         List<TestingChartItem> GetTestStatistics(Guid testId, List<Guid> groups);
+
+        void RemoveGroup(Guid groupId);
+        void RemoveUser(Guid userId);
     }
 }

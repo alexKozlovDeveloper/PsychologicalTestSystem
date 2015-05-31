@@ -42,13 +42,13 @@ namespace DesktopClient.PageControlles
             _controllerPage.ButtonRegistration.Click += ButtonRegistration_Click;
             _controllerPage.ButtonContinue.Click += ButtonContinue_Click;
             _controllerPage.ButtonExit.Click += ButtonExit_Click;
-            _controllerPage.ButtonWriteInFolder.Click += ButtonWriteInFolder_Click;
+            //_controllerPage.ButtonWriteInFolder.Click += ButtonWriteInFolder_Click;
         }
 
-        void ButtonWriteInFolder_Click(object sender, RoutedEventArgs e)
-        {
-            _controller.Repository.WriteToFolder(ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey]);
-        }
+        //void ButtonWriteInFolder_Click(object sender, RoutedEventArgs e)
+        //{
+        //    _controller.Repository.WriteToFolder(ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey]);
+        //}
 
         void ButtonExit_Click(object sender, RoutedEventArgs e)
         {

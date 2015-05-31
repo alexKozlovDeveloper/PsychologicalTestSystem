@@ -343,5 +343,17 @@ namespace Db.Core.Repositoryes
         {
             throw new NotImplementedException();
         }
+
+
+        public void RemoveGroup(Guid groupId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void RemoveUser(Guid userId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

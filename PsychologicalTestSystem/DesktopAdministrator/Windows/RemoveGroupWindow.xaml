@@ -1,0 +1,13 @@
+﻿<Window x:Class="DesktopAdministrator.Windows.RemoveGroupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RemoveGroupWindow" Height="180.201" Width="236.578">
+    <Grid>
+        <Label Content="Выберете группу для удаления" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Группа" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="ComboBoxGroup" HorizontalAlignment="Left" Margin="71,44,0,0" VerticalAlignment="Top" Width="149"/>
+        <Button Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Width="88" Height="27" Click="ButtonCancel_Click"/>
+        <Button Name="ButtonRemove" Content="Удалить" HorizontalAlignment="Left" Margin="132,113,0,0" VerticalAlignment="Top" Width="88" Height="27" Click="ButtonRemove_Click"/>
+
+    </Grid>
+</Window>

@@ -460,12 +460,40 @@ namespace Db.Core.Repositoryes
             return res;
         }
 
+        private GroupT GetGroupT(Guid groupId, CoreDbContextV7 db)
+        {
+            GroupT res = null;
+
+            foreach (var item in db.Groups)
+            {
+                if (item.Id == groupId)
+                {
+                    res = item;
+                }
+            }
+
+            return res;
+        }
+
+        private UserT GetUserT(Guid userId, CoreDbContextV7 db)
+        {
+            UserT res = null;
+
+            foreach (var item in db.Users)
+            {
+                if (item.Id == userId)
+                {
+                    res = item;
+                }
+            }
+
+            return res;
+        }
 
         public void WriteToFolder(string folderPath)
         {
             DbToXmlLoader.SaveDbToFolder(this, folderPath);
         }
-
 
         public void ReadFromFolder(string folderPath)
         {
@@ -504,7 +532,6 @@ namespace Db.Core.Repositoryes
                 this.AddPassingTest(newPassingTest.UserId, newPassingTest.TestId, newPassingTest.Date, newPassingTest.Id);
             }
         }
-
 
         public User AddUser(string firstName, string lastName, Guid groupId, Guid id)
         {
@@ -593,6 +620,33 @@ namespace Db.Core.Repositoryes
         public List<TestingChartItem> GetTestStatistics(Guid testId, List<Guid> groups)
         {
             return new List<TestingChartItem>();
+        }
+
+        public void RemoveGroup(Guid groupId)
+        {
+            using (var db = new CoreDbContextV7())
+            {
+                var group = GetGroupT(groupId, db);
+
+                db.Groups.Remove(group);
+
+                db.SaveChanges();
+            }
+        }
+
+
+
+
+        public void RemoveUser(Guid userId)
+        {
+            using (var db = new CoreDbContextV7())
+            {
+                var user = GetUserT(userId, db);
+
+                db.Users.Remove(user);
+
+                db.SaveChanges();
+            }
         }
     }
 }

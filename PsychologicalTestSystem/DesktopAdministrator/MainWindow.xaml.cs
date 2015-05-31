@@ -40,6 +40,8 @@ namespace DesktopAdministrator
         private AddQuestionWindow _addQuestionWindow;
         private AddQuestionToTestWindow _addQuestionToTestWindow;
         private ShowTestingDetailsWindow _showTestingDetailsWindow;
+        private RemoveStudentWindow _removeStudentWindow;
+        private RemoveGroupWindow _removeGroupWindow;
 
         private TestingChart _chart;
 
@@ -255,6 +257,12 @@ namespace DesktopAdministrator
             {
                 var user = _repository.GetUser(passingTest.UserId);
 
+                if (user == null)
+                {
+                    MessageBox.Show("Не найден пользователь с идентификатором " + passingTest.UserId);
+                    continue;
+                }
+
                 var group = _repository.GetGroup(user.GroupId);
 
                 entity.Add(new TestingUser
@@ -329,6 +337,20 @@ namespace DesktopAdministrator
         private void ButtonReadFromXml_Click(object sender, RoutedEventArgs e)
         {
             _repository.ReadFromFolder(ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey]);
+        }
+
+        private void ButtonRemoveGroup_Click(object sender, RoutedEventArgs e)
+        {
+            _removeGroupWindow = new RemoveGroupWindow(this, _repository);
+
+            _removeGroupWindow.Show();
+        }
+
+        private void ButtonRemoveStudent_Click(object sender, RoutedEventArgs e)
+        {
+            _removeStudentWindow = new RemoveStudentWindow(this, _repository);
+
+            _removeStudentWindow.Show();
         }
     }
 }

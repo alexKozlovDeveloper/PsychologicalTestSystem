@@ -13,6 +13,8 @@
                     <Button x:Name="ButtonAddGroup" Content="Добавить" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAddGroup_Click"/>
                     <Button x:Name="ButtonAddStudent" Content="Добавить" HorizontalAlignment="Left" Margin="200,37,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAddStudent_Click"/>
                     <TextBox x:Name="TextBoxStudents" HorizontalAlignment="Left" Height="393" Margin="10,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="355"/>
+                    <Button Name="ButtonRemoveGroup" Content="Удалить" HorizontalAlignment="Left" Margin="280,10,0,0" VerticalAlignment="Top" Width="75" Click="ButtonRemoveGroup_Click"/>
+                    <Button Name="ButtonRemoveStudent" Content="Удалить" HorizontalAlignment="Left" Margin="280,37,0,0" VerticalAlignment="Top" Width="75" Click="ButtonRemoveStudent_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Тесты и вопросы">

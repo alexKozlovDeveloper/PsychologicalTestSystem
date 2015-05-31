@@ -49,12 +49,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DbController\DbController.csproj">
-      <Project>{408B2A0D-8CC8-49FE-BD91-42D14774EA33}</Project>
-      <Name>DbController</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
