@@ -101,7 +101,19 @@ namespace DesktopClient.PageControlles
 
             //var reportMes = answerNumber == 1 ? ques.FirstReportMessage : answerNumber == 2 ? ques.SecondReportMessage : ques.ThirdReportMessage;
 
-            //report.Add(reportMes);
+            var reportMes = string.Empty;
+
+            if (answerNumber == ques.StrongProblemNumber)
+            {
+                reportMes = ques.FirstReportMessageToUser;
+            }
+
+            if (answerNumber == ques.StrongProblemNumber)
+            {
+                reportMes = ques.SecondReportMessageToUser;
+            }
+
+            report.Add(reportMes);
 
             _controller.Repository.AddTestingResult(ques.Id, answerNumber, AppConfig.CurrentPassingTest.Id);
         }
@@ -129,6 +141,7 @@ namespace DesktopClient.PageControlles
         private Question GetCurrentQuestion()
         {
             var questions = _controller.Repository.GetQuestions(AppConfig.SelectedTest.Id).ToList();
+            questions.Sort();
             return questions[CurrentQuestion];
         }
 
