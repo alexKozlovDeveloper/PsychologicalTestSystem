@@ -24,5 +24,7 @@ namespace DesktopAdministrator.DataGridEntityes
 
         public int StrongProblemNumber { get; set; }
         public int WeakProblemNumber { get; set; }
+
+        public int SortIndex { get; set; }
     }
 }

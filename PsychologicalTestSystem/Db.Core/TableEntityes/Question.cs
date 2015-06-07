@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Db.Core.TableEntityes
 {
-    public class Question
+    public class Question : IComparable
     {
         public Guid Id { get; set; }
 
@@ -25,6 +25,8 @@ namespace Db.Core.TableEntityes
         public int StrongProblemNumber { get; set; }
         public int WeakProblemNumber { get; set; }
 
+        public int SortIndex { get; set; }
+
         public override string ToString()
         {
             if (Message.Length < 20)
@@ -40,6 +42,15 @@ namespace Db.Core.TableEntityes
             }
 
             res += "...";
+
+            return res;
+        }
+        
+        public int CompareTo(object obj)
+        {
+            Question q = obj as Question;
+
+            var res =  this.SortIndex.CompareTo(q.SortIndex);
 
             return res;
         }

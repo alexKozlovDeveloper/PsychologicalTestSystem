@@ -52,9 +52,11 @@ namespace DesktopAdministrator.Windows
             var problemNumber = ComboBoxProblemNumber.SelectedIndex + 1;
             var weakProblemNumber = ComboBoxWeakProblemNumber.SelectedIndex + 1;
 
+            var sortIndex = Int32.Parse(TextBoxSortIndex.Text);
+
             _repository.AddQuestion(question, answer1, answer2, answer3,
                 report1ToUser, report2ToUser, report1ToAdmin, report2ToAdmin,
-                problemNumber, weakProblemNumber);
+                problemNumber, weakProblemNumber, sortIndex);
 
             this.Hide();
         }

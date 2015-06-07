@@ -34,6 +34,8 @@
             <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="137.6" IsSelected="false"/>
             <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="137.6" IsSelected="false"/>
         </ComboBox>
+        <Label Content="Номер вопроса" HorizontalAlignment="Left" Margin="167,295,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="TextBoxSortIndex" HorizontalAlignment="Left" Height="23" Margin="268,297,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

@@ -42,6 +42,8 @@ namespace DesktopAdministrator
         private ShowTestingDetailsWindow _showTestingDetailsWindow;
         private RemoveStudentWindow _removeStudentWindow;
         private RemoveGroupWindow _removeGroupWindow;
+        private RemoveQuestionFromTestWindow _removeQuestionFromTestWindow;
+        private RemoveTestWindow _removeTestWindow;
 
         private TestingChart _chart;
 
@@ -169,17 +171,19 @@ namespace DesktopAdministrator
 
         private void SetQuestionTable(Test test)
         {
-            IEnumerable<Question> questions = new List<Question>();
+            List<Question> questions = new List<Question>();
 
             if (test.Name == "All")
             {
-                questions = _repository.GetAllQuestion();
+                questions = _repository.GetAllQuestion().ToList();
             }
             else
             {
-                questions = _repository.GetQuestions(test.Id);
+                questions = _repository.GetQuestions(test.Id).ToList();
             }
-            
+
+            questions.Sort();
+
             var src = ConvertHelper.ConvertCollection<QuestionEntity, Question>(questions);
 
             DataGridQuestion.ItemsSource = src;
@@ -351,6 +355,20 @@ namespace DesktopAdministrator
             _removeStudentWindow = new RemoveStudentWindow(this, _repository);
 
             _removeStudentWindow.Show();
+        }
+
+        private void ButtonRemoveTest_Click(object sender, RoutedEventArgs e)
+        {
+            _removeTestWindow = new RemoveTestWindow(this, _repository);
+
+            _removeTestWindow.Show();
+        }
+
+        private void ButtonRemoveQuestionFromTest_Click(object sender, RoutedEventArgs e)
+        {
+            _removeQuestionFromTestWindow = new RemoveQuestionFromTestWindow(this, _repository);
+
+            _removeQuestionFromTestWindow.Show();
         }
     }
 }

@@ -352,7 +352,31 @@ namespace Db.Core.Repositoryes
         }
 
 
-        public Question AddQuestion(string message, string firstAnswer, string secondAnswer, string thirdAnswer, string firstReportMessageToUser, string secondReportMessageToUser, string firstReportMessageToAdmin, string secondReportMessageToAdmin, int problemNumber, int weakProblemNumber)
+        public Question AddQuestion(string message, string firstAnswer, string secondAnswer, string thirdAnswer, string firstReportMessageToUser, string secondReportMessageToUser, string firstReportMessageToAdmin, string secondReportMessageToAdmin, int problemNumber, int weakProblemNumber, int sortIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void RemoveTest(Guid testId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public IEnumerable<QuestionToTest> GetAllQuestionToTest()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void RemoveQuestionToTest(Guid questionToTestId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public QuestionToTest GetQuestionToTest(Guid id)
         {
             throw new NotImplementedException();
         }

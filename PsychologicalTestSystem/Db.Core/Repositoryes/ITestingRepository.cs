@@ -14,7 +14,7 @@ namespace Db.Core.Repositoryes
         Question AddQuestion(string message, string firstAnswer, string secondAnswer, string thirdAnswer,
             string firstReportMessageToUser, string secondReportMessageToUser,
             string firstReportMessageToAdmin, string secondReportMessageToAdmin, 
-            int problemNumber, int weakProblemNumber);
+            int problemNumber, int weakProblemNumber, int sortIndex);
         Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId);
         Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId, Guid id);
         Group AddGroup(string number);
@@ -27,12 +27,14 @@ namespace Db.Core.Repositoryes
         User GetUser(Guid id);
         Group GetGroup(Guid id);
         Test GetTest(Guid id);
+        QuestionToTest GetQuestionToTest(Guid id);
 
         IEnumerable<User> GetUserByGroup(Guid groupId);
 
         IEnumerable<Group> GetAllGroup();
         IEnumerable<Test> GetAllTest();
         IEnumerable<Question> GetAllQuestion();
+        IEnumerable<QuestionToTest> GetAllQuestionToTest();
 
         IEnumerable<Question> GetQuestions(Guid testId);
 
@@ -53,5 +55,7 @@ namespace Db.Core.Repositoryes
 
         void RemoveGroup(Guid groupId);
         void RemoveUser(Guid userId);
+        void RemoveTest(Guid testId);
+        void RemoveQuestionToTest(Guid questionToTestId);
     }
 }

@@ -64,6 +64,7 @@
     </ApplicationDefinition>
     <Compile Include="DataGridEntityes\AvailableGroups.cs" />
     <Compile Include="DataGridEntityes\QuestionEntity.cs" />
+    <Compile Include="DataGridEntityes\QuestionToTestInfo.cs" />
     <Compile Include="DataGridEntityes\TestingReport.cs" />
     <Compile Include="DataGridEntityes\TestingUser.cs" />
     <Compile Include="Helpers\ConvertHelper.cs" />
@@ -86,8 +87,14 @@
     <Compile Include="Windows\RemoveGroupWindow.xaml.cs">
       <DependentUpon>RemoveGroupWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\RemoveQuestionFromTestWindow.xaml.cs">
+      <DependentUpon>RemoveQuestionFromTestWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\RemoveStudentWindow.xaml.cs">
       <DependentUpon>RemoveStudentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\RemoveTestWindow.xaml.cs">
+      <DependentUpon>RemoveTestWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\ShowTestingDetailsWindow.xaml.cs">
       <DependentUpon>ShowTestingDetailsWindow.xaml</DependentUpon>
@@ -128,7 +135,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\RemoveQuestionFromTestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\RemoveStudentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\RemoveTestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

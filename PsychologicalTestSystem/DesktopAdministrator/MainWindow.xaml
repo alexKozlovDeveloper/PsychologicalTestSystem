@@ -21,7 +21,7 @@
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="DataGridQuestion" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Height="390" Width="899" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Вопрос" Binding="{Binding Path=Message}" Width="300"/>
+                            <DataGridTextColumn Header="Вопрос" Binding="{Binding Path=Message}" Width="250"/>
                             <DataGridTextColumn Header="Ответ 1" Binding="{Binding Path=FirstAnswer}" Width="70"/>
                             <DataGridTextColumn Header="Ответ 2" Binding="{Binding Path=SecondAnswer}" Width="70"/>
                             <DataGridTextColumn Header="Ответ 3" Binding="{Binding Path=ThirdAnswer}" Width="70"/>
@@ -31,6 +31,7 @@
                             <DataGridTextColumn Header="Отчет 2 Пр" Binding="{Binding Path=SecondReportMessageToAdmin}" Width="70"/>
                             <DataGridTextColumn Header="Сильная" Binding="{Binding Path=StrongProblemNumber}" Width="55"/>
                             <DataGridTextColumn Header="Слабая" Binding="{Binding Path=WeakProblemNumber}" Width="55"/>
+                            <DataGridTextColumn Header="Номер" Binding="{Binding Path=SortIndex}" Width="50"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <ComboBox x:Name="ComboBoxTests" HorizontalAlignment="Left" Margin="59,12,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxTests_SelectionChanged"/>
@@ -38,7 +39,10 @@
                     <Button x:Name="ButtonAddTest" Content="Добавить" HorizontalAlignment="Left" Margin="184,12,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAddTest_Click" Height="22"/>
                     <Label Content="Вопросы из данного теста" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
                     <Button x:Name="ButtonAddQuestion" Content="Создать вопрос" HorizontalAlignment="Left" Margin="184,43,0,0" VerticalAlignment="Top" Width="117" Click="ButtonAddQuestion_Click"/>
-                    <Button x:Name="ButtonAddQuestionToTest" Content="Добавить вопрос к тесту" HorizontalAlignment="Left" Margin="306,43,0,0" VerticalAlignment="Top" Width="180" Click="ButtonAddQuestionToTest_Click"/>
+                    <Button x:Name="ButtonAddQuestionToTest" Content="Добавить вопрос к тесту" HorizontalAlignment="Left" Margin="344,12,0,0" VerticalAlignment="Top" Width="180" Click="ButtonAddQuestionToTest_Click" Height="22"/>
+                    <Button Name="ButtonRemoveTest" Content="Удалить тест" HorizontalAlignment="Left" Margin="264,12,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="ButtonRemoveTest_Click"/>
+                    <Button Name="ButtonRemoveQuestionFromTest" Content="Удалить вопрос из теста" HorizontalAlignment="Left" Margin="529,12,0,0" VerticalAlignment="Top" Width="178" Height="22" Click="ButtonRemoveQuestionFromTest_Click"/>
+                    <Button Name="ButtonRemoveQuestion" Content="Удалить вопрос" HorizontalAlignment="Left" Margin="306,43,0,0" VerticalAlignment="Top" Width="117" Click="ButtonAddQuestion_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Тестирование">
