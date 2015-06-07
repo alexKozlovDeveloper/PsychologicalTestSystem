@@ -49,11 +49,6 @@ namespace Db.Core.Repositoryes
             return user;
         }
 
-        public Question AddQuestion(string message, string firstAnswer, string secondAnswer, string thirdAnswer, string firstReportMessage, string secondReportMessage, string thirdReportMessage)
-        {
-            throw new NotImplementedException();
-        }
-
         public Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId)
         {
             var t = new Testing 
@@ -352,6 +347,12 @@ namespace Db.Core.Repositoryes
 
 
         public void RemoveUser(Guid userId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public Question AddQuestion(string message, string firstAnswer, string secondAnswer, string thirdAnswer, string firstReportMessageToUser, string secondReportMessageToUser, string firstReportMessageToAdmin, string secondReportMessageToAdmin, int problemNumber, int weakProblemNumber)
         {
             throw new NotImplementedException();
         }

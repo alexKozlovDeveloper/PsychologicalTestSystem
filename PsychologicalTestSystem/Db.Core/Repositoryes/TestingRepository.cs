@@ -18,7 +18,7 @@ namespace Db.Core.Repositoryes
     {
         public User AddUser(string firstName, string lastName, Guid groupId)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var user = new UserT()
                 {
@@ -36,10 +36,12 @@ namespace Db.Core.Repositoryes
             }
         }
 
-        public Question AddQuestion(string message, string firstAnswer, string secondAnswer,
-            string thirdAnswer, string firstReportMessage, string secondReportMessage, string thirdReportMessage)
+        public Question AddQuestion(string message, string firstAnswer, string secondAnswer, string thirdAnswer,
+            string firstReportMessageToUser, string secondReportMessageToUser,
+            string firstReportMessageToAdmin, string secondReportMessageToAdmin,
+            int problemNumber, int weakProblemNumber)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var question = new QuestionT()
                 {
@@ -47,10 +49,13 @@ namespace Db.Core.Repositoryes
                     FirstAnswer = firstAnswer,
                     SecondAnswer = secondAnswer,
                     ThirdAnswer = thirdAnswer,
-                    FirstReportMessage = firstReportMessage,
-                    SecondReportMessage = secondReportMessage,
-                    ThirdReportMessage = thirdReportMessage,
-                    Message = message
+                    FirstReportMessageToUser = firstReportMessageToUser,
+                    SecondReportMessageToUser = secondReportMessageToUser,
+                    FirstReportMessageToAdmin = firstReportMessageToAdmin,
+                    SecondReportMessageToAdmin = secondReportMessageToAdmin,
+                    Message = message,
+                    StrongProblemNumber = problemNumber,
+                    WeakProblemNumber = weakProblemNumber
                 };
 
                 db.Questions.Add(question);
@@ -63,7 +68,7 @@ namespace Db.Core.Repositoryes
 
         public Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var testing = new TestingT()
                 {
@@ -83,7 +88,7 @@ namespace Db.Core.Repositoryes
 
         public Group AddGroup(string number)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var group = new GroupT()
                 {
@@ -101,7 +106,7 @@ namespace Db.Core.Repositoryes
 
         public Test AddTest(string name, string introduction)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var test = new TestT()
                 {
@@ -120,7 +125,7 @@ namespace Db.Core.Repositoryes
 
         public void AddQuestionToTest(Guid questionId, Guid testId)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var qt = new QuestionToTestT
                 {
@@ -137,7 +142,7 @@ namespace Db.Core.Repositoryes
 
         public User GetUser(Guid id)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 UserT res = null;
 
@@ -155,7 +160,7 @@ namespace Db.Core.Repositoryes
 
         public Question GetQuestion(Guid id)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 QuestionT res = null;
 
@@ -173,7 +178,7 @@ namespace Db.Core.Repositoryes
 
         public Testing GetTestingResult(Guid id)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 TestingT res = null;
 
@@ -191,7 +196,7 @@ namespace Db.Core.Repositoryes
 
         public Group GetGroup(Guid id)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 GroupT res = null;
 
@@ -209,7 +214,7 @@ namespace Db.Core.Repositoryes
 
         public Test GetTest(Guid id)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 TestT res = null;
 
@@ -228,7 +233,7 @@ namespace Db.Core.Repositoryes
 
         public IEnumerable<User> GetUserByGroup(Guid groupId)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var result = new List<User>();
 
@@ -246,7 +251,7 @@ namespace Db.Core.Repositoryes
 
         public IEnumerable<Question> GetQuestionByTest(Guid testId)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var result = new List<Question>();
 
@@ -265,7 +270,7 @@ namespace Db.Core.Repositoryes
 
         public IEnumerable<Group> GetAllGroup()
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var res = new List<Group>();
 
@@ -280,7 +285,7 @@ namespace Db.Core.Repositoryes
 
         public IEnumerable<Test> GetAllTest()
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var res = new List<Test>();
 
@@ -295,7 +300,7 @@ namespace Db.Core.Repositoryes
 
         public IEnumerable<Question> GetAllQuestion()
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var res = new List<Question>();
 
@@ -310,7 +315,7 @@ namespace Db.Core.Repositoryes
 
         public IEnumerable<Question> GetQuestions(Guid testId)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var res = new List<Question>();
  
@@ -328,7 +333,7 @@ namespace Db.Core.Repositoryes
 
         public bool IsAvailableGroup(Guid testId, Guid groupId)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var res = false;
 
@@ -346,7 +351,7 @@ namespace Db.Core.Repositoryes
 
         public IEnumerable<Testing> GetAllTesting()
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var res = new List<Testing>();
 
@@ -361,7 +366,7 @@ namespace Db.Core.Repositoryes
 
         public IEnumerable<PassingTest> GetAllPassingTest()
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var res = new List<PassingTest>();
 
@@ -376,7 +381,7 @@ namespace Db.Core.Repositoryes
 
         public IEnumerable<Testing> GetTesting(Guid passingTestId)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var res = new List<Testing>();
 
@@ -394,7 +399,7 @@ namespace Db.Core.Repositoryes
 
         public PassingTest AddPassingTest(Guid userId, Guid testId, DateTime date)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var passingTest = new PassingTestT()
                 {
@@ -414,7 +419,7 @@ namespace Db.Core.Repositoryes
 
         public int GetQuestionsCount(Guid testId)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var count = 0;
 
@@ -430,7 +435,7 @@ namespace Db.Core.Repositoryes
             }  
         }
 
-        private TestT GetTestT(Guid testId, CoreDbContextV7 db)
+        private TestT GetTestT(Guid testId, CoreDbContextV8 db)
         {
             TestT res = null;
 
@@ -445,7 +450,7 @@ namespace Db.Core.Repositoryes
             return res;
         }
 
-        private QuestionT GetQuestionT(Guid questionId, CoreDbContextV7 db)
+        private QuestionT GetQuestionT(Guid questionId, CoreDbContextV8 db)
         {
             QuestionT res = null;
 
@@ -460,7 +465,7 @@ namespace Db.Core.Repositoryes
             return res;
         }
 
-        private GroupT GetGroupT(Guid groupId, CoreDbContextV7 db)
+        private GroupT GetGroupT(Guid groupId, CoreDbContextV8 db)
         {
             GroupT res = null;
 
@@ -475,7 +480,7 @@ namespace Db.Core.Repositoryes
             return res;
         }
 
-        private UserT GetUserT(Guid userId, CoreDbContextV7 db)
+        private UserT GetUserT(Guid userId, CoreDbContextV8 db)
         {
             UserT res = null;
 
@@ -535,7 +540,7 @@ namespace Db.Core.Repositoryes
 
         public User AddUser(string firstName, string lastName, Guid groupId, Guid id)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 foreach (var item in db.Users)
                 {
@@ -563,7 +568,7 @@ namespace Db.Core.Repositoryes
 
         public Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId, Guid id)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 foreach (var item in db.Testing)
                 {
@@ -591,7 +596,7 @@ namespace Db.Core.Repositoryes
 
         public PassingTest AddPassingTest(Guid userId, Guid testId, DateTime date, Guid id)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 foreach (var item in db.PassingsTest)
                 {
@@ -624,7 +629,7 @@ namespace Db.Core.Repositoryes
 
         public void RemoveGroup(Guid groupId)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var group = GetGroupT(groupId, db);
 
@@ -639,7 +644,7 @@ namespace Db.Core.Repositoryes
 
         public void RemoveUser(Guid userId)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var user = GetUserT(userId, db);
 

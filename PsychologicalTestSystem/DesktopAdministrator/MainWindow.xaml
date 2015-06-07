@@ -25,9 +25,12 @@
                             <DataGridTextColumn Header="Ответ 1" Binding="{Binding Path=FirstAnswer}" Width="70"/>
                             <DataGridTextColumn Header="Ответ 2" Binding="{Binding Path=SecondAnswer}" Width="70"/>
                             <DataGridTextColumn Header="Ответ 3" Binding="{Binding Path=ThirdAnswer}" Width="70"/>
-                            <DataGridTextColumn Header="Отчет 1" Binding="{Binding Path=FirstReportMessage}" Width="125"/>
-                            <DataGridTextColumn Header="Отчет 2" Binding="{Binding Path=SecondReportMessage}" Width="125"/>
-                            <DataGridTextColumn Header="Отчет 3" Binding="{Binding Path=ThirdReportMessage}" Width="125"/>
+                            <DataGridTextColumn Header="Отчет 1 Ст" Binding="{Binding Path=FirstReportMessageToUser}" Width="70"/>
+                            <DataGridTextColumn Header="Отчет 2 Ст" Binding="{Binding Path=SecondReportMessageToUser}" Width="70"/>
+                            <DataGridTextColumn Header="Отчет 1 Пр" Binding="{Binding Path=FirstReportMessageToAdmin}" Width="70"/>
+                            <DataGridTextColumn Header="Отчет 2 Пр" Binding="{Binding Path=SecondReportMessageToAdmin}" Width="70"/>
+                            <DataGridTextColumn Header="Сильная" Binding="{Binding Path=StrongProblemNumber}" Width="55"/>
+                            <DataGridTextColumn Header="Слабая" Binding="{Binding Path=WeakProblemNumber}" Width="55"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <ComboBox x:Name="ComboBoxTests" HorizontalAlignment="Left" Margin="59,12,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxTests_SelectionChanged"/>

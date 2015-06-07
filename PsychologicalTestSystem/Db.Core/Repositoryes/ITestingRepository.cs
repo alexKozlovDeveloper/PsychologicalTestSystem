@@ -12,7 +12,9 @@ namespace Db.Core.Repositoryes
         User AddUser(string firstName, string lastName, Guid groupId);
         User AddUser(string firstName, string lastName, Guid groupId, Guid id);
         Question AddQuestion(string message, string firstAnswer, string secondAnswer, string thirdAnswer,
-            string firstReportMessage, string secondReportMessage, string thirdReportMessage);
+            string firstReportMessageToUser, string secondReportMessageToUser,
+            string firstReportMessageToAdmin, string secondReportMessageToAdmin, 
+            int problemNumber, int weakProblemNumber);
         Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId);
         Testing AddTestingResult(Guid questionId, int checedAnswer, Guid passingTestId, Guid id);
         Group AddGroup(string number);

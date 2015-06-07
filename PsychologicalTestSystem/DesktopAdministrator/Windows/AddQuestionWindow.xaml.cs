@@ -44,11 +44,17 @@ namespace DesktopAdministrator.Windows
             var answer2 = TextBoxAnswer2.Text;
             var answer3 = TextBoxAnswer3.Text;
 
-            var report1 = TextBoxReport1.Text;
-            var report2 = TextBoxReport2.Text;
-            var report3 = TextBoxReport3.Text;
+            var report1ToUser = TextBoxReportFirstReportToUser.Text;
+            var report2ToUser = TextBoxReportSecondReportToUser.Text;
+            var report1ToAdmin = TextBoxReportFirstReportToAdmin.Text;
+            var report2ToAdmin = TextBoxReportSecondReportToAdmin.Text;
 
-            _repository.AddQuestion(question, answer1, answer2, answer3, report1, report2, report3);
+            var problemNumber = ComboBoxProblemNumber.SelectedIndex + 1;
+            var weakProblemNumber = ComboBoxWeakProblemNumber.SelectedIndex + 1;
+
+            _repository.AddQuestion(question, answer1, answer2, answer3,
+                report1ToUser, report2ToUser, report1ToAdmin, report2ToAdmin,
+                problemNumber, weakProblemNumber);
 
             this.Hide();
         }

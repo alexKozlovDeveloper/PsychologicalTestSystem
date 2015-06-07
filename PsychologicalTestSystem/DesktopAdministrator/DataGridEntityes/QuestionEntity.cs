@@ -8,12 +8,21 @@ namespace DesktopAdministrator.DataGridEntityes
 {
     class QuestionEntity
     {
+        public Guid Id { get; set; }
+
         public string Message { get; set; }
+
         public string FirstAnswer { get; set; }
         public string SecondAnswer { get; set; }
         public string ThirdAnswer { get; set; }
-        public string FirstReportMessage { get; set; }
-        public string SecondReportMessage { get; set; }
-        public string ThirdReportMessage { get; set; }
+
+        public string FirstReportMessageToUser { get; set; }
+        public string SecondReportMessageToUser { get; set; }
+
+        public string FirstReportMessageToAdmin { get; set; }
+        public string SecondReportMessageToAdmin { get; set; }
+
+        public int StrongProblemNumber { get; set; }
+        public int WeakProblemNumber { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace Db.Core
     {
         static void Main(string[] args)
         {
-            using (var db = new CoreDbContextV7())
+            using (var db = new CoreDbContextV8())
             {
                 var g = new GroupT
                 {

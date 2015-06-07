@@ -50,15 +50,15 @@ namespace DesktopAdministrator.Windows
                     ? question.FirstAnswer
                     : (testingReport.ChekedAnswer == 2) ? question.SecondAnswer : question.ThirdAnswer;
 
-                var toReport = (testingReport.ChekedAnswer == 1)
-                    ? question.FirstReportMessage
-                    : (testingReport.ChekedAnswer == 2) ? question.SecondReportMessage : question.ThirdReportMessage;
+                //var toReport = (testingReport.ChekedAnswer == 1)
+                //    ? question.FirstReportMessage
+                //    : (testingReport.ChekedAnswer == 2) ? question.SecondReportMessage : question.ThirdReportMessage;
 
                 entity.Add(new TestingReport
                 {
                     Message = question.Message,
-                    Answer = answer,
-                    ToReport = toReport
+                    Answer = answer//,
+                    //ToReport = toReport
                 });
             }
 

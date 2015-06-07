@@ -99,9 +99,9 @@ namespace DesktopClient.PageControlles
         {
             var ques = GetCurrentQuestion();
 
-            var reportMes = answerNumber == 1 ? ques.FirstReportMessage : answerNumber == 2 ? ques.SecondReportMessage : ques.ThirdReportMessage;
+            //var reportMes = answerNumber == 1 ? ques.FirstReportMessage : answerNumber == 2 ? ques.SecondReportMessage : ques.ThirdReportMessage;
 
-            report.Add(reportMes);
+            //report.Add(reportMes);
 
             _controller.Repository.AddTestingResult(ques.Id, answerNumber, AppConfig.CurrentPassingTest.Id);
         }
