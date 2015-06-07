@@ -76,5 +76,17 @@ namespace DesktopClient.PageControlles
         {
             _mainWindow.Close();
         }
+
+        public void ConnectToLocalDb()
+        {
+            Repository = new TestingRepository();
+        }
+
+        public void ConnectToLocalFolder()
+        {
+            var folder = ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey];
+
+            Repository = new FolderTestingRepository(folder);
+        }
     }
 }

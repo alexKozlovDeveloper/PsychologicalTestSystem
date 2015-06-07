@@ -43,6 +43,18 @@ namespace DesktopClient.PageControlles
             _controllerPage.ButtonContinue.Click += ButtonContinue_Click;
             _controllerPage.ButtonExit.Click += ButtonExit_Click;
             //_controllerPage.ButtonWriteInFolder.Click += ButtonWriteInFolder_Click;
+            _controllerPage.CheckBoxDbConnect.Checked += CheckBoxDbConnect_Checked;
+            _controllerPage.CheckBoxDbConnect.Unchecked += CheckBoxDbConnect_Unchecked;
+        }
+
+        void CheckBoxDbConnect_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _controller.ConnectToLocalFolder();
+        }
+
+        void CheckBoxDbConnect_Checked(object sender, RoutedEventArgs e)
+        {
+            _controller.ConnectToLocalDb();
         }
 
         //void ButtonWriteInFolder_Click(object sender, RoutedEventArgs e)
