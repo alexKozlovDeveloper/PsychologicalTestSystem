@@ -30,12 +30,68 @@ namespace Db.Core.Statistic
                 passingsTest.Add(_repository.GetLastPassingTest(user.Id, testId));
             }
 
+            var count = passingsTest.Count;
+
             var testing = new List<Testing>();
 
             foreach (var item in passingsTest)
             {
-                testing.AddRange(_repository.GetTestings(item.Id));
+                if (item != null)
+                {
+                    testing.AddRange(_repository.GetTestings(item.Id));
+                }
             }
+
+            var mainProblem = new Dictionary<Guid, int>();
+            var weakProblem = new Dictionary<Guid, int>();
+
+            foreach (var item in testing)
+            {
+                var ques = _repository.GetQuestion(item.QuestionId);
+
+                if (item.ChekedAnswer == ques.StrongProblemNumber)
+                {
+                    if (mainProblem.Keys.Contains(ques.Id) == false)
+                    {
+                        mainProblem.Add(ques.Id, 1);
+                    }
+                    else
+                    {
+                        mainProblem[ques.Id]++;
+                    }
+                }
+
+                if (item.ChekedAnswer == ques.WeakProblemNumber)
+                {
+                    if (weakProblem.Keys.Contains(ques.Id) == false)
+                    {
+                        weakProblem.Add(ques.Id, 1);
+                    }
+                    else
+                    {
+                        weakProblem[ques.Id]++;
+                    }
+                }
+            }
+
+            foreach (var item in mainProblem)
+            {
+                var ques = _repository.GetQuestion(item.Key);
+
+                int main = (item.Value * 100) / count;
+                int weak = (weakProblem[item.Key] * 100) / count;
+
+                var pers = new TestingChartItem
+                {
+                    HighPercent = main,
+                    AveragePercent = weak,
+                    Number = ques.SortIndex
+                };
+
+                res.Add(pers);
+            }
+
+            res.Sort();
 
             return res;
         }

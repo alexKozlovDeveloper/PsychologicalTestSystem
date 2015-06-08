@@ -89,6 +89,8 @@ namespace DesktopAdministrator.Helpers
 
             _labels.Clear();
             _rects.Clear();
+
+            _itemCount = 0;
         }
     }
 }
