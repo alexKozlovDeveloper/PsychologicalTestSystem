@@ -57,5 +57,10 @@ namespace Db.Core.Repositoryes
         void RemoveUser(Guid userId);
         void RemoveTest(Guid testId);
         void RemoveQuestionToTest(Guid questionToTestId);
+
+        PassingTest GetLastPassingTest(Guid userId, Guid TestId);
+        IEnumerable<Testing> GetTestings(Guid passingTestId);
+
+        IEnumerable<User> GetUsers(IEnumerable<Guid> groups);
     }
 }

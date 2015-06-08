@@ -19,44 +19,16 @@ namespace DesktopAdministrator.Helpers
         private int _itemHeight = 20;
         private int _itemWidth = 200;
 
+        private List<ContentControl> _labels;
+        private List<Shape> _rects;
+
+
         public TestingChart(Grid grid)
         {
             _grid = grid;
 
-            //_grid.Height = 900;
-            //_grid.Width = 400;
-
-
-            var w = 200;
-
-            var rec1 = new Rectangle();
-            rec1.Height = w;
-            rec1.Width = 1;
-            rec1.Margin = new Thickness(0, 0, 0, 0);
-            rec1.Fill = new SolidColorBrush(System.Windows.Media.Colors.Gray);
-
-            var rec2 = new Rectangle();
-            rec2.Height = w;
-            rec2.Width = 1;
-            rec2.Margin = new Thickness(2 * w, 0, 0, 0);
-            rec2.Fill = new SolidColorBrush(System.Windows.Media.Colors.Gray);
-
-            var rec3 = new Rectangle();
-            rec3.Height = 1;
-            rec3.Width = w;
-            rec3.Margin = new Thickness(0, 0, 0, 0);
-            rec3.Fill = new SolidColorBrush(System.Windows.Media.Colors.Gray);
-
-            var rec4 = new Rectangle();
-            rec4.Height = 1;
-            rec4.Width = w;
-            rec4.Margin = new Thickness(0, w, 0, 0);
-            rec4.Fill = new SolidColorBrush(System.Windows.Media.Colors.Gray);
-
-            //_grid.Children.Add(rec1);
-            //_grid.Children.Add(rec2);
-            //_grid.Children.Add(rec3);
-            //_grid.Children.Add(rec4);
+            _labels = new List<ContentControl>();
+            _rects = new List<Shape>();
 
             _itemCount = 0;
         }
@@ -94,7 +66,29 @@ namespace DesktopAdministrator.Helpers
             _grid.Children.Add(labelVal1);
             _grid.Children.Add(labelVal2);
 
+            _rects.Add(rec1);
+            _rects.Add(rec2);
+            _labels.Add(label);
+            _labels.Add(labelVal1);
+            _labels.Add(labelVal2);
+
             _itemCount++;
+        }
+
+        public void Clear()
+        {
+            foreach (var item in _labels)
+            {
+                _grid.Children.Remove(item);
+            }
+
+            foreach (var item in _rects)
+            {
+                _grid.Children.Remove(item);
+            }
+
+            _labels.Clear();
+            _rects.Clear();
         }
     }
 }

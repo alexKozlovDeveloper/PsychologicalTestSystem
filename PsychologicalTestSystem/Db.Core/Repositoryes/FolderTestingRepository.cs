@@ -380,5 +380,22 @@ namespace Db.Core.Repositoryes
         {
             throw new NotImplementedException();
         }
+
+
+        public PassingTest GetLastPassingTest(Guid userId, Guid TestId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Testing> GetTestings(Guid passingTestId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public IEnumerable<User> GetUsers(IEnumerable<Guid> groups)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

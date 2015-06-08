@@ -230,8 +230,7 @@ namespace Db.Core.Repositoryes
                 return DbConverter.GetTest(res);
             }
         }
-
-
+        
         public IEnumerable<User> GetUserByGroup(Guid groupId)
         {
             using (var db = new CoreDbContextV9())
@@ -267,8 +266,7 @@ namespace Db.Core.Repositoryes
                 return result;
             }
         }
-
-
+        
         public IEnumerable<Group> GetAllGroup()
         {
             using (var db = new CoreDbContextV9())
@@ -705,8 +703,7 @@ namespace Db.Core.Repositoryes
                 return res;
             }
         }
-
-
+        
         public QuestionToTest GetQuestionToTest(Guid id)
         {
             using (var db = new CoreDbContextV9())
@@ -723,6 +720,58 @@ namespace Db.Core.Repositoryes
 
                 return DbConverter.GetQuestionToTest(res);
             }
+        }
+        
+        public PassingTest GetLastPassingTest(Guid userId, Guid TestId)
+        {
+            using (var db = new CoreDbContextV9())
+            {
+                PassingTest res = null;
+
+                var passings = new List<PassingTest>();
+
+                foreach (var item in db.PassingsTest)
+                {
+                    if (item.UserId == userId && item.TestId == TestId)
+                    {
+                        passings.Add(DbConverter.GetPassingTest(item));
+                    }
+                }
+
+                passings.Sort();
+
+                return passings.FirstOrDefault();
+            }
+        }
+
+        public IEnumerable<Testing> GetTestings(Guid passingTestId)
+        {
+            using (var db = new CoreDbContextV9())
+            {
+                var res = new List<Testing>();
+
+                foreach (var item in db.Testing)
+                {
+                    if (item.PassingTestId == passingTestId)
+                    {
+                        res.Add(DbConverter.GetTesting(item));
+                    }
+                }
+
+                return res;
+            }
+        }
+        
+        public IEnumerable<User> GetUsers(IEnumerable<Guid> groups)
+        {
+            var res = new List<User>();
+
+            foreach (var item in groups)
+            {
+                res.AddRange(GetUserByGroup(item));
+            }            
+
+            return res;
         }
     }
 }

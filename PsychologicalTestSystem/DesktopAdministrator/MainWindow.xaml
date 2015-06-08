@@ -85,6 +85,8 @@
                             <Rectangle Fill="Gray" HorizontalAlignment="Left" Height="1800" Margin="320,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1"/>
                         </Grid>
                     </ScrollViewer>
+                    <ComboBox Name="ComboBoxTestsOnStatistics"  HorizontalAlignment="Left" Margin="697,41,0,0" VerticalAlignment="Top" Width="212" SelectionChanged="ComboBoxTestsOnStatistics_SelectionChanged"/>
+                    <Label Content="Статистика для теста" HorizontalAlignment="Left" Margin="697,10,0,0" VerticalAlignment="Top" Width="212"/>
 
                 </Grid>
             </TabItem>

@@ -23,6 +23,7 @@ using DesktopAdministrator.Windows;
 using TcpServerLogic;
 using System.Configuration;
 using Helpers.Keys;
+using Db.Core.Statistic;
 
 namespace DesktopAdministrator
 {
@@ -61,28 +62,47 @@ namespace DesktopAdministrator
             _chart = new TestingChart(GridStatistic);
 
 
-            var count = 75;
+            //var count = 75;
 
-            var rnd = new Random();
+            //var rnd = new Random();
 
-            _chart.AddItem(new TestingChartItem { AveragePercent = 0, Number = 0, HighPercent = 0 });
-            _chart.AddItem(new TestingChartItem { AveragePercent = 1, Number = 0, HighPercent = 1 });
-            _chart.AddItem(new TestingChartItem { AveragePercent = 2, Number = 0, HighPercent = 2 });
-            _chart.AddItem(new TestingChartItem { AveragePercent = 3, Number = 0, HighPercent = 3 });
-            _chart.AddItem(new TestingChartItem { AveragePercent = 4, Number = 0, HighPercent = 4 });
-            _chart.AddItem(new TestingChartItem { AveragePercent = 5, Number = 0, HighPercent = 5 });
-            _chart.AddItem(new TestingChartItem { AveragePercent = 100, Number = 0, HighPercent = 100 });
+            //_chart.AddItem(new TestingChartItem { AveragePercent = 0, Number = 0, HighPercent = 0 });
+            //_chart.AddItem(new TestingChartItem { AveragePercent = 1, Number = 0, HighPercent = 1 });
+            //_chart.AddItem(new TestingChartItem { AveragePercent = 2, Number = 0, HighPercent = 2 });
+            //_chart.AddItem(new TestingChartItem { AveragePercent = 3, Number = 0, HighPercent = 3 });
+            //_chart.AddItem(new TestingChartItem { AveragePercent = 4, Number = 0, HighPercent = 4 });
+            //_chart.AddItem(new TestingChartItem { AveragePercent = 5, Number = 0, HighPercent = 5 });
+            //_chart.AddItem(new TestingChartItem { AveragePercent = 100, Number = 0, HighPercent = 100 });
 
-            for (int i = 0; i < count; i++)
+            //for (int i = 0; i < count; i++)
+            //{
+            //    var t = new TestingChartItem
+            //    {
+            //        AveragePercent = rnd.Next(0, 100),
+            //        HighPercent = rnd.Next(0, 100),
+            //        Number = i
+            //    };
+
+            //    _chart.AddItem(t);
+            //}
+
+            InitComboBoxTestStatistic();
+        }
+
+        private void InitComboBoxTestStatistic()
+        {
+            ComboBoxTestsOnStatistics.Items.Clear();
+
+            var tests = _repository.GetAllTest();
+
+            foreach (var item in tests)
             {
-                var t = new TestingChartItem
-                {
-                    AveragePercent = rnd.Next(0, 100),
-                    HighPercent = rnd.Next(0, 100),
-                    Number = i
-                };
+                ComboBoxTestsOnStatistics.Items.Add(item);
+            }
 
-                _chart.AddItem(t);
+            if (ComboBoxTestsOnStatistics.Items.Count != 0)
+            {
+                ComboBoxTestsOnStatistics.SelectedIndex = 0;
             }
         }
 
@@ -369,6 +389,31 @@ namespace DesktopAdministrator
             _removeQuestionFromTestWindow = new RemoveQuestionFromTestWindow(this, _repository);
 
             _removeQuestionFromTestWindow.Show();
+        }
+
+        private void ComboBoxTestsOnStatistics_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _chart.Clear();
+
+            var sh = new StatisticHelper(_repository);
+
+            var test = ComboBoxTestsOnStatistics.SelectedItem as Test;
+
+            var groups = _repository.GetAllGroup();
+
+            var ids = new List<Guid>();
+
+            foreach (var item in groups)
+            {
+                ids.Add(item.Id);
+            }
+
+            var statistic = sh.GetGroupStatistic(ids, test.Id);
+
+            foreach (var item in statistic)
+            {
+                _chart.AddItem(item);
+            }
         }
     }
 }
