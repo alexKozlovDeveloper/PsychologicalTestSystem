@@ -13,5 +13,9 @@ namespace Helpers.Keys
         public const string NewPassingTest = "NewPassingTest";
         public const string Groups = "Groups";
         public const string Tests = "Tests";
+
+        public const string TestTs = "TestTs";
+        public const string QuestionTs = "QuestionTs";
+        public const string QuestionToTestTs = "QuestionToTestTs";
     }
 }

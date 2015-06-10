@@ -61,7 +61,7 @@ namespace DesktopAdministrator
 
             _chart = new TestingChart(GridStatistic);
 
-
+            
             //var count = 75;
 
             //var rnd = new Random();
@@ -87,6 +87,24 @@ namespace DesktopAdministrator
             //}
 
             InitComboBoxTestStatistic();
+
+            InitDataGridIncludeGroups();
+        }
+
+        private void InitDataGridIncludeGroups()
+        {
+            var groups = _repository.GetAllGroup();
+
+            entity = new List<AvailableGroups>();
+
+            foreach (var group in groups)
+            {
+                var isAvailable = true;
+
+                entity.Add(new AvailableGroups { GroupName = group.Number, IsAvailable = isAvailable });
+            }
+
+            DataGridIncludeGroups.ItemsSource = entity;
         }
 
         private void InitComboBoxTestStatistic()

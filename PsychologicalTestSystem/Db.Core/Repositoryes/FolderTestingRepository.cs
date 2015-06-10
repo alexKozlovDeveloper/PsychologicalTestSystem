@@ -397,5 +397,40 @@ namespace Db.Core.Repositoryes
         {
             throw new NotImplementedException();
         }
+
+
+        public void AddTest(Test test)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddQuestion(Question ques)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsExistTest(Guid testId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsExistQuestion(Guid quesId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+
+
+        public void AddQuestionToTest(QuestionToTest ques)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsExistQuestionToTest(Guid quesToTestId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

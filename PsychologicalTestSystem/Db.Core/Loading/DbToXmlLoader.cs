@@ -103,6 +103,60 @@ namespace Db.Core.Loading
 
                 FileReaderHelper.WriteInFileWithSerialize(xmlGroup, fileName);
             }
+
+            // TestT
+
+            var testTFoler = folderPath + @"\TestTs";
+
+            if (Directory.Exists(testTFoler) == false)
+            {
+                Directory.CreateDirectory(testTFoler);
+            }
+
+            var testTs = repository.GetAllTest();
+
+            foreach (var item in testTs)
+            {
+                var fileName = string.Format("{0}\\{1}{2}.xml", testTFoler, "TestT", item.Id.ToString());
+
+                FileReaderHelper.WriteInFileWithSerialize(item, fileName);
+            }
+
+            // QuestionT
+
+            var questionTFoler = folderPath + @"\QuestionTs";
+
+            if (Directory.Exists(questionTFoler) == false)
+            {
+                Directory.CreateDirectory(questionTFoler);
+            }
+
+            var questionTs = repository.GetAllQuestion();
+
+            foreach (var item in questionTs)
+            {
+                var fileName = string.Format("{0}\\{1}{2}.xml", questionTFoler, "QuestionT", item.Id.ToString());
+
+                FileReaderHelper.WriteInFileWithSerialize(item, fileName);
+            }
+
+            // QuestionToTestT
+
+            var questionToTestTFoler = folderPath + @"\QuestionToTestTs";
+
+            if (Directory.Exists(questionToTestTFoler) == false)
+            {
+                Directory.CreateDirectory(questionToTestTFoler);
+            }
+
+            var questionToTestTs = repository.GetAllQuestionToTest();
+
+            foreach (var item in questionToTestTs)
+            {
+                var fileName = string.Format("{0}\\{1}{2}.xml", questionToTestTFoler, "QuestionToTestT", item.Id.ToString());
+
+                FileReaderHelper.WriteInFileWithSerialize(item, fileName);
+            }
         }
     }
 }

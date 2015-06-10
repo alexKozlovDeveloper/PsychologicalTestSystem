@@ -62,5 +62,13 @@ namespace Db.Core.Repositoryes
         IEnumerable<Testing> GetTestings(Guid passingTestId);
 
         IEnumerable<User> GetUsers(IEnumerable<Guid> groups);
+
+        void AddTest(Test test);
+        void AddQuestion(Question ques);
+        void AddQuestionToTest(QuestionToTest ques);
+
+        bool IsExistTest(Guid testId);
+        bool IsExistQuestion(Guid quesId);
+        bool IsExistQuestionToTest(Guid quesToTestId);
     }
 }

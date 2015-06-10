@@ -535,6 +535,41 @@ namespace Db.Core.Repositoryes
 
                 this.AddPassingTest(newPassingTest.UserId, newPassingTest.TestId, newPassingTest.Date, newPassingTest.Id);
             }
+
+            // old 
+
+            var newQuestionT = folderPath + "\\" + FolderNames.QuestionTs;
+
+            var newQuestionTs = Directory.GetFiles(newQuestionT);
+
+            foreach (var item in newQuestionTs)
+            {
+                var obj = FileReaderHelper.ReadFromFileWithDeserialize<Question>(item);
+
+                this.AddQuestion(obj);
+            }
+
+            var newTestT = folderPath + "\\" + FolderNames.TestTs;
+
+            var newTestTs = Directory.GetFiles(newTestT);
+
+            foreach (var item in newTestTs)
+            {
+                var obj = FileReaderHelper.ReadFromFileWithDeserialize<Test>(item);
+
+                this.AddTest(obj);
+            }
+
+            var newQuestionToTestT = folderPath + "\\" + FolderNames.QuestionToTestTs;
+
+            var newQuestionToTestTs = Directory.GetFiles(newQuestionToTestT);
+
+            foreach (var item in newQuestionToTestTs)
+            {
+                var obj = FileReaderHelper.ReadFromFileWithDeserialize<QuestionToTest>(item);
+
+                this.AddQuestionToTest(obj);
+            }
         }
 
         public User AddUser(string firstName, string lastName, Guid groupId, Guid id)
@@ -772,6 +807,145 @@ namespace Db.Core.Repositoryes
             }            
 
             return res;
+        }
+
+
+        public void AddTest(Test test)
+        {
+            if (IsExistTest(test.Id) == true)
+            {
+                return;
+            }
+
+            using (var db = new CoreDbContextV9())
+            {
+                var testT = new TestT()
+                {
+                    Id = test.Id,
+                    Name = test.Name,
+                    Introduction = test.Introduction
+                };
+
+                db.Tests.Add(testT);
+
+                db.SaveChanges();
+
+                return;
+            }
+        }
+
+        public void AddQuestion(Question ques)
+        {
+            if (IsExistQuestion(ques.Id) == true)
+            {
+                return;
+            }
+
+            using (var db = new CoreDbContextV9())
+            {
+                var quesT = new QuestionT()
+                {
+                    Id = ques.Id,
+                    FirstAnswer = ques.FirstAnswer,
+                    SecondAnswer = ques.SecondAnswer,
+                    ThirdAnswer = ques.ThirdAnswer,
+                    FirstReportMessageToAdmin = ques.FirstReportMessageToAdmin,
+                    FirstReportMessageToUser = ques.FirstReportMessageToUser,
+                    Message = ques.Message,
+                    SecondReportMessageToAdmin = ques.SecondReportMessageToAdmin,
+                    SecondReportMessageToUser = ques.SecondReportMessageToUser,
+                    SortIndex = ques.SortIndex,
+                    StrongProblemNumber = ques.StrongProblemNumber,
+                    WeakProblemNumber = ques.WeakProblemNumber
+                };
+
+                db.Questions.Add(quesT);
+
+                db.SaveChanges();
+
+                return;
+            }
+        }
+
+        public bool IsExistTest(Guid testId)
+        {
+            using (var db = new CoreDbContextV9())
+            {
+                var res = false;
+
+                foreach (var test in db.Tests)
+                {
+                    if (test.Id == testId)
+                    {
+                        res = true;
+                        break;
+                    }
+                }
+
+                return res;
+            }
+        }
+
+        public bool IsExistQuestion(Guid quesId)
+        {
+            using (var db = new CoreDbContextV9())
+            {
+                var res = false;
+
+                foreach (var ques in db.Questions)
+                {
+                    if (ques.Id == quesId)
+                    {
+                        res = true;
+                        break;
+                    }
+                }
+
+                return res;
+            }
+        }
+        
+        public void AddQuestionToTest(QuestionToTest ques)
+        {
+            if (IsExistQuestionToTest(ques.Id) == true)
+            {
+                return;
+            }
+
+            using (var db = new CoreDbContextV9())
+            {
+                var questionToTestT = new QuestionToTestT()
+                {
+                    Id = ques.Id,
+                    QuestionId = ques.QuestionId,
+                    TestId = ques.TestId
+                };
+
+                db.QuestionsToTests.Add(questionToTestT);
+
+                db.SaveChanges();
+
+                return;
+            }
+        }
+
+        public bool IsExistQuestionToTest(Guid quesToTestId)
+        {
+            using (var db = new CoreDbContextV9())
+            {
+                var res = false;
+
+                foreach (var ques in db.QuestionsToTests)
+                {
+                    if (ques.Id == quesToTestId)
+                    {
+                        res = true;
+                        break;
+                    }
+                }
+
+                return res;
+            }
         }
     }
 }
