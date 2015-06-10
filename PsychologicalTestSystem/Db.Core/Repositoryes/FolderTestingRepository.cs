@@ -222,7 +222,23 @@ namespace Db.Core.Repositoryes
 
         public bool IsAvailableGroup(Guid testId, Guid groupId)
         {
-            throw new NotImplementedException();
+            var res = false;
+
+            foreach (var item in _tests)
+            {
+                if (item.TestInfo.Id == testId)
+                {
+                    foreach (var g in item.AvailableGroups)
+                    {
+                        if (g.GroupInfo.Id == groupId)
+                        {
+                            res = g.IsAvailable;
+                        }
+                    }
+                }
+            }
+
+            return res;
         }
 
         public IEnumerable<Testing> GetAllTesting()
@@ -429,6 +445,23 @@ namespace Db.Core.Repositoryes
         }
 
         public bool IsExistQuestionToTest(Guid quesToTestId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void AddAvailableGroup(Guid GroupId, Guid TestId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveAvailableGroup(Guid itemId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void RemoveAvailableGroup(Guid GroupId, Guid TestId)
         {
             throw new NotImplementedException();
         }

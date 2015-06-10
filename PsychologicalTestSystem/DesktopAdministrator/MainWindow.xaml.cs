@@ -24,6 +24,7 @@ using TcpServerLogic;
 using System.Configuration;
 using Helpers.Keys;
 using Db.Core.Statistic;
+using System.Threading;
 
 namespace DesktopAdministrator
 {
@@ -48,11 +49,16 @@ namespace DesktopAdministrator
 
         private TestingChart _chart;
 
-        private List<AvailableGroups> entity;
+        private bool _isWork;
+        private Thread _updateThread;
+
+        private List<AvailableGroups> entityAvailableGroups;
 
         public MainWindow()
         {
             InitializeComponent();
+
+            _isWork = true;
 
             _server = new TestTcpServer();
             _repository = new TestingRepository();
@@ -89,22 +95,55 @@ namespace DesktopAdministrator
             InitComboBoxTestStatistic();
 
             InitDataGridIncludeGroups();
+
+            _updateThread = new Thread(UpdateDbAvailableGroup);
+
+            _updateThread.Start();
+
+            this.Closed += MainWindow_Closed;
+        }
+
+        void MainWindow_Closed(object sender, EventArgs e)
+        {
+            _isWork = false;
+        }        
+
+        private void UpdateDbAvailableGroup()
+        {
+            while (_isWork)
+            {
+                Thread.Sleep(100);
+
+                foreach (var item in entityAvailableGroups)
+                {
+                    if (item.IsAvailable == true)
+                    {
+                        _repository.AddAvailableGroup(item.GroupId, item.TestId);
+                    }
+                    else
+                    {
+                        _repository.RemoveAvailableGroup(item.GroupId, item.TestId);
+                    }
+                }
+            }
         }
 
         private void InitDataGridIncludeGroups()
         {
             var groups = _repository.GetAllGroup();
 
-            entity = new List<AvailableGroups>();
+            var objs = new List<AvailableGroups>();
+
+            var test = ComboBoxAvailableTests.SelectedItem as Test;
 
             foreach (var group in groups)
             {
                 var isAvailable = true;
 
-                entity.Add(new AvailableGroups { GroupName = group.Number, IsAvailable = isAvailable });
+                objs.Add(new AvailableGroups { GroupName = group.Number, IsAvailable = isAvailable, GroupId = group.Id, TestId = test.Id });
             }
 
-            DataGridIncludeGroups.ItemsSource = entity;
+            DataGridIncludeGroups.ItemsSource = objs;
         }
 
         private void InitComboBoxTestStatistic()
@@ -345,16 +384,18 @@ namespace DesktopAdministrator
 
             var groups = _repository.GetAllGroup();
 
-            entity = new List<AvailableGroups>();
+            entityAvailableGroups = new List<AvailableGroups>();
+
+            var test = ComboBoxAvailableTests.SelectedItem as Test;
 
             foreach (var group in groups)
             {
                 var isAvailable = _repository.IsAvailableGroup(selectedTest.Id, group.Id);
 
-                entity.Add(new AvailableGroups { GroupName = group.Number, IsAvailable = isAvailable });
+                entityAvailableGroups.Add(new AvailableGroups { GroupName = group.Number, IsAvailable = isAvailable, TestId = test.Id, GroupId = group.Id });
             }
 
-            DataGridAvailableGroups.ItemsSource = entity;
+            DataGridAvailableGroups.ItemsSource = entityAvailableGroups;
         }
 
         private void ShowTestingDetails(object sender, RoutedEventArgs e)
@@ -433,5 +474,6 @@ namespace DesktopAdministrator
                 _chart.AddItem(item);
             }
         }
+
     }
 }

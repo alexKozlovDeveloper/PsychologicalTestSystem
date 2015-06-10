@@ -341,6 +341,7 @@ namespace Db.Core.Repositoryes
                     if (availableTest.TestId == testId && availableTest.GroupId == groupId)
                     {
                         res = true;
+                        break;
                     }
                 }
 
@@ -471,6 +472,21 @@ namespace Db.Core.Repositoryes
             foreach (var item in db.Groups)
             {
                 if (item.Id == groupId)
+                {
+                    res = item;
+                }
+            }
+
+            return res;
+        }
+
+        private AvailableTestToGroupT GetAvailableTestToGroupT(Guid itemId, CoreDbContextV9 db)
+        {
+            AvailableTestToGroupT res = null;
+
+            foreach (var item in db.AvailableTestToGroup)
+            {
+                if (item.Id == itemId)
                 {
                     res = item;
                 }
@@ -809,7 +825,6 @@ namespace Db.Core.Repositoryes
             return res;
         }
 
-
         public void AddTest(Test test)
         {
             if (IsExistTest(test.Id) == true)
@@ -945,6 +960,62 @@ namespace Db.Core.Repositoryes
                 }
 
                 return res;
+            }
+        }
+
+        public void AddAvailableGroup(Guid GroupId, Guid TestId)
+        {
+            using (var db = new CoreDbContextV9())
+            {
+                var availableTestToGroupT = new AvailableTestToGroupT()
+                {
+                    Id = Guid.NewGuid(),
+                    GroupId = GroupId,
+                    TestId = TestId
+                };
+
+                db.AvailableTestToGroup.Add(availableTestToGroupT);
+
+                db.SaveChanges();
+
+                return;
+            }
+        }
+
+        public void RemoveAvailableGroup(Guid itemId)
+        {
+            using (var db = new CoreDbContextV9())
+            {
+                var item = GetAvailableTestToGroupT(itemId, db);
+
+                if (item != null)
+                {
+                    db.AvailableTestToGroup.Remove(item); 
+                    db.SaveChanges();
+                }
+            } 
+        }
+        
+        public void RemoveAvailableGroup(Guid GroupId, Guid TestId)
+        {
+            using (var db = new CoreDbContextV9())
+            {
+                var removeItems = new List<AvailableTestToGroupT>();
+
+                foreach (var item in db.AvailableTestToGroup)
+                {
+                    if (item.TestId == TestId && item.GroupId == GroupId)
+                    {
+                        removeItems.Add(item);
+                    }
+                }
+
+                foreach (var item in removeItems)
+                {
+                    db.AvailableTestToGroup.Remove(item);
+                }
+
+                db.SaveChanges();
             }
         }
     }

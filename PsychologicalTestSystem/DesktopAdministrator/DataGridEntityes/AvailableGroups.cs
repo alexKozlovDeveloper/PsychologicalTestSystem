@@ -10,5 +10,8 @@ namespace DesktopAdministrator.DataGridEntityes
     {
         public string GroupName { get; set; }
         public bool IsAvailable { get; set; }
+
+        public Guid TestId { get; set; }
+        public Guid GroupId { get; set; }
     }
 }

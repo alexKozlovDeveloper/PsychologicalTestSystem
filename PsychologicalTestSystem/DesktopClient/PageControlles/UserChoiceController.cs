@@ -70,6 +70,7 @@ namespace DesktopClient.PageControlles
         void ButtonContinue_Click(object sender, RoutedEventArgs e)
         {
             AppConfig.CurrentUser = _controllerPage.ComboBoxUsers.SelectedItem as User;
+            AppConfig.CurrenGroup = _controllerPage.ComboBoxGroups.SelectedItem as Group;
 
             _controller.GoToTestChoicePage();
         }

@@ -23,14 +23,7 @@ namespace DesktopClient.PageControlles
 
             _controllerPage = new TestChoice();
 
-            _controllerPage.ComboBoxTests.Items.Clear();
-
-            var tests = _controller.Repository.GetAllTest();
-
-            foreach (var test in tests)
-            {
-                _controllerPage.ComboBoxTests.Items.Add(test);
-            }
+            _controllerPage.ComboBoxTests.Items.Clear();            
 
             _controllerPage.ComboBoxTests.SelectedIndex = 0;
 
@@ -61,6 +54,18 @@ namespace DesktopClient.PageControlles
 
         public void SetupToWindow()
         {
+            var tests = _controller.Repository.GetAllTest();
+
+            var currentGroup = AppConfig.CurrenGroup;
+
+            foreach (var test in tests)
+            {
+                if (_controller.Repository.IsAvailableGroup(test.Id, currentGroup.Id) == true)
+                {
+                    _controllerPage.ComboBoxTests.Items.Add(test);
+                }
+            }
+
             _controllerWindow.Content = _controllerPage;
         }
     }

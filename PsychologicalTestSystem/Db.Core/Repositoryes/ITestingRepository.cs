@@ -70,5 +70,9 @@ namespace Db.Core.Repositoryes
         bool IsExistTest(Guid testId);
         bool IsExistQuestion(Guid quesId);
         bool IsExistQuestionToTest(Guid quesToTestId);
+
+        void AddAvailableGroup(Guid GroupId, Guid TestId);
+        void RemoveAvailableGroup(Guid itemId);
+        void RemoveAvailableGroup(Guid GroupId, Guid TestId);
     }
 }

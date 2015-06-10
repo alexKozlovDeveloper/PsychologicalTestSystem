@@ -10,6 +10,7 @@ namespace DesktopClient.Conf
     static class AppConfig
     {
         public static User CurrentUser { get; set; }
+        public static Group CurrenGroup { get; set; }
         public static Test SelectedTest { get; set; }
         public static PassingTest CurrentPassingTest { get; set; }
     }
