@@ -87,12 +87,13 @@
                     </ScrollViewer>
                     <ComboBox Name="ComboBoxTestsOnStatistics"  HorizontalAlignment="Left" Margin="697,41,0,0" VerticalAlignment="Top" Width="212" SelectionChanged="ComboBoxTestsOnStatistics_SelectionChanged"/>
                     <Label Content="Статистика для теста" HorizontalAlignment="Left" Margin="697,10,0,0" VerticalAlignment="Top" Width="212"/>
-                    <DataGrid Name="DataGridIncludeGroups" AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="697,68,0,0" VerticalAlignment="Top" Height="393" Width="212">
+                    <DataGrid Name="DataGridIncludeGroups" AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="697,103,0,0" VerticalAlignment="Top" Height="358" Width="212">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Группа" Binding="{Binding GroupName}" Width="60"/>
                             <DataGridCheckBoxColumn Header="Включить в статистику" Binding="{Binding IsAvailable}" Width="135"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <Button Name="ButtonUpdateStatistic" Content="Обновить" HorizontalAlignment="Left" Margin="697,68,0,0" VerticalAlignment="Top" Width="212" Height="30" Click="ButtonUpdateStatistic_Click"/>
 
                 </Grid>
             </TabItem>

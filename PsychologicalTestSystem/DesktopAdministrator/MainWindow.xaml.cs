@@ -53,6 +53,9 @@ namespace DesktopAdministrator
         private Thread _updateThread;
 
         private List<AvailableGroups> entityAvailableGroups;
+        private List<AvailableGroups> entityIncludeGroups;
+
+        private Test selectedTestToStatistic;
 
         public MainWindow()
         {
@@ -114,17 +117,52 @@ namespace DesktopAdministrator
             {
                 Thread.Sleep(100);
 
-                foreach (var item in entityAvailableGroups)
+                try                 
                 {
-                    if (item.IsAvailable == true)
+                    foreach (var item in entityAvailableGroups)
                     {
-                        _repository.AddAvailableGroup(item.GroupId, item.TestId);
-                    }
-                    else
-                    {
-                        _repository.RemoveAvailableGroup(item.GroupId, item.TestId);
+                        if (item.IsAvailable == true)
+                        {
+                            _repository.AddAvailableGroup(item.GroupId, item.TestId);
+                        }
+                        else
+                        {
+                            _repository.RemoveAvailableGroup(item.GroupId, item.TestId);
+                        }
                     }
                 }
+                catch (Exception ex)
+                { 
+                
+                }
+
+                //Thread.Sleep(1000);
+
+                //if (entityIncludeGroups != null)
+                //{
+                //    _chart.Clear();
+
+                //    var sh = new StatisticHelper(_repository);
+
+                //    var test = ggwp;//ComboBoxTestsOnStatistics.SelectedItem as Test;
+
+                //    var ids = new List<Guid>();
+
+                //    foreach (var item in entityIncludeGroups)
+                //    {
+                //        if (item.IsAvailable == true)
+                //        {
+                //            ids.Add(item.GroupId);
+                //        }
+                //    }
+
+                //    var statistic = sh.GetGroupStatistic(ids, test.Id);
+
+                //    foreach (var item in statistic)
+                //    {
+                //        _chart.AddItem(item);
+                //    }
+                //}
             }
         }
 
@@ -132,7 +170,7 @@ namespace DesktopAdministrator
         {
             var groups = _repository.GetAllGroup();
 
-            var objs = new List<AvailableGroups>();
+            entityIncludeGroups = new List<AvailableGroups>();
 
             var test = ComboBoxAvailableTests.SelectedItem as Test;
 
@@ -140,10 +178,10 @@ namespace DesktopAdministrator
             {
                 var isAvailable = true;
 
-                objs.Add(new AvailableGroups { GroupName = group.Number, IsAvailable = isAvailable, GroupId = group.Id, TestId = test.Id });
+                entityIncludeGroups.Add(new AvailableGroups { GroupName = group.Number, IsAvailable = isAvailable, GroupId = group.Id, TestId = test.Id });
             }
 
-            DataGridIncludeGroups.ItemsSource = objs;
+            DataGridIncludeGroups.ItemsSource = entityIncludeGroups;
         }
 
         private void InitComboBoxTestStatistic()
@@ -160,6 +198,7 @@ namespace DesktopAdministrator
             if (ComboBoxTestsOnStatistics.Items.Count != 0)
             {
                 ComboBoxTestsOnStatistics.SelectedIndex = 0;
+                selectedTestToStatistic = ComboBoxTestsOnStatistics.SelectedItem as Test;
             }
         }
 
@@ -465,6 +504,34 @@ namespace DesktopAdministrator
             foreach (var item in groups)
             {
                 ids.Add(item.Id);
+            }
+
+            var statistic = sh.GetGroupStatistic(ids, test.Id);
+
+            foreach (var item in statistic)
+            {
+                _chart.AddItem(item);
+            }
+
+            selectedTestToStatistic = ComboBoxTestsOnStatistics.SelectedItem as Test;
+        }
+
+        private void ButtonUpdateStatistic_Click(object sender, RoutedEventArgs e)
+        {
+            _chart.Clear();
+
+            var sh = new StatisticHelper(_repository);
+
+            var test = selectedTestToStatistic;
+
+            var ids = new List<Guid>();
+
+            foreach (var item in entityIncludeGroups)
+            {
+                if (item.IsAvailable == true)
+                {
+                    ids.Add(item.GroupId);
+                }
             }
 
             var statistic = sh.GetGroupStatistic(ids, test.Id);

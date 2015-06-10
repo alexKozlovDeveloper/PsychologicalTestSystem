@@ -79,7 +79,13 @@ namespace Db.Core.Statistic
                 var ques = _repository.GetQuestion(item.Key);
 
                 int main = (item.Value * 100) / count;
-                int weak = (weakProblem[item.Key] * 100) / count;
+
+                int weak = 0;
+
+                if (weakProblem.Keys.Contains(item.Key) == true)
+                {
+                    weak = (weakProblem[item.Key] * 100) / count;
+                }
 
                 var pers = new TestingChartItem
                 {
