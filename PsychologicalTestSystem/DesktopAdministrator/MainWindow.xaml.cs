@@ -385,15 +385,20 @@ namespace DesktopAdministrator
 
                 var group = _repository.GetGroup(user.GroupId);
 
+                var test = _repository.GetTest(passingTest.TestId);
+
                 entity.Add(new TestingUser
                 {
                     Date = passingTest.Date,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
                     GroupNumber = group.Number,
-                    PassingTestId = passingTest.Id
+                    PassingTestId = passingTest.Id,
+                    TestName = test.Name
                 });
             }
+
+            entity.Sort();
 
             DataGridTesting.ItemsSource = entity;
         }

@@ -47,21 +47,22 @@
             </TabItem>
             <TabItem Header="Тестирование">
                 <Grid Background="#FFE5E5E5">
-                    <ComboBox Name="ComboBoxAvailableTests" HorizontalAlignment="Left" Margin="549,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxAvailableTests_SelectionChanged"/>
-                    <Label Content="Тесты" HorizontalAlignment="Left" Margin="502,10,0,0" VerticalAlignment="Top"/>
-                    <DataGrid Name="DataGridAvailableGroups" AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="502,41,0,0" VerticalAlignment="Top" Height="416" Width="402">
+                    <ComboBox Name="ComboBoxAvailableTests" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxAvailableTests_SelectionChanged"/>
+                    <Label Content="Тесты" HorizontalAlignment="Left" Margin="619,10,0,0" VerticalAlignment="Top"/>
+                    <DataGrid Name="DataGridAvailableGroups" AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="619,41,0,0" VerticalAlignment="Top" Height="416" Width="285">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Группа" Binding="{Binding Path=GroupName}" Width="200"/>
                             <DataGridCheckBoxColumn Header="Доступность" Binding="{Binding Path=IsAvailable}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Label Content="Прохождение тестов" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                    <DataGrid Name="DataGridTesting" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="416" Width="487">
+                    <DataGrid Name="DataGridTesting" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="416" Width="604">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LastName}" Width="100"/>
                             <DataGridTextColumn Header="Имя" Binding="{Binding Path=FirstName}" Width="100"/>
                             <DataGridTextColumn Header="Группа" Binding="{Binding Path=GroupNumber}" Width="100"/>
                             <DataGridTextColumn Header="Дата" Binding="{Binding Path=Date}" Width="100"/>
+                            <DataGridTextColumn Header="Тест" Binding="{Binding Path=TestName}" Width="100"/>
                             <DataGridTemplateColumn Header="Детали" Width="100">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

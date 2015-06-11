@@ -11,10 +11,12 @@
         <Label Name="Label_StudentName" Content="Андрей Гаврилов" HorizontalAlignment="Left" Margin="226,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.369" Width="126"/>
         <Label Name="Label_Info_2" Content="Группа №" HorizontalAlignment="Left" Margin="357,10,0,0" VerticalAlignment="Top"/>
         <Label Name="Label_StedentGroupNumber" Content="105286" HorizontalAlignment="Left" Margin="427,10,0,0" VerticalAlignment="Top" Width="63"/>
-        <Label Name="Label_Question" Content="Вопрос про черепашку" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="213" Width="480"/>
         <Button Name="Button_Yes" Content="Да" HorizontalAlignment="Left" Margin="10,259,0,0" VerticalAlignment="Top" Width="124" Height="31"/>
         <Button Name="Button_Sometimes" Content="Иногда" HorizontalAlignment="Left" Margin="190,259,0,0" VerticalAlignment="Top" Width="124" Height="31"/>
         <Button Name="Button_No" Content="Нет" HorizontalAlignment="Left" Margin="366,259,0,0" VerticalAlignment="Top" Width="124" Height="31"/>
+        <Label Name="Label_info" Content="Вопрос    #" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Name="Label_QuestionNumber" Content="1" HorizontalAlignment="Left" Margin="71,10,0,0" VerticalAlignment="Top" Width="63"/>
+        <TextBox Name="TextBox_Question" IsReadOnly="True" HorizontalAlignment="Left" Height="213" Margin="14,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="476"/>
 
 
 

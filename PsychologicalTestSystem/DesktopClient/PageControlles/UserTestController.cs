@@ -124,6 +124,12 @@ namespace DesktopClient.PageControlles
 
             CurrentQuestion = 0;
 
+            if (AppConfig.CurrentUser != null && AppConfig.CurrenGroup != null)
+            { 
+                _controllerPage.Label_StudentName.Content = AppConfig.CurrentUser.FirstName + " " + AppConfig.CurrentUser.LastName;
+                _controllerPage.Label_StedentGroupNumber.Content = AppConfig.CurrenGroup.Number;                 
+            }
+
             Init();
         }
 
@@ -131,11 +137,13 @@ namespace DesktopClient.PageControlles
         {
             var currentQuestion = GetCurrentQuestion();
 
-            _controllerPage.Label_Question.Content = currentQuestion.Message;
+            _controllerPage.TextBox_Question.Text = currentQuestion.Message;
 
             _controllerPage.Button_Yes.Content = currentQuestion.FirstAnswer;
             _controllerPage.Button_Sometimes.Content = currentQuestion.SecondAnswer;
             _controllerPage.Button_No.Content = currentQuestion.ThirdAnswer;
+
+            _controllerPage.Label_QuestionNumber.Content = currentQuestion.SortIndex;
         }
 
         private Question GetCurrentQuestion()
