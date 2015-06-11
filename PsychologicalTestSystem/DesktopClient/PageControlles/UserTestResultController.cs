@@ -54,7 +54,10 @@ namespace DesktopClient.PageControlles
 
             foreach (var item in Report)
             {
-                str += item + Environment.NewLine;
+                if (string.IsNullOrEmpty(item) == false)
+                {
+                    str += item + Environment.NewLine;                
+                }
             }
 
             _controllerPage.Label_ResultInfo.Text = "Отчет теста:" + Environment.NewLine + str;

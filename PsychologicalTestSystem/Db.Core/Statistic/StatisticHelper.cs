@@ -27,7 +27,12 @@ namespace Db.Core.Statistic
 
             foreach (var user in users)
             {
-                passingsTest.Add(_repository.GetLastPassingTest(user.Id, testId));
+                var pt = _repository.GetLastPassingTest(user.Id, testId);
+
+                if (pt != null)
+                {
+                    passingsTest.Add(pt);                    
+                }
             }
 
             var count = passingsTest.Count;
@@ -60,7 +65,7 @@ namespace Db.Core.Statistic
                         mainProblem[ques.Id]++;
                     }
                 }
-
+                
                 if (item.ChekedAnswer == ques.WeakProblemNumber)
                 {
                     if (weakProblem.Keys.Contains(ques.Id) == false)
@@ -71,27 +76,55 @@ namespace Db.Core.Statistic
                     {
                         weakProblem[ques.Id]++;
                     }
-                }
+                }                
             }
 
-            foreach (var item in mainProblem)
+            //foreach (var item in mainProblem)
+            //{
+            //    var ques = _repository.GetQuestion(item.Key);
+
+            //    int main = (item.Value * 100) / count;
+
+            //    int weak = 0;
+
+            //    if (weakProblem.Keys.Contains(item.Key) == true)
+            //    {
+            //        weak = (weakProblem[item.Key] * 100) / count;
+            //    }
+
+            //    var pers = new TestingChartItem
+            //    {
+            //        HighPercent = main,
+            //        AveragePercent = weak,
+            //        Number = ques.SortIndex
+            //    };
+
+            //    res.Add(pers);
+            //}
+
+            var allQues = _repository.GetQuestions(testId);
+
+            foreach (var item in allQues)
             {
-                var ques = _repository.GetQuestion(item.Key);
+                var main = 0;
 
-                int main = (item.Value * 100) / count;
-
-                int weak = 0;
-
-                if (weakProblem.Keys.Contains(item.Key) == true)
+                if (mainProblem.Keys.Contains(item.Id) == true)
                 {
-                    weak = (weakProblem[item.Key] * 100) / count;
+                    main = (mainProblem[item.Id] * 100) / count;
+                }
+
+                var weak = 0;
+
+                if (weakProblem.Keys.Contains(item.Id) == true)
+                {
+                    weak = (weakProblem[item.Id] * 100) / count;
                 }
 
                 var pers = new TestingChartItem
                 {
                     HighPercent = main,
                     AveragePercent = weak,
-                    Number = ques.SortIndex
+                    Number = item.SortIndex
                 };
 
                 res.Add(pers);

@@ -791,7 +791,14 @@ namespace Db.Core.Repositoryes
 
                 passings.Sort();
 
-                return passings.FirstOrDefault();
+                if (passings.Count == 0)
+                {
+                    return null;
+                }
+                else 
+                {
+                    return passings.FirstOrDefault();                
+                }
             }
         }
 
