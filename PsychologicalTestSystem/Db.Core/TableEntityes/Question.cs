@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Db.Core.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,21 +30,7 @@ namespace Db.Core.TableEntityes
 
         public override string ToString()
         {
-            if (Message.Length < 20)
-            {
-                return Message;
-            }
-
-            var res = "";
-
-            for (var i = 0; i < 20; i++)
-            {
-                res += Message[i];
-            }
-
-            res += "...";
-
-            return res;
+            return StringHelper.GetShortString(Message);
         }
         
         public int CompareTo(object obj)

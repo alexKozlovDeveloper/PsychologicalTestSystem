@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Db.Core.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace Db.Core.TableEntityes
 
         public override string ToString()
         {
-            return Number;
+            return StringHelper.GetShortString(Number);
         }
     }
 }

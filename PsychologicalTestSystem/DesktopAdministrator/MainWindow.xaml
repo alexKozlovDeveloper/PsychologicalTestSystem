@@ -42,7 +42,7 @@
                     <Button x:Name="ButtonAddQuestionToTest" Content="Добавить вопрос к тесту" HorizontalAlignment="Left" Margin="344,12,0,0" VerticalAlignment="Top" Width="180" Click="ButtonAddQuestionToTest_Click" Height="22"/>
                     <Button Name="ButtonRemoveTest" Content="Удалить тест" HorizontalAlignment="Left" Margin="264,12,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="ButtonRemoveTest_Click"/>
                     <Button Name="ButtonRemoveQuestionFromTest" Content="Удалить вопрос из теста" HorizontalAlignment="Left" Margin="529,12,0,0" VerticalAlignment="Top" Width="178" Height="22" Click="ButtonRemoveQuestionFromTest_Click"/>
-                    <Button Name="ButtonRemoveQuestion" Content="Удалить вопрос" HorizontalAlignment="Left" Margin="306,43,0,0" VerticalAlignment="Top" Width="117" Click="ButtonAddQuestion_Click"/>
+                    <Button Name="ButtonRemoveQuestion" Content="Удалить вопрос" HorizontalAlignment="Left" Margin="306,43,0,0" VerticalAlignment="Top" Width="117" Click="ButtonRemoveQuestion_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Тестирование">

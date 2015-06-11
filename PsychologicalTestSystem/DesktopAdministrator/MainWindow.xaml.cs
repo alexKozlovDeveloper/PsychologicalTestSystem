@@ -542,5 +542,11 @@ namespace DesktopAdministrator
             }
         }
 
+        private void ButtonRemoveQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            _removeQuestionFromTestWindow = new RemoveQuestionFromTestWindow(this, _repository);
+
+            _removeQuestionFromTestWindow.Show();
+        }
     }
 }

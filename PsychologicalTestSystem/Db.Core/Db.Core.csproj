@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Convert\DbConverter.cs" />
     <Compile Include="Helpers\FileReaderHelper.cs" />
+    <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Helpers\XmlSerializerHelper.cs" />
     <Compile Include="Loading\DbToXmlLoader.cs" />
     <Compile Include="Loading\XmlGroup.cs" />
