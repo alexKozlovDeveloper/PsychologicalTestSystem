@@ -46,6 +46,7 @@ namespace DesktopAdministrator
         private RemoveGroupWindow _removeGroupWindow;
         private RemoveQuestionFromTestWindow _removeQuestionFromTestWindow;
         private RemoveTestWindow _removeTestWindow;
+        private RemovePassingTestWindow _removePassingTestWindow;
 
         private TestingChart _chart;
 
@@ -69,31 +70,6 @@ namespace DesktopAdministrator
             InitWindowElements();
 
             _chart = new TestingChart(GridStatistic);
-
-            
-            //var count = 75;
-
-            //var rnd = new Random();
-
-            //_chart.AddItem(new TestingChartItem { AveragePercent = 0, Number = 0, HighPercent = 0 });
-            //_chart.AddItem(new TestingChartItem { AveragePercent = 1, Number = 0, HighPercent = 1 });
-            //_chart.AddItem(new TestingChartItem { AveragePercent = 2, Number = 0, HighPercent = 2 });
-            //_chart.AddItem(new TestingChartItem { AveragePercent = 3, Number = 0, HighPercent = 3 });
-            //_chart.AddItem(new TestingChartItem { AveragePercent = 4, Number = 0, HighPercent = 4 });
-            //_chart.AddItem(new TestingChartItem { AveragePercent = 5, Number = 0, HighPercent = 5 });
-            //_chart.AddItem(new TestingChartItem { AveragePercent = 100, Number = 0, HighPercent = 100 });
-
-            //for (int i = 0; i < count; i++)
-            //{
-            //    var t = new TestingChartItem
-            //    {
-            //        AveragePercent = rnd.Next(0, 100),
-            //        HighPercent = rnd.Next(0, 100),
-            //        Number = i
-            //    };
-
-            //    _chart.AddItem(t);
-            //}
 
             InitComboBoxTestStatistic();
 
@@ -550,8 +526,15 @@ namespace DesktopAdministrator
         private void ButtonRemoveQuestion_Click(object sender, RoutedEventArgs e)
         {
             _removeQuestionFromTestWindow = new RemoveQuestionFromTestWindow(this, _repository);
-
+            
             _removeQuestionFromTestWindow.Show();
+        }
+
+        private void ButtonRemovePassingTest_Click(object sender, RoutedEventArgs e)
+        {
+            _removePassingTestWindow = new RemovePassingTestWindow(this, _repository);
+
+            _removePassingTestWindow.Show();
         }
     }
 }

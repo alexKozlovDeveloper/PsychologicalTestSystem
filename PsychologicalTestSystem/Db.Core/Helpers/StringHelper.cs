@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Db.Core.Helpers
 {
-    class StringHelper
+    public class StringHelper
     {
         public const int DefaultStringLenght = 15;
 

@@ -63,6 +63,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataGridEntityes\AvailableGroups.cs" />
+    <Compile Include="DataGridEntityes\PassingTestInfo.cs" />
     <Compile Include="DataGridEntityes\QuestionEntity.cs" />
     <Compile Include="DataGridEntityes\QuestionToTestInfo.cs" />
     <Compile Include="DataGridEntityes\TestingReport.cs" />
@@ -86,6 +87,9 @@
     </Compile>
     <Compile Include="Windows\RemoveGroupWindow.xaml.cs">
       <DependentUpon>RemoveGroupWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\RemovePassingTestWindow.xaml.cs">
+      <DependentUpon>RemovePassingTestWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\RemoveQuestionFromTestWindow.xaml.cs">
       <DependentUpon>RemoveQuestionFromTestWindow.xaml</DependentUpon>
@@ -132,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\RemoveGroupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\RemovePassingTestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

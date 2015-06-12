@@ -74,5 +74,6 @@ namespace Db.Core.Repositoryes
         void AddAvailableGroup(Guid GroupId, Guid TestId);
         void RemoveAvailableGroup(Guid itemId);
         void RemoveAvailableGroup(Guid GroupId, Guid TestId);
+        void RemovePassingTest(Guid passingTestId);
     }
 }

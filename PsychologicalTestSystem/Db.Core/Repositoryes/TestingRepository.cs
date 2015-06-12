@@ -1025,5 +1025,25 @@ namespace Db.Core.Repositoryes
                 db.SaveChanges();
             }
         }
+        
+        public void RemovePassingTest(Guid passingTestId)
+        {
+            using (var db = new CoreDbContextV9())
+            {
+                PassingTestT res = null;
+
+                foreach (var item in db.PassingsTest)
+                {
+                    if (item.Id == passingTestId)
+                    {
+                        res = item;
+                    }
+                }
+
+                db.PassingsTest.Remove(res);
+
+                db.SaveChanges();
+            }
+        }
     }
 }

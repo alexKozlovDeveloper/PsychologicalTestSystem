@@ -1,0 +1,12 @@
+﻿<Window x:Class="DesktopAdministrator.Windows.RemovePassingTestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RemovePassingTestWindow" Height="183.2" Width="346.4">
+    <Grid>
+        <Label Content="Выберете нужный результат прохождения для удаления:" HorizontalAlignment="Left" Margin="10,10,-0.4,0" VerticalAlignment="Top" Width="328"/>
+        <ComboBox Name="ComboBoxPassingTest" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="320" Height="70"/>
+        <Button Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="255,124,0,0" VerticalAlignment="Top" Width="75" Click="ButtonCancel_Click"/>
+        <Button Name="ButtonRemovePassingTest" Content="Удалить" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="75" Click="ButtonRemovePassingTest_Click"/>
+
+    </Grid>
+</Window>
