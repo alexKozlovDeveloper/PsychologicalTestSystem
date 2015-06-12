@@ -57,6 +57,8 @@ namespace DesktopAdministrator.Windows
 
             _repository.RemoveGroup(group.Id);
 
+            _mainWindow.UpdateGroupTable();
+
             this.Hide();
         }
     }

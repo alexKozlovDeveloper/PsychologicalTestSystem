@@ -141,11 +141,6 @@ namespace DesktopAdministrator
             }
         }
         
-        public void AddGroupToComboBox(Group group)
-        {
-            ComboBoxGroups.Items.Add(group);
-        }
-
         private void StartServerButton_Click(object sender, RoutedEventArgs e)
         {
             _server.Start();
@@ -156,11 +151,6 @@ namespace DesktopAdministrator
             var selectedGroup = ComboBoxGroups.SelectedItem as Group;
 
             UpdateStudentTable(selectedGroup);
-        }
-
-        public void AddTestToComboBox(Test test)
-        {
-            ComboBoxTests.Items.Add(test);
         }
 
         private void ComboBoxTests_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -251,7 +241,17 @@ namespace DesktopAdministrator
         }
 
         #region UpdateWindowsElements
-        private void InitWindowElements()
+        public void AddGroupToComboBox(Group group)
+        {
+            ComboBoxGroups.Items.Add(group);
+        }
+
+        public void AddTestToComboBox(Test test)
+        {
+            ComboBoxTests.Items.Add(test);
+        }
+
+        public void InitWindowElements()
         {
             UpdateGroupTable();
             UpdateTestTable();
@@ -260,12 +260,28 @@ namespace DesktopAdministrator
             UpdateAvailableGroupsTable();
         }
 
-        public void UpdateAllItem()
+        public void UpdateAllWindowItems()
         {
- 
+            //UpdateDataGridIncludeGroups();
+            //UpdateComboBoxTestStatistic();
+            //UpdateGroupTable();
+            //UpdateTestTable();
+            //UpdateQuestionTable();
+            //UpdateStudentTable();
+            //UpdateStudentTable();
+            //SetComboBoxAvailableTests();
+            //UpdateAvailableGroupsTable();
+            //UpdateTestTable();
+            //UpdateTestingTable();
+            //SetComboBoxAvailableTests();
+            //UpdateAvailableGroupsTable();
+            //UpdateTestTable();
+            //UpdateTestingTable();
+            //SetComboBoxAvailableTests();
+            //UpdateAvailableGroupsTable();
         }
 
-        private void UpdateDataGridIncludeGroups()
+        public void UpdateDataGridIncludeGroups()
         {
             var groups = _repository.GetAllGroup();
 
@@ -283,7 +299,7 @@ namespace DesktopAdministrator
             DataGridIncludeGroups.ItemsSource = entityIncludeGroups;
         }
 
-        private void UpdateComboBoxTestStatistic()
+        public void UpdateComboBoxTestStatistic()
         {
             ComboBoxTestsOnStatistics.Items.Clear();
 
@@ -301,7 +317,7 @@ namespace DesktopAdministrator
             }
         }
 
-        private void UpdateGroupTable()
+        public void UpdateGroupTable()
         {
             var groups = _repository.GetAllGroup();
 
@@ -317,7 +333,7 @@ namespace DesktopAdministrator
             UpdateStudentTable();
         }
 
-        private void UpdateTestTable()
+        public void UpdateTestTable()
         {
             var tests = _repository.GetAllTest();
 
@@ -351,7 +367,7 @@ namespace DesktopAdministrator
             UpdateStudentTable(selectedGroup);
         }
 
-        private void UpdateStudentTable(Group group)
+        public void UpdateStudentTable(Group group)
         {
             if (group == null)
             {
@@ -370,7 +386,7 @@ namespace DesktopAdministrator
             }
         }
 
-        private void UpdateQuestionTable(Test test)
+        public void UpdateQuestionTable(Test test)
         {
             List<Question> questions = new List<Question>();
 
@@ -390,7 +406,7 @@ namespace DesktopAdministrator
             DataGridQuestion.ItemsSource = src;
         }
 
-        private void UpdateTestingTable()
+        public void UpdateTestingTable()
         {
             var testing = _repository.GetAllPassingTest();
 
@@ -426,7 +442,7 @@ namespace DesktopAdministrator
             DataGridTesting.ItemsSource = entity;
         }
 
-        private void UpdateAvailableGroupsTable()
+        public void UpdateAvailableGroupsTable()
         {
             var selectedTest = ComboBoxAvailableTests.SelectedItem as Test;
 

@@ -88,6 +88,8 @@ namespace DesktopAdministrator.Windows
 
             _repository.RemoveUser(student.Id);
 
+            _mainWindow.UpdateStudentTable();
+
             this.Hide();         
         }
     }

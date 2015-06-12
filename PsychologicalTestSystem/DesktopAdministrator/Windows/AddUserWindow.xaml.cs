@@ -59,6 +59,8 @@ namespace DesktopAdministrator.Windows
 
             _repository.AddUser(firsName, lastName, group.Id);
 
+            _mainWindow.UpdateStudentTable();
+
             this.Hide();
         }
 
