@@ -71,9 +71,9 @@ namespace DesktopAdministrator
 
             _chart = new TestingChart(GridStatistic);
 
-            InitComboBoxTestStatistic();
+            UpdateComboBoxTestStatistic();
 
-            InitDataGridIncludeGroups();
+            UpdateDataGridIncludeGroups();
 
             _updateThread = new Thread(UpdateDbAvailableGroup);
 
@@ -142,49 +142,17 @@ namespace DesktopAdministrator
             }
         }
 
-        private void InitDataGridIncludeGroups()
-        {
-            var groups = _repository.GetAllGroup();
 
-            entityIncludeGroups = new List<AvailableGroups>();
 
-            var test = ComboBoxAvailableTests.SelectedItem as Test;
 
-            foreach (var group in groups)
-            {
-                var isAvailable = true;
-
-                entityIncludeGroups.Add(new AvailableGroups { GroupName = group.Number, IsAvailable = isAvailable, GroupId = group.Id, TestId = test.Id });
-            }
-
-            DataGridIncludeGroups.ItemsSource = entityIncludeGroups;
-        }
-
-        private void InitComboBoxTestStatistic()
-        {
-            ComboBoxTestsOnStatistics.Items.Clear();
-
-            var tests = _repository.GetAllTest();
-
-            foreach (var item in tests)
-            {
-                ComboBoxTestsOnStatistics.Items.Add(item);
-            }
-
-            if (ComboBoxTestsOnStatistics.Items.Count != 0)
-            {
-                ComboBoxTestsOnStatistics.SelectedIndex = 0;
-                selectedTestToStatistic = ComboBoxTestsOnStatistics.SelectedItem as Test;
-            }
-        }
 
         private void InitWindowElements()
         {
-            SetGroupTable();
-            SetTestTable();
-            SetTestingTable();
+            UpdateGroupTable();
+            UpdateTestTable();
+            UpdateTestingTable();
             SetComboBoxAvailableTests();
-            SetAvailableGroupsTable();
+            UpdateAvailableGroupsTable();
         }
 
         public void AddGroupToComboBox(Group group)
@@ -192,94 +160,17 @@ namespace DesktopAdministrator
             ComboBoxGroups.Items.Add(group);
         }
 
-        private void SetGroupTable()
-        {
-            var groups = _repository.GetAllGroup();
 
-            ComboBoxGroups.Items.Clear();
 
-            foreach (var group in groups)
-            {
-                ComboBoxGroups.Items.Add(group);
-            }
 
-            ComboBoxGroups.SelectedIndex = 0;
 
-            UpdateStudentTable();
-        }
 
-        private void SetTestTable()
-        {
-            var tests = _repository.GetAllTest();
 
-            ComboBoxTests.Items.Clear();
 
-            ComboBoxTests.Items.Add(new Test {Name = "All"});
 
-            foreach (var test in tests)
-            {
-                ComboBoxTests.Items.Add(test);
-            }
 
-            ComboBoxTests.SelectedIndex = 0;
 
-            var item = ComboBoxTests.SelectedItem as Test;
 
-            SetQuestionTable(item);
-        }
-
-        public void UpdateQuestionTable()
-        {
-            var selectedTest = ComboBoxTests.SelectedItem as Test;
-
-            SetQuestionTable(selectedTest);
-        }
-
-        public void UpdateStudentTable()
-        {
-            var selectedGroup = ComboBoxGroups.SelectedItem as Group;
-
-            SetStudentTable(selectedGroup);
-        }
-
-        private void SetStudentTable(Group group)
-        {
-            if (group == null)
-            {
-                return;
-            }
-
-            var students = _repository.GetUserByGroup(group.Id);
-
-            TextBoxStudents.Clear();
-
-            foreach (var student in students)
-            {
-                var str = string.Format("{0} {1}", student.FirstName, student.LastName);
-
-                TextBoxStudents.Text += str + Environment.NewLine;
-            }
-        }
-
-        private void SetQuestionTable(Test test)
-        {
-            List<Question> questions = new List<Question>();
-
-            if (test.Name == "All")
-            {
-                questions = _repository.GetAllQuestion().ToList();
-            }
-            else
-            {
-                questions = _repository.GetQuestions(test.Id).ToList();
-            }
-
-            questions.Sort();
-
-            var src = ConvertHelper.ConvertCollection<QuestionEntity, Question>(questions);
-
-            DataGridQuestion.ItemsSource = src;
-        }
 
         private void StartServerButton_Click(object sender, RoutedEventArgs e)
         {
@@ -290,48 +181,19 @@ namespace DesktopAdministrator
         {
             var selectedGroup = ComboBoxGroups.SelectedItem as Group;
 
-            SetStudentTable(selectedGroup);
+            UpdateStudentTable(selectedGroup);
         }
 
-        private void ButtonAddGroup_Click(object sender, RoutedEventArgs e)
-        {
-            _addGroupWindow = new AddGroupWindow(this, _repository);
 
-            _addGroupWindow.Show();
-        }
 
-        private void ButtonAddStudent_Click(object sender, RoutedEventArgs e)
-        {
-            _addUserWindow = new AddUserWindow(this, _repository);
 
-            _addUserWindow.Show();
-        }
 
         public void AddTestToComboBox(Test test)
         {
             ComboBoxTests.Items.Add(test);
         }
 
-        private void ButtonAddTest_Click(object sender, RoutedEventArgs e)
-        {
-            _addTestWindow = new AddTestWindow(this, _repository);
 
-            _addTestWindow.Show();
-        }
-
-        private void ButtonAddQuestion_Click(object sender, RoutedEventArgs e)
-        {
-            _addQuestionWindow = new AddQuestionWindow(this, _repository);
-
-            _addQuestionWindow.Show();
-        }
-
-        private void ButtonAddQuestionToTest_Click(object sender, RoutedEventArgs e)
-        {
-            _addQuestionToTestWindow = new AddQuestionToTestWindow(this, _repository);
-
-            _addQuestionToTestWindow.Show();
-        }
 
         private void ComboBoxTests_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -340,44 +202,10 @@ namespace DesktopAdministrator
 
         private void ComboBoxAvailableTests_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SetAvailableGroupsTable();
+            UpdateAvailableGroupsTable();
         }
 
-        private void SetTestingTable()
-        {
-            var testing = _repository.GetAllPassingTest();
 
-            var entity = new List<TestingUser>();
-
-            foreach (var passingTest in testing)
-            {
-                var user = _repository.GetUser(passingTest.UserId);
-
-                if (user == null)
-                {
-                    MessageBox.Show("Не найден пользователь с идентификатором " + passingTest.UserId);
-                    continue;
-                }
-
-                var group = _repository.GetGroup(user.GroupId);
-
-                var test = _repository.GetTest(passingTest.TestId);
-
-                entity.Add(new TestingUser
-                {
-                    Date = passingTest.Date,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    GroupNumber = group.Number,
-                    PassingTestId = passingTest.Id,
-                    TestName = test.Name
-                });
-            }
-
-            entity.Sort();
-
-            DataGridTesting.ItemsSource = entity;
-        }
 
         private void SetComboBoxAvailableTests()
         {
@@ -393,44 +221,9 @@ namespace DesktopAdministrator
             ComboBoxAvailableTests.SelectedIndex = 0;
         }
 
-        private void SetAvailableGroupsTable()
-        {
-            var selectedTest = ComboBoxAvailableTests.SelectedItem as Test;
 
-            if (selectedTest == null)
-            {
-                return;
-            }
 
-            var groups = _repository.GetAllGroup();
 
-            entityAvailableGroups = new List<AvailableGroups>();
-
-            var test = ComboBoxAvailableTests.SelectedItem as Test;
-
-            foreach (var group in groups)
-            {
-                var isAvailable = _repository.IsAvailableGroup(selectedTest.Id, group.Id);
-
-                entityAvailableGroups.Add(new AvailableGroups { GroupName = group.Number, IsAvailable = isAvailable, TestId = test.Id, GroupId = group.Id });
-            }
-
-            DataGridAvailableGroups.ItemsSource = entityAvailableGroups;
-        }
-
-        private void ShowTestingDetails(object sender, RoutedEventArgs e)
-        {
-            var item = DataGridTesting.SelectedItem as TestingUser;
-
-            if (item == null)
-            {
-                return;
-            }
-
-            _showTestingDetailsWindow = new ShowTestingDetailsWindow(this, _repository, item.PassingTestId);
-
-            _showTestingDetailsWindow.Show();
-        }
 
         private void ButtonWriteDbToXml_Click(object sender, RoutedEventArgs e)
         {
@@ -442,33 +235,12 @@ namespace DesktopAdministrator
             _repository.ReadFromFolder(ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey]);
         }
 
-        private void ButtonRemoveGroup_Click(object sender, RoutedEventArgs e)
-        {
-            _removeGroupWindow = new RemoveGroupWindow(this, _repository);
 
-            _removeGroupWindow.Show();
-        }
 
-        private void ButtonRemoveStudent_Click(object sender, RoutedEventArgs e)
-        {
-            _removeStudentWindow = new RemoveStudentWindow(this, _repository);
 
-            _removeStudentWindow.Show();
-        }
 
-        private void ButtonRemoveTest_Click(object sender, RoutedEventArgs e)
-        {
-            _removeTestWindow = new RemoveTestWindow(this, _repository);
 
-            _removeTestWindow.Show();
-        }
 
-        private void ButtonRemoveQuestionFromTest_Click(object sender, RoutedEventArgs e)
-        {
-            _removeQuestionFromTestWindow = new RemoveQuestionFromTestWindow(this, _repository);
-
-            _removeQuestionFromTestWindow.Show();
-        }
 
         private void ComboBoxTestsOnStatistics_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -523,18 +295,292 @@ namespace DesktopAdministrator
             }
         }
 
+
+
+        #region UpdateWindowsElements
+        public void UpdateAllItem()
+        {
+ 
+        }
+
+        private void UpdateDataGridIncludeGroups()
+        {
+            var groups = _repository.GetAllGroup();
+
+            entityIncludeGroups = new List<AvailableGroups>();
+
+            var test = ComboBoxAvailableTests.SelectedItem as Test;
+
+            foreach (var group in groups)
+            {
+                var isAvailable = true;
+
+                entityIncludeGroups.Add(new AvailableGroups { GroupName = group.Number, IsAvailable = isAvailable, GroupId = group.Id, TestId = test.Id });
+            }
+
+            DataGridIncludeGroups.ItemsSource = entityIncludeGroups;
+        }
+
+        private void UpdateComboBoxTestStatistic()
+        {
+            ComboBoxTestsOnStatistics.Items.Clear();
+
+            var tests = _repository.GetAllTest();
+
+            foreach (var item in tests)
+            {
+                ComboBoxTestsOnStatistics.Items.Add(item);
+            }
+
+            if (ComboBoxTestsOnStatistics.Items.Count != 0)
+            {
+                ComboBoxTestsOnStatistics.SelectedIndex = 0;
+                selectedTestToStatistic = ComboBoxTestsOnStatistics.SelectedItem as Test;
+            }
+        }
+
+        private void UpdateGroupTable()
+        {
+            var groups = _repository.GetAllGroup();
+
+            ComboBoxGroups.Items.Clear();
+
+            foreach (var group in groups)
+            {
+                ComboBoxGroups.Items.Add(group);
+            }
+
+            ComboBoxGroups.SelectedIndex = 0;
+
+            UpdateStudentTable();
+        }
+
+        private void UpdateTestTable()
+        {
+            var tests = _repository.GetAllTest();
+
+            ComboBoxTests.Items.Clear();
+
+            ComboBoxTests.Items.Add(new Test { Name = "All" });
+
+            foreach (var test in tests)
+            {
+                ComboBoxTests.Items.Add(test);
+            }
+
+            ComboBoxTests.SelectedIndex = 0;
+
+            var item = ComboBoxTests.SelectedItem as Test;
+
+            UpdateQuestionTable(item);
+        }
+
+        public void UpdateQuestionTable()
+        {
+            var selectedTest = ComboBoxTests.SelectedItem as Test;
+
+            UpdateQuestionTable(selectedTest);
+        }
+
+        public void UpdateStudentTable()
+        {
+            var selectedGroup = ComboBoxGroups.SelectedItem as Group;
+
+            UpdateStudentTable(selectedGroup);
+        }
+
+        private void UpdateStudentTable(Group group)
+        {
+            if (group == null)
+            {
+                return;
+            }
+
+            var students = _repository.GetUserByGroup(group.Id);
+
+            TextBoxStudents.Clear();
+
+            foreach (var student in students)
+            {
+                var str = string.Format("{0} {1}", student.FirstName, student.LastName);
+
+                TextBoxStudents.Text += str + Environment.NewLine;
+            }
+        }
+
+        private void UpdateQuestionTable(Test test)
+        {
+            List<Question> questions = new List<Question>();
+
+            if (test.Name == "All")
+            {
+                questions = _repository.GetAllQuestion().ToList();
+            }
+            else
+            {
+                questions = _repository.GetQuestions(test.Id).ToList();
+            }
+
+            questions.Sort();
+
+            var src = ConvertHelper.ConvertCollection<QuestionEntity, Question>(questions);
+
+            DataGridQuestion.ItemsSource = src;
+        }
+
+        private void UpdateTestingTable()
+        {
+            var testing = _repository.GetAllPassingTest();
+
+            var entity = new List<TestingUser>();
+
+            foreach (var passingTest in testing)
+            {
+                var user = _repository.GetUser(passingTest.UserId);
+
+                if (user == null)
+                {
+                    MessageBox.Show("Не найден пользователь с идентификатором " + passingTest.UserId);
+                    continue;
+                }
+
+                var group = _repository.GetGroup(user.GroupId);
+
+                var test = _repository.GetTest(passingTest.TestId);
+
+                entity.Add(new TestingUser
+                {
+                    Date = passingTest.Date,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    GroupNumber = group.Number,
+                    PassingTestId = passingTest.Id,
+                    TestName = test.Name
+                });
+            }
+
+            entity.Sort();
+
+            DataGridTesting.ItemsSource = entity;
+        }
+
+        private void UpdateAvailableGroupsTable()
+        {
+            var selectedTest = ComboBoxAvailableTests.SelectedItem as Test;
+
+            if (selectedTest == null)
+            {
+                return;
+            }
+
+            var groups = _repository.GetAllGroup();
+
+            entityAvailableGroups = new List<AvailableGroups>();
+
+            var test = ComboBoxAvailableTests.SelectedItem as Test;
+
+            foreach (var group in groups)
+            {
+                var isAvailable = _repository.IsAvailableGroup(selectedTest.Id, group.Id);
+
+                entityAvailableGroups.Add(new AvailableGroups { GroupName = group.Number, IsAvailable = isAvailable, TestId = test.Id, GroupId = group.Id });
+            }
+
+            DataGridAvailableGroups.ItemsSource = entityAvailableGroups;
+        }
+        #endregion
+
+        #region CreateNewWindow  
+        private void ButtonRemoveQuestionFromTest_Click(object sender, RoutedEventArgs e)
+        {
+            _removeQuestionFromTestWindow = new RemoveQuestionFromTestWindow(this, _repository);
+
+            _removeQuestionFromTestWindow.ShowDialog();
+        }
+
+        private void ButtonRemoveTest_Click(object sender, RoutedEventArgs e)
+        {
+            _removeTestWindow = new RemoveTestWindow(this, _repository);
+
+            _removeTestWindow.ShowDialog();
+        }
+
+        private void ButtonRemoveStudent_Click(object sender, RoutedEventArgs e)
+        {
+            _removeStudentWindow = new RemoveStudentWindow(this, _repository);
+
+            _removeStudentWindow.ShowDialog();
+        }
+        
+        private void ButtonRemoveGroup_Click(object sender, RoutedEventArgs e)
+        {
+            _removeGroupWindow = new RemoveGroupWindow(this, _repository);
+
+            _removeGroupWindow.ShowDialog();
+        }
+
+        private void ShowTestingDetails(object sender, RoutedEventArgs e)
+        {
+            var item = DataGridTesting.SelectedItem as TestingUser;
+
+            if (item == null)
+            {
+                return;
+            }
+
+            _showTestingDetailsWindow = new ShowTestingDetailsWindow(this, _repository, item.PassingTestId);
+
+            _showTestingDetailsWindow.ShowDialog();
+        }
+
+        private void ButtonAddGroup_Click(object sender, RoutedEventArgs e)
+        {
+            _addGroupWindow = new AddGroupWindow(this, _repository);
+
+            _addGroupWindow.ShowDialog();
+        }
+
+        private void ButtonAddStudent_Click(object sender, RoutedEventArgs e)
+        {
+            _addUserWindow = new AddUserWindow(this, _repository);
+
+            _addUserWindow.ShowDialog();
+        }
+
+        private void ButtonAddTest_Click(object sender, RoutedEventArgs e)
+        {
+            _addTestWindow = new AddTestWindow(this, _repository);
+
+            _addTestWindow.ShowDialog();
+        }
+
+        private void ButtonAddQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            _addQuestionWindow = new AddQuestionWindow(this, _repository);
+
+            _addQuestionWindow.ShowDialog();
+        }
+
+        private void ButtonAddQuestionToTest_Click(object sender, RoutedEventArgs e)
+        {
+            _addQuestionToTestWindow = new AddQuestionToTestWindow(this, _repository);
+
+            _addQuestionToTestWindow.ShowDialog();
+        }
+
         private void ButtonRemoveQuestion_Click(object sender, RoutedEventArgs e)
         {
             _removeQuestionFromTestWindow = new RemoveQuestionFromTestWindow(this, _repository);
-            
-            _removeQuestionFromTestWindow.Show();
+
+            _removeQuestionFromTestWindow.ShowDialog();
         }
 
         private void ButtonRemovePassingTest_Click(object sender, RoutedEventArgs e)
         {
             _removePassingTestWindow = new RemovePassingTestWindow(this, _repository);
 
-            _removePassingTestWindow.Show();
+            _removePassingTestWindow.ShowDialog();
         }
+        #endregion
     }
 }
