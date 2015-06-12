@@ -72,7 +72,6 @@ namespace DesktopAdministrator
             _chart = new TestingChart(GridStatistic);
 
             UpdateComboBoxTestStatistic();
-
             UpdateDataGridIncludeGroups();
 
             _updateThread = new Thread(UpdateDbAvailableGroup);
@@ -141,36 +140,11 @@ namespace DesktopAdministrator
                 //}
             }
         }
-
-
-
-
-
-        private void InitWindowElements()
-        {
-            UpdateGroupTable();
-            UpdateTestTable();
-            UpdateTestingTable();
-            SetComboBoxAvailableTests();
-            UpdateAvailableGroupsTable();
-        }
-
+        
         public void AddGroupToComboBox(Group group)
         {
             ComboBoxGroups.Items.Add(group);
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
         private void StartServerButton_Click(object sender, RoutedEventArgs e)
         {
@@ -184,16 +158,10 @@ namespace DesktopAdministrator
             UpdateStudentTable(selectedGroup);
         }
 
-
-
-
-
         public void AddTestToComboBox(Test test)
         {
             ComboBoxTests.Items.Add(test);
         }
-
-
 
         private void ComboBoxTests_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -204,8 +172,6 @@ namespace DesktopAdministrator
         {
             UpdateAvailableGroupsTable();
         }
-
-
 
         private void SetComboBoxAvailableTests()
         {
@@ -221,10 +187,6 @@ namespace DesktopAdministrator
             ComboBoxAvailableTests.SelectedIndex = 0;
         }
 
-
-
-
-
         private void ButtonWriteDbToXml_Click(object sender, RoutedEventArgs e)
         {
             _repository.WriteToFolder(ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey]);
@@ -234,13 +196,6 @@ namespace DesktopAdministrator
         {
             _repository.ReadFromFolder(ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey]);
         }
-
-
-
-
-
-
-
 
         private void ComboBoxTestsOnStatistics_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -295,9 +250,16 @@ namespace DesktopAdministrator
             }
         }
 
-
-
         #region UpdateWindowsElements
+        private void InitWindowElements()
+        {
+            UpdateGroupTable();
+            UpdateTestTable();
+            UpdateTestingTable();
+            SetComboBoxAvailableTests();
+            UpdateAvailableGroupsTable();
+        }
+
         public void UpdateAllItem()
         {
  
