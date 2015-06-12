@@ -47,6 +47,7 @@ namespace DesktopAdministrator
         private RemoveQuestionFromTestWindow _removeQuestionFromTestWindow;
         private RemoveTestWindow _removeTestWindow;
         private RemovePassingTestWindow _removePassingTestWindow;
+        private RemoveQuestionWindow _removeQuestionWindow;
 
         private TestingChart _chart;
 
@@ -388,6 +389,11 @@ namespace DesktopAdministrator
 
         public void UpdateQuestionTable(Test test)
         {
+            if (test == null)
+            {
+                return;
+            }
+
             List<Question> questions = new List<Question>();
 
             if (test.Name == "All")
@@ -548,9 +554,9 @@ namespace DesktopAdministrator
 
         private void ButtonRemoveQuestion_Click(object sender, RoutedEventArgs e)
         {
-            _removeQuestionFromTestWindow = new RemoveQuestionFromTestWindow(this, _repository);
+            _removeQuestionWindow = new RemoveQuestionWindow(this, _repository);
 
-            _removeQuestionFromTestWindow.ShowDialog();
+            _removeQuestionWindow.ShowDialog();
         }
 
         private void ButtonRemovePassingTest_Click(object sender, RoutedEventArgs e)

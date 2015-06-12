@@ -61,6 +61,8 @@ namespace DesktopAdministrator.Windows
 
             _repository.AddQuestionToTest(question.Id, test.Id);
 
+            _mainWindow.UpdateQuestionTable();
+
             this.Hide();
         }
     }

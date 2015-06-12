@@ -30,7 +30,7 @@ namespace Db.Core.TableEntityes
 
         public override string ToString()
         {
-            return StringHelper.GetShortString(Message);
+            return StringHelper.GetShortString(Message, 40);
         }
         
         public int CompareTo(object obj)

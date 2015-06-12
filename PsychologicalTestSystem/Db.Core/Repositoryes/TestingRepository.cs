@@ -1045,5 +1045,43 @@ namespace Db.Core.Repositoryes
                 db.SaveChanges();
             }
         }
+
+
+        public void RemoveQuestion(Guid questionId)
+        {
+            using (var db = new CoreDbContextV9())
+            {
+                QuestionT res = null;
+
+                foreach (var item in db.Questions)
+                {
+                    if (item.Id == questionId)
+                    {
+                        res = item;
+                    }
+                }
+
+                var id = res.Id;
+
+                db.Questions.Remove(res);
+
+                var itemToremove = new List<QuestionToTestT>();
+
+                foreach (var item in db.QuestionsToTests)
+                {
+                    if (item.QuestionId == questionId)
+                    {
+                        itemToremove.Add(item);
+                    }
+                }
+
+                foreach (var item in itemToremove)
+                {
+                    db.QuestionsToTests.Remove(item);
+                }
+
+                db.SaveChanges();
+            }
+        }
     }
 }

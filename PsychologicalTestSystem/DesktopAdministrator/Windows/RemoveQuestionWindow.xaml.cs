@@ -17,33 +17,30 @@ using System.Windows.Shapes;
 namespace DesktopAdministrator.Windows
 {
     /// <summary>
-    /// Interaction logic for RemoveTestWindow.xaml
+    /// Interaction logic for RemoveQuestionWindow.xaml
     /// </summary>
-    public partial class RemoveTestWindow : Window
+    public partial class RemoveQuestionWindow : Window
     {
         private readonly ITestingRepository _repository;
         private readonly MainWindow _mainWindow;
 
-        public RemoveTestWindow(MainWindow mainWindow, ITestingRepository repository)
+        public RemoveQuestionWindow(MainWindow mainWindow, ITestingRepository repository)
         {
             InitializeComponent();
 
             _repository = repository;
             _mainWindow = mainWindow;
 
+            var quests = _repository.GetAllQuestion();
 
-            var tests = _repository.GetAllTest();
-
-            ComboBoxTests.Items.Clear();
-
-            foreach (var item in tests)
+            foreach (var item in quests)
             {
-                ComboBoxTests.Items.Add(item);
+                ComboBoxQuestions.Items.Add(item);
             }
 
-            if (tests.Count() != 0)
+            if (ComboBoxQuestions.Items.Count != 0)
             {
-                ComboBoxTests.SelectedIndex = 0;
+                ComboBoxQuestions.SelectedIndex = 0;
             }
         }
 
@@ -54,11 +51,11 @@ namespace DesktopAdministrator.Windows
 
         private void ButtonRemove_Click(object sender, RoutedEventArgs e)
         {
-            var test = ComboBoxTests.SelectedItem as Test;
+            var ques = ComboBoxQuestions.SelectedItem as Question;
 
-            _repository.RemoveTest(test.Id);
+            _repository.RemoveQuestion(ques.Id);
 
-            _mainWindow.UpdateTestTable();
+            _mainWindow.UpdateQuestionTable();
 
             this.Hide();
         }

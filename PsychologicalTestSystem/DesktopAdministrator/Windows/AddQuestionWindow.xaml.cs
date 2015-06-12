@@ -58,6 +58,8 @@ namespace DesktopAdministrator.Windows
                 report1ToUser, report2ToUser, report1ToAdmin, report2ToAdmin,
                 problemNumber, weakProblemNumber, sortIndex);
 
+            _mainWindow.UpdateQuestionTable();
+
             this.Hide();
         }
     }

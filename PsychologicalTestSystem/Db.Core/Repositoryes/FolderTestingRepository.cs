@@ -471,5 +471,11 @@ namespace Db.Core.Repositoryes
         {
             throw new NotImplementedException();
         }
+
+
+        public void RemoveQuestion(Guid questionId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

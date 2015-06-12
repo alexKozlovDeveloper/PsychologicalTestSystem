@@ -64,6 +64,8 @@ namespace DesktopAdministrator.Windows
 
             _repository.RemoveQuestionToTest(qTot.Id);
 
+            _mainWindow.UpdateQuestionTable();
+
             this.Hide();  
         }
     }

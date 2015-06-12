@@ -1,0 +1,12 @@
+﻿<Window x:Class="DesktopAdministrator.Windows.RemoveQuestionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RemoveQuestionWindow" Height="192.373" Width="516.101">
+    <Grid>
+        <Label Content="Выберете вопрос для удаления:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="ComboBoxQuestions" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="490" Height="37"/>
+        <Button Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="10,133,0,0" VerticalAlignment="Top" Width="75" Click="ButtonCancel_Click"/>
+        <Button Name="ButtonRemove" Content="Удалить" HorizontalAlignment="Left" Margin="425,133,0,0" VerticalAlignment="Top" Width="75" Click="ButtonRemove_Click"/>
+
+    </Grid>
+</Window>

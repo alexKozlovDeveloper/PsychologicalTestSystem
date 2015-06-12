@@ -94,6 +94,9 @@
     <Compile Include="Windows\RemoveQuestionFromTestWindow.xaml.cs">
       <DependentUpon>RemoveQuestionFromTestWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\RemoveQuestionWindow.xaml.cs">
+      <DependentUpon>RemoveQuestionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\RemoveStudentWindow.xaml.cs">
       <DependentUpon>RemoveStudentWindow.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\RemoveQuestionFromTestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\RemoveQuestionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
