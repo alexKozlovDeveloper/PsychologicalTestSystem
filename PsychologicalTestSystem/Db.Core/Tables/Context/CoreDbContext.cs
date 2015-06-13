@@ -9,6 +9,12 @@ namespace Db.Core.Tables.Context
 {
     class CoreDbContextV9 : DbContext
     {
+        public CoreDbContextV9()
+            : base("TestingDbConnection")
+        { 
+        
+        }
+
         public DbSet<AvailableTestToGroupT> AvailableTestToGroup { get; set; }
         public DbSet<GroupT> Groups { get; set; }
         public DbSet<PassingTestT> PassingsTest { get; set; }
