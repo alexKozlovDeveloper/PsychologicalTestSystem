@@ -65,6 +65,7 @@ namespace DesktopAdministrator.Windows
             _repository.RemoveQuestionToTest(qTot.Id);
 
             _mainWindow.UpdateQuestionTable();
+            _mainWindow.UpdateComboBoxProblemQuestions();
 
             this.Hide();  
         }

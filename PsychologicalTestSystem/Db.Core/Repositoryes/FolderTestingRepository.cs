@@ -477,5 +477,11 @@ namespace Db.Core.Repositoryes
         {
             throw new NotImplementedException();
         }
+
+
+        public IEnumerable<User> GetUserWithStrongProblem(Guid testId, Guid QuestionId, Guid groupId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

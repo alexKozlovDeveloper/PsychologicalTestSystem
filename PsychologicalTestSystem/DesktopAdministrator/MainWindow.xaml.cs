@@ -264,6 +264,10 @@ namespace DesktopAdministrator
             UpdateTestingTable();
             UpdateComboBoxAvailableTests();
             UpdateAvailableGroupsTable();
+
+            UpdateComboBoxProblemTests();
+            UpdateComboBoxProblemQuestions();
+            UpdateComboBoxProblemGroups();
         }
 
         public void UpdateAllWindowItems()
@@ -477,6 +481,94 @@ namespace DesktopAdministrator
 
             DataGridAvailableGroups.ItemsSource = entityAvailableGroups;
         }
+
+
+        public void UpdateComboBoxProblemTests()
+        {
+            ComboBoxProblemTests.Items.Clear();
+
+            var tests = _repository.GetAllTest();
+
+            foreach (var item in tests)
+            {
+                ComboBoxProblemTests.Items.Add(item);
+            }
+
+            if (ComboBoxProblemTests.Items.Count != 0)
+            {
+                ComboBoxProblemTests.SelectedIndex = 0;
+            }
+
+            UpdateComboBoxProblemQuestions();
+        }
+
+        public void UpdateComboBoxProblemQuestions()
+        {
+            var test = ComboBoxProblemTests.SelectedItem as Test;
+
+            if (test == null)
+            {
+                return;
+            }
+
+            ComboBoxProblemQuestions.Items.Clear();
+
+            var quests = _repository.GetQuestions(test.Id);
+
+            foreach (var item in quests)
+            {
+                ComboBoxProblemQuestions.Items.Add(item);
+            }
+
+            if (ComboBoxProblemQuestions.Items.Count != 0)
+            {
+                ComboBoxProblemQuestions.SelectedIndex = 0;
+            }
+
+            UpdateComboBoxProblemGroups();
+        }
+
+        public void UpdateComboBoxProblemGroups()
+        {
+            ComboBoxProblemGroups.Items.Clear();
+
+            var groups = _repository.GetAllGroup();
+
+            foreach (var item in groups)
+            {
+                ComboBoxProblemGroups.Items.Add(item);
+            }
+
+            if (ComboBoxProblemGroups.Items.Count != 0)
+            {
+                ComboBoxProblemGroups.SelectedIndex = 0;
+            }
+        }
+
+        public void UpdateTextBoxProblemUsersAndTeacherRecomend()
+        {
+            var test = ComboBoxProblemTests.SelectedItem as Test;
+            var question = ComboBoxProblemQuestions.SelectedItem as Question;
+            var group = ComboBoxProblemGroups.SelectedItem as Group;
+
+            if (test == null || question == null || group == null)
+            {
+                return;
+            }
+
+            TextBoxTeacherRecomend.Text = question.FirstReportMessageToAdmin;
+
+            var users = _repository.GetUserWithStrongProblem(test.Id, question.Id, group.Id);
+
+            var str = string.Empty;
+
+            foreach (var item in users)
+            {
+                str += item.FirstName + " " + item.LastName + Environment.NewLine; 
+            }
+
+            TextBoxUsersList.Text = str;
+        }
         #endregion
 
         #region CreateNewWindow  
@@ -571,5 +663,21 @@ namespace DesktopAdministrator
             _removePassingTestWindow.ShowDialog();
         }
         #endregion
+
+        private void ComboBoxProblemTests_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateComboBoxProblemQuestions();
+            UpdateTextBoxProblemUsersAndTeacherRecomend();
+        }
+
+        private void ComboBoxProblemQuestions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateTextBoxProblemUsersAndTeacherRecomend();
+        }
+
+        private void ComboBoxProblemGroups_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateTextBoxProblemUsersAndTeacherRecomend();
+        }
     }
 }

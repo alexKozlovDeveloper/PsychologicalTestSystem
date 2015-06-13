@@ -59,6 +59,7 @@ namespace DesktopAdministrator.Windows
                 problemNumber, weakProblemNumber, sortIndex);
 
             _mainWindow.UpdateQuestionTable();
+            _mainWindow.UpdateComboBoxProblemQuestions();
 
             this.Hide();
         }

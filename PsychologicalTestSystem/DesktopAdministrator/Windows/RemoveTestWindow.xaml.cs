@@ -61,6 +61,7 @@ namespace DesktopAdministrator.Windows
             _mainWindow.UpdateTestTable();
             _mainWindow.UpdateComboBoxTestStatistic();
             _mainWindow.UpdateComboBoxAvailableTests();
+            _mainWindow.UpdateComboBoxProblemTests();
 
             this.Hide();
         }

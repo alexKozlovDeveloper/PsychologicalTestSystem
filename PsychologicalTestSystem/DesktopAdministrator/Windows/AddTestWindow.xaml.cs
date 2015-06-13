@@ -45,8 +45,8 @@ namespace DesktopAdministrator.Windows
 
             _mainWindow.AddTestToComboBox(test);
             _mainWindow.UpdateComboBoxTestStatistic();
-            //_mainWindow.UpdateAvailableGroupsTable();
             _mainWindow.UpdateComboBoxAvailableTests();
+            _mainWindow.UpdateComboBoxProblemTests();
 
             this.Hide();
         }

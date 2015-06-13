@@ -76,5 +76,7 @@ namespace Db.Core.Repositoryes
         void RemoveAvailableGroup(Guid GroupId, Guid TestId);
         void RemovePassingTest(Guid passingTestId);
         void RemoveQuestion(Guid questionId);
+
+        IEnumerable<User> GetUserWithStrongProblem(Guid testId, Guid QuestionId, Guid groupId);
     }
 }

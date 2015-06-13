@@ -4,7 +4,7 @@
         Title="MainWindow" Height="548.4" Width="1077">
     <Grid>
         <TabControl HorizontalAlignment="Left" Height="499" Margin="10,10,0,0" VerticalAlignment="Top" Width="924">
-            <TabItem Header="Студенты и группы">
+            <TabItem Header="Студенты и группы" Margin="-2,-2,-39.2,0">
                 <Grid Background="#FFE5E5E5">
                     <Label Content="Группы" HorizontalAlignment="Left" Margin="9,6,0,0" VerticalAlignment="Top" Width="61"/>
                     <Label Content="Студенты" HorizontalAlignment="Left" Margin="9,37,0,0" VerticalAlignment="Top"/>
@@ -16,7 +16,7 @@
                     <Button Name="ButtonRemoveStudent" Content="Удалить" HorizontalAlignment="Left" Margin="280,37,0,0" VerticalAlignment="Top" Width="75" Click="ButtonRemoveStudent_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Тесты и вопросы">
+            <TabItem Header="Тесты и вопросы" Margin="39.2,-2,-55.6,0">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="DataGridQuestion" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Height="390" Width="899" AutoGenerateColumns="False">
                         <DataGrid.Columns>
@@ -44,7 +44,7 @@
                     <Button Name="ButtonRemoveQuestion" Content="Удалить вопрос" HorizontalAlignment="Left" Margin="306,43,0,0" VerticalAlignment="Top" Width="117" Click="ButtonRemoveQuestion_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Тестирование">
+            <TabItem Header="Тестирование" Margin="55.4,-2,-87.6,0">
                 <Grid Background="#FFE5E5E5">
                     <ComboBox Name="ComboBoxAvailableTests" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxAvailableTests_SelectionChanged"/>
                     <Label Content="Тесты" HorizontalAlignment="Left" Margin="619,10,0,0" VerticalAlignment="Top"/>
@@ -74,7 +74,7 @@
                     <Button Name="ButtonRemovePassingTest" Content="Удалить результат прохождения теста" HorizontalAlignment="Left" Margin="140,13,0,0" VerticalAlignment="Top" Width="242" Click="ButtonRemovePassingTest_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Статистика">
+            <TabItem Header="Статистика" Margin="86.6,-2,-151.6,0">
                 <Grid Background="#FFE5E5E5">
                     <ScrollViewer HorizontalAlignment="Left" Height="451" Margin="10,10,0,0" VerticalAlignment="Top" Width="682">
                         <Grid Name="GridStatistic" Height="1830" Width="680">
@@ -96,6 +96,18 @@
                     </DataGrid>
                     <Button Name="ButtonUpdateStatistic" Content="Обновить" HorizontalAlignment="Left" Margin="697,68,0,0" VerticalAlignment="Top" Width="212" Height="30" Click="ButtonUpdateStatistic_Click"/>
 
+                </Grid>
+            </TabItem>
+            <TabItem Header="Проблемы" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="121" Margin="150.6,-2,-150.8,0">
+                <Grid Background="#FFE5E5E5">
+                    <ComboBox Name="ComboBoxProblemTests" HorizontalAlignment="Left" Margin="114,13,0,0" VerticalAlignment="Top" Width="243" SelectionChanged="ComboBoxProblemTests_SelectionChanged"/>
+                    <Label Content="Тест" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="99"/>
+                    <ComboBox Name="ComboBoxProblemQuestions" HorizontalAlignment="Left" Margin="114,44,0,0" VerticalAlignment="Top" Width="243" SelectionChanged="ComboBoxProblemQuestions_SelectionChanged"/>
+                    <Label Content="Вопрос" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="99"/>
+                    <ComboBox Name="ComboBoxProblemGroups" HorizontalAlignment="Left" Margin="114,75,0,0" VerticalAlignment="Top" Width="243" SelectionChanged="ComboBoxProblemGroups_SelectionChanged"/>
+                    <Label Content="Группа" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="99"/>
+                    <TextBox Name="TextBoxUsersList" HorizontalAlignment="Left" Height="358" Margin="10,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="347"/>
+                    <TextBox Name="TextBoxTeacherRecomend" HorizontalAlignment="Left" Height="85" Margin="362,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="289"/>
                 </Grid>
             </TabItem>
         </TabControl>

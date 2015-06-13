@@ -1083,5 +1083,44 @@ namespace Db.Core.Repositoryes
                 db.SaveChanges();
             }
         }
+
+
+        public IEnumerable<User> GetUserWithStrongProblem(Guid testId, Guid QuestionId, Guid groupId)
+        {
+            var res = new List<User>();
+
+            var users = GetUserByGroup(groupId);
+
+            var ques = GetQuestion(QuestionId);
+
+            foreach (var item in users)
+            {
+                var passingTest = GetLastPassingTest(item.Id, testId);
+
+                if (passingTest == null)
+                {
+                    continue;
+                }
+
+                var testings = GetTesting(passingTest.Id);
+
+                Testing testing = null;
+
+                foreach (var obj in testings)
+                {
+                    if (obj.QuestionId == QuestionId)
+                    {
+                        testing = obj;
+                    }
+                }
+
+                if (testing.ChekedAnswer == ques.StrongProblemNumber)
+                {
+                    res.Add(item);
+                }
+            }
+
+            return res;
+        }
     }
 }

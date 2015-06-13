@@ -61,7 +61,7 @@ namespace DesktopAdministrator.Windows
 
             _mainWindow.UpdateAvailableGroupsTable();
             _mainWindow.UpdateDataGridIncludeGroups();
-
+            _mainWindow.UpdateComboBoxProblemGroups();
 
             this.Hide();
         }

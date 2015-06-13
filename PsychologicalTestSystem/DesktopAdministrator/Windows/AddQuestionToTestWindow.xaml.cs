@@ -62,6 +62,7 @@ namespace DesktopAdministrator.Windows
             _repository.AddQuestionToTest(question.Id, test.Id);
 
             _mainWindow.UpdateQuestionTable();
+            _mainWindow.UpdateComboBoxProblemQuestions();
 
             this.Hide();
         }
