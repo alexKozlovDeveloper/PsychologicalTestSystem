@@ -33,7 +33,6 @@ namespace DesktopAdministrator
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly TestTcpServer _server;
         private readonly ITestingRepository _repository;
 
         private AddGroupWindow _addGroupWindow;
@@ -65,19 +64,25 @@ namespace DesktopAdministrator
 
             _isWork = true;
 
-            _server = new TestTcpServer();
-            _repository = new TestingRepository();
+            try
+            {
+                _repository = new TestingRepository();
 
-            InitWindowElements();
+                InitWindowElements();
 
-            _chart = new TestingChart(GridStatistic);
+                _chart = new TestingChart(GridStatistic);
 
-            UpdateComboBoxTestStatistic();
-            UpdateDataGridIncludeGroups();
+                UpdateComboBoxTestStatistic();
+                UpdateDataGridIncludeGroups();
 
-            _updateThread = new Thread(UpdateDbAvailableGroup);
+                _updateThread = new Thread(UpdateDbAvailableGroup);
 
-            _updateThread.Start();
+                _updateThread.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             this.Closed += MainWindow_Closed;
         }
@@ -141,11 +146,6 @@ namespace DesktopAdministrator
                 //}
             }
         }
-        
-        private void StartServerButton_Click(object sender, RoutedEventArgs e)
-        {
-            _server.Start();
-        }
 
         private void ComboBoxGroups_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -162,20 +162,6 @@ namespace DesktopAdministrator
         private void ComboBoxAvailableTests_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateAvailableGroupsTable();
-        }
-
-        private void SetComboBoxAvailableTests()
-        {
-            var tests = _repository.GetAllTest();
-
-            ComboBoxAvailableTests.Items.Clear();
-
-            foreach (var test in tests)
-            {
-                ComboBoxAvailableTests.Items.Add(test);
-            }
-
-            ComboBoxAvailableTests.SelectedIndex = 0;
         }
 
         private void ButtonWriteDbToXml_Click(object sender, RoutedEventArgs e)
@@ -195,6 +181,11 @@ namespace DesktopAdministrator
             var sh = new StatisticHelper(_repository);
 
             var test = ComboBoxTestsOnStatistics.SelectedItem as Test;
+
+            if(test == null)
+            {
+                return;
+            }
 
             var groups = _repository.GetAllGroup();
 
@@ -242,6 +233,20 @@ namespace DesktopAdministrator
         }
 
         #region UpdateWindowsElements
+        public void UpdateComboBoxAvailableTests()
+        {
+            var tests = _repository.GetAllTest();
+
+            ComboBoxAvailableTests.Items.Clear();
+
+            foreach (var test in tests)
+            {
+                ComboBoxAvailableTests.Items.Add(test);
+            }
+
+            ComboBoxAvailableTests.SelectedIndex = 0;
+        }
+
         public void AddGroupToComboBox(Group group)
         {
             ComboBoxGroups.Items.Add(group);
@@ -257,7 +262,7 @@ namespace DesktopAdministrator
             UpdateGroupTable();
             UpdateTestTable();
             UpdateTestingTable();
-            SetComboBoxAvailableTests();
+            UpdateComboBoxAvailableTests();
             UpdateAvailableGroupsTable();
         }
 

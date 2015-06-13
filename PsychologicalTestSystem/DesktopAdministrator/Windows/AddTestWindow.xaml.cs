@@ -44,6 +44,9 @@ namespace DesktopAdministrator.Windows
             var test = _repository.AddTest(testName, introduction);
 
             _mainWindow.AddTestToComboBox(test);
+            _mainWindow.UpdateComboBoxTestStatistic();
+            //_mainWindow.UpdateAvailableGroupsTable();
+            _mainWindow.UpdateComboBoxAvailableTests();
 
             this.Hide();
         }

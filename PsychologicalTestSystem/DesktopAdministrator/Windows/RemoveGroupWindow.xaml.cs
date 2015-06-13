@@ -59,6 +59,10 @@ namespace DesktopAdministrator.Windows
 
             _mainWindow.UpdateGroupTable();
 
+            _mainWindow.UpdateAvailableGroupsTable();
+            _mainWindow.UpdateDataGridIncludeGroups();
+
+
             this.Hide();
         }
     }

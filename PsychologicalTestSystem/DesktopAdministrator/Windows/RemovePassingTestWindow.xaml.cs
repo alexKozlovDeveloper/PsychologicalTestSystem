@@ -71,6 +71,8 @@ namespace DesktopAdministrator.Windows
 
             _repository.RemovePassingTest(item.PassingTestId);
 
+            _mainWindow.UpdateTestingTable();
+
             this.Hide();
         }
 

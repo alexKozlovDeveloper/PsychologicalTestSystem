@@ -59,6 +59,8 @@ namespace DesktopAdministrator.Windows
             _repository.RemoveTest(test.Id);
 
             _mainWindow.UpdateTestTable();
+            _mainWindow.UpdateComboBoxTestStatistic();
+            _mainWindow.UpdateComboBoxAvailableTests();
 
             this.Hide();
         }

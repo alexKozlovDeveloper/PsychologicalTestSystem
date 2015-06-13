@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="548.4" Width="1077">
     <Grid>
-        <Button Name="StartServerButton" Content="Запустить сервер" HorizontalAlignment="Left" Margin="939,10,0,0" VerticalAlignment="Top" Width="121" Height="30" Click="StartServerButton_Click"/>
         <TabControl HorizontalAlignment="Left" Height="499" Margin="10,10,0,0" VerticalAlignment="Top" Width="924">
             <TabItem Header="Студенты и группы">
                 <Grid Background="#FFE5E5E5">
@@ -100,8 +99,8 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Name="ButtonWriteDbToXml" Content="Write to xml" HorizontalAlignment="Left" Margin="939,45,0,0" VerticalAlignment="Top" Width="120" Height="37" Click="ButtonWriteDbToXml_Click"/>
-        <Button Name="ButtonReadFromXml" Content="Read from Xml" HorizontalAlignment="Left" Margin="939,87,0,0" VerticalAlignment="Top" Width="120" Height="37" Click="ButtonReadFromXml_Click"/>
+        <Button Name="ButtonWriteDbToXml" Content="Write to xml" HorizontalAlignment="Left" Margin="939,10,0,0" VerticalAlignment="Top" Width="120" Height="37" Click="ButtonWriteDbToXml_Click"/>
+        <Button Name="ButtonReadFromXml" Content="Read from Xml" HorizontalAlignment="Left" Margin="939,52,0,0" VerticalAlignment="Top" Width="120" Height="37" Click="ButtonReadFromXml_Click"/>
 
     </Grid>
 </Window>

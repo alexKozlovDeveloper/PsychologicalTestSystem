@@ -44,6 +44,9 @@ namespace DesktopAdministrator.Windows
 
             _mainWindow.AddGroupToComboBox(group);
 
+            _mainWindow.UpdateAvailableGroupsTable();
+            _mainWindow.UpdateDataGridIncludeGroups();
+
             this.Hide();
         }
     }
