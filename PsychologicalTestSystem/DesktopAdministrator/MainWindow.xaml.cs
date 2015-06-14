@@ -67,6 +67,7 @@ namespace DesktopAdministrator
             try
             {
                 _repository = new TestingRepository();
+                _repository.ReadFromFolder(ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey]);                
 
                 InitWindowElements();
 
