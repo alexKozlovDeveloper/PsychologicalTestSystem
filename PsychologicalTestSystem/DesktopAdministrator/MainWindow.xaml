@@ -6,63 +6,63 @@
         <TabControl HorizontalAlignment="Left" Height="750" Margin="10,10,0,0" VerticalAlignment="Top" Width="1394">
             <TabItem Header="Студенты и группы" FontSize="30" Margin="-2,-2,-40.4,0.2">
                 <Grid Background="#FFE5E5E5">
-                    <Label Content="Группы" HorizontalAlignment="Left" Margin="9,6,0,0" VerticalAlignment="Top" Width="61"/>
-                    <Label Content="Студенты" HorizontalAlignment="Left" Margin="9,37,0,0" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="ComboBoxGroups" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxGroups_SelectionChanged"/>
-                    <Button x:Name="ButtonAddGroup" Content="Добавить" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAddGroup_Click"/>
-                    <Button x:Name="ButtonAddStudent" Content="Добавить" HorizontalAlignment="Left" Margin="200,37,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAddStudent_Click"/>
-                    <TextBox x:Name="TextBoxStudents" HorizontalAlignment="Left" Height="393" Margin="10,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="355"/>
-                    <Button Name="ButtonRemoveGroup" Content="Удалить" HorizontalAlignment="Left" Margin="280,10,0,0" VerticalAlignment="Top" Width="75" Click="ButtonRemoveGroup_Click"/>
-                    <Button Name="ButtonRemoveStudent" Content="Удалить" HorizontalAlignment="Left" Margin="280,37,0,0" VerticalAlignment="Top" Width="75" Click="ButtonRemoveStudent_Click"/>
+                    <Label Content="Группы" HorizontalAlignment="Left" Margin="9,6,0,0" VerticalAlignment="Top" Width="298"/>
+                    <Label Content="Студенты" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" Width="297"/>
+                    <ComboBox x:Name="ComboBoxGroups" HorizontalAlignment="Left" Margin="312,13,0,0" VerticalAlignment="Top" Width="310" SelectionChanged="ComboBoxGroups_SelectionChanged"/>
+                    <Button x:Name="ButtonAddGroup" Content="Добавить" HorizontalAlignment="Left" Margin="627,13,0,0" VerticalAlignment="Top" Width="254" Click="ButtonAddGroup_Click"/>
+                    <Button x:Name="ButtonAddStudent" Content="Добавить" HorizontalAlignment="Left" Margin="627,61,0,0" VerticalAlignment="Top" Width="254" Click="ButtonAddStudent_Click"/>
+                    <TextBox x:Name="TextBoxStudents" HorizontalAlignment="Left" Height="556" Margin="10,116,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="612"/>
+                    <Button Name="ButtonRemoveGroup" Content="Удалить" HorizontalAlignment="Left" Margin="886,13,0,0" VerticalAlignment="Top" Width="254" Click="ButtonRemoveGroup_Click"/>
+                    <Button Name="ButtonRemoveStudent" Content="Удалить" HorizontalAlignment="Left" Margin="886,61,0,0" VerticalAlignment="Top" Width="254" Click="ButtonRemoveStudent_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Тесты и вопросы" FontSize="30" Margin="40.4,-2,-103.8,0.2">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="DataGridQuestion" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Height="390" Width="899" AutoGenerateColumns="False">
+                    <DataGrid x:Name="DataGridQuestion" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="10,127,0,0" VerticalAlignment="Top" Height="545" Width="1368" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Вопрос" Binding="{Binding Path=Message}" Width="250"/>
-                            <DataGridTextColumn Header="Ответ 1" Binding="{Binding Path=FirstAnswer}" Width="70"/>
-                            <DataGridTextColumn Header="Ответ 2" Binding="{Binding Path=SecondAnswer}" Width="70"/>
-                            <DataGridTextColumn Header="Ответ 3" Binding="{Binding Path=ThirdAnswer}" Width="70"/>
-                            <DataGridTextColumn Header="Отчет 1 Ст" Binding="{Binding Path=FirstReportMessageToUser}" Width="70"/>
-                            <DataGridTextColumn Header="Отчет 2 Ст" Binding="{Binding Path=SecondReportMessageToUser}" Width="70"/>
-                            <DataGridTextColumn Header="Отчет 1 Пр" Binding="{Binding Path=FirstReportMessageToAdmin}" Width="70"/>
-                            <DataGridTextColumn Header="Отчет 2 Пр" Binding="{Binding Path=SecondReportMessageToAdmin}" Width="70"/>
-                            <DataGridTextColumn Header="Сильная" Binding="{Binding Path=StrongProblemNumber}" Width="55"/>
-                            <DataGridTextColumn Header="Слабая" Binding="{Binding Path=WeakProblemNumber}" Width="55"/>
-                            <DataGridTextColumn Header="Номер" Binding="{Binding Path=SortIndex}" Width="50"/>
+                            <DataGridTextColumn Header="Вопрос" Binding="{Binding Path=Message}" Width="150"/>
+                            <DataGridTextColumn Header="Ответ 1" Binding="{Binding Path=FirstAnswer}" Width="120"/>
+                            <DataGridTextColumn Header="Ответ 2" Binding="{Binding Path=SecondAnswer}" Width="120"/>
+                            <DataGridTextColumn Header="Ответ 3" Binding="{Binding Path=ThirdAnswer}" Width="120"/>
+                            <DataGridTextColumn Header="Отчет 1 Ст" Binding="{Binding Path=FirstReportMessageToUser}" Width="120"/>
+                            <DataGridTextColumn Header="Отчет 2 Ст" Binding="{Binding Path=SecondReportMessageToUser}" Width="120"/>
+                            <DataGridTextColumn Header="Отчет 1 Пр" Binding="{Binding Path=FirstReportMessageToAdmin}" Width="120"/>
+                            <DataGridTextColumn Header="Отчет 2 Пр" Binding="{Binding Path=SecondReportMessageToAdmin}" Width="120"/>
+                            <DataGridTextColumn Header="Сильная" Binding="{Binding Path=StrongProblemNumber}" Width="130"/>
+                            <DataGridTextColumn Header="Слабая" Binding="{Binding Path=WeakProblemNumber}" Width="120"/>
+                            <DataGridTextColumn Header="Номер" Binding="{Binding Path=SortIndex}" Width="120"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <ComboBox x:Name="ComboBoxTests" HorizontalAlignment="Left" Margin="59,12,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxTests_SelectionChanged"/>
-                    <Label Content="Тесты" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top" Width="61"/>
-                    <Button x:Name="ButtonAddTest" Content="Добавить" HorizontalAlignment="Left" Margin="184,12,0,0" VerticalAlignment="Top" Width="75" Click="ButtonAddTest_Click" Height="22"/>
-                    <Label Content="Вопросы из данного теста" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
-                    <Button x:Name="ButtonAddQuestion" Content="Создать вопрос" HorizontalAlignment="Left" Margin="184,43,0,0" VerticalAlignment="Top" Width="117" Click="ButtonAddQuestion_Click"/>
-                    <Button x:Name="ButtonAddQuestionToTest" Content="Добавить вопрос к тесту" HorizontalAlignment="Left" Margin="344,12,0,0" VerticalAlignment="Top" Width="180" Click="ButtonAddQuestionToTest_Click" Height="22"/>
-                    <Button Name="ButtonRemoveTest" Content="Удалить тест" HorizontalAlignment="Left" Margin="264,12,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="ButtonRemoveTest_Click"/>
-                    <Button Name="ButtonRemoveQuestionFromTest" Content="Удалить вопрос из теста" HorizontalAlignment="Left" Margin="529,12,0,0" VerticalAlignment="Top" Width="178" Height="22" Click="ButtonRemoveQuestionFromTest_Click"/>
-                    <Button Name="ButtonRemoveQuestion" Content="Удалить вопрос" HorizontalAlignment="Left" Margin="306,43,0,0" VerticalAlignment="Top" Width="117" Click="ButtonRemoveQuestion_Click"/>
+                    <ComboBox x:Name="ComboBoxTests" HorizontalAlignment="Left" Margin="101,12,0,0" VerticalAlignment="Top" Width="279" SelectionChanged="ComboBoxTests_SelectionChanged"/>
+                    <Label Content="Тесты" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top" Width="166"/>
+                    <Button x:Name="ButtonAddTest" Content="Добавить" HorizontalAlignment="Left" Margin="385,12,0,0" VerticalAlignment="Top" Width="270" Click="ButtonAddTest_Click" Height="43"/>
+                    <Label Content="Вопросы из данного теста" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="ButtonAddQuestion" Content="Создать вопрос" HorizontalAlignment="Left" Margin="385,72,0,0" VerticalAlignment="Top" Width="296" Click="ButtonAddQuestion_Click"/>
+                    <Button x:Name="ButtonAddQuestionToTest" Content="Добавить вопрос к тесту" HorizontalAlignment="Left" Margin="929,12,0,0" VerticalAlignment="Top" Width="449" Click="ButtonAddQuestionToTest_Click" Height="43"/>
+                    <Button Name="ButtonRemoveTest" Content="Удалить тест" HorizontalAlignment="Left" Margin="660,12,0,0" VerticalAlignment="Top" Width="264" Height="43" Click="ButtonRemoveTest_Click"/>
+                    <Button Name="ButtonRemoveQuestionFromTest" Content="Удалить вопрос из теста" HorizontalAlignment="Left" Margin="968,72,0,0" VerticalAlignment="Top" Width="410" Height="43" Click="ButtonRemoveQuestionFromTest_Click"/>
+                    <Button Name="ButtonRemoveQuestion" Content="Удалить вопрос" HorizontalAlignment="Left" Margin="686,72,0,0" VerticalAlignment="Top" Width="277" Click="ButtonRemoveQuestion_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Тестирование" FontSize="30" Margin="102.8,-2,-175.8,0.2">
                 <Grid Background="#FFE5E5E5">
-                    <ComboBox Name="ComboBoxAvailableTests" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxAvailableTests_SelectionChanged"/>
-                    <Label Content="Тесты" HorizontalAlignment="Left" Margin="619,10,0,0" VerticalAlignment="Top"/>
-                    <DataGrid Name="DataGridAvailableGroups" AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="619,41,0,0" VerticalAlignment="Top" Height="416" Width="285">
+                    <ComboBox Name="ComboBoxAvailableTests" HorizontalAlignment="Left" Margin="1042,10,0,0" VerticalAlignment="Top" Width="336" SelectionChanged="ComboBoxAvailableTests_SelectionChanged"/>
+                    <Label Content="Тесты" HorizontalAlignment="Left" Margin="917,10,0,0" VerticalAlignment="Top"/>
+                    <DataGrid Name="DataGridAvailableGroups" AutoGenerateColumns="False" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="917,61,0,0" VerticalAlignment="Top" Height="611" Width="461">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Группа" Binding="{Binding Path=GroupName}" Width="200"/>
                             <DataGridCheckBoxColumn Header="Доступность" Binding="{Binding Path=IsAvailable}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Label Content="Прохождение тестов" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                    <DataGrid Name="DataGridTesting" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="416" Width="604">
+                    <DataGrid Name="DataGridTesting" ItemsSource="{Binding}" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" Height="611" Width="902">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LastName}" Width="100"/>
-                            <DataGridTextColumn Header="Имя" Binding="{Binding Path=FirstName}" Width="100"/>
-                            <DataGridTextColumn Header="Группа" Binding="{Binding Path=GroupNumber}" Width="100"/>
-                            <DataGridTextColumn Header="Дата" Binding="{Binding Path=Date}" Width="100"/>
-                            <DataGridTextColumn Header="Тест" Binding="{Binding Path=TestName}" Width="100"/>
-                            <DataGridTemplateColumn Header="Детали" Width="100">
+                            <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LastName}" Width="160"/>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding Path=FirstName}" Width="140"/>
+                            <DataGridTextColumn Header="Группа" Binding="{Binding Path=GroupNumber}" Width="140"/>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding Path=Date}" Width="150"/>
+                            <DataGridTextColumn Header="Тест" Binding="{Binding Path=TestName}" Width="140"/>
+                            <DataGridTemplateColumn Header="Детали" Width="160">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Click="ShowTestingDetails">Детали</Button>
@@ -71,7 +71,7 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Name="ButtonRemovePassingTest" Content="Удалить результат прохождения теста" HorizontalAlignment="Left" Margin="140,13,0,0" VerticalAlignment="Top" Width="242" Click="ButtonRemovePassingTest_Click"/>
+                    <Button Name="ButtonRemovePassingTest" Content="Удалить результат прохождения теста" HorizontalAlignment="Left" Margin="332,13,0,0" VerticalAlignment="Top" Width="242" Click="ButtonRemovePassingTest_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Статистика" FontSize="30" Height="60" Margin="175.8,-2,-283.2,2">
@@ -95,25 +95,27 @@
                             <DataGridCheckBoxColumn Header="Включить в статистику" Binding="{Binding IsAvailable}" Width="330"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Name="ButtonUpdateStatistic" Content="Обновить" HorizontalAlignment="Left" Margin="1092,10,0,0" VerticalAlignment="Top" Width="286" Height="43" Click="ButtonUpdateStatistic_Click"/>
+                    <Button Name="ButtonUpdateStatistic" Content="Обновить" HorizontalAlignment="Left" Margin="1086,10,0,0" VerticalAlignment="Top" Width="292" Height="96" Click="ButtonUpdateStatistic_Click"/>
 
                 </Grid>
             </TabItem>
-            <TabItem Header="Проблемы" Margin="449.8,-2,-557.8,0.2">
+            <TabItem FontSize="30" Header="Проблемы" Margin="282.4,-2,-346.4,0">
                 <Grid Background="#FFE5E5E5">
-                    <ComboBox Name="ComboBoxProblemTests" HorizontalAlignment="Left" Margin="114,13,0,0" VerticalAlignment="Top" Width="243" SelectionChanged="ComboBoxProblemTests_SelectionChanged"/>
+                    <ComboBox Name="ComboBoxProblemTests" HorizontalAlignment="Left" Margin="182,10,0,0" VerticalAlignment="Top" Width="338" SelectionChanged="ComboBoxProblemTests_SelectionChanged"/>
                     <Label Content="Тест" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="99"/>
-                    <ComboBox Name="ComboBoxProblemQuestions" HorizontalAlignment="Left" Margin="114,44,0,0" VerticalAlignment="Top" Width="243" SelectionChanged="ComboBoxProblemQuestions_SelectionChanged"/>
-                    <Label Content="Вопрос" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="99"/>
-                    <ComboBox Name="ComboBoxProblemGroups" HorizontalAlignment="Left" Margin="114,75,0,0" VerticalAlignment="Top" Width="243" SelectionChanged="ComboBoxProblemGroups_SelectionChanged"/>
-                    <Label Content="Группа" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="99"/>
-                    <TextBox Name="TextBoxUsersList" HorizontalAlignment="Left" Height="358" Margin="10,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="347"/>
-                    <TextBox Name="TextBoxTeacherRecomend" HorizontalAlignment="Left" Height="85" Margin="362,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="289"/>
+                    <ComboBox Name="ComboBoxProblemQuestions" HorizontalAlignment="Left" Margin="182,65,0,0" VerticalAlignment="Top" Width="338" SelectionChanged="ComboBoxProblemQuestions_SelectionChanged"/>
+                    <Label Content="Вопрос" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Width="136"/>
+                    <ComboBox Name="ComboBoxProblemGroups" HorizontalAlignment="Left" Margin="182,123,0,0" VerticalAlignment="Top" Width="338" SelectionChanged="ComboBoxProblemGroups_SelectionChanged"/>
+                    <Label Content="Группа" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Width="136"/>
+                    <TextBox Name="TextBoxUsersList" HorizontalAlignment="Left" Height="410" Margin="10,262,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="510"/>
+                    <TextBox Name="TextBoxTeacherRecomend" HorizontalAlignment="Left" Height="271" Margin="546,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="832"/>
+                    <Label Content="Рекомендации для решения проблемы" HorizontalAlignment="Left" Margin="661,17,0,0" VerticalAlignment="Top" Width="594"/>
+                    <Label Content="Студенты с сильной проблемой" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="510"/>
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Name="ButtonWriteDbToXml" Content="Write to xml" HorizontalAlignment="Left" Margin="1409,10,0,0" VerticalAlignment="Top" Width="120" Height="37" Click="ButtonWriteDbToXml_Click"/>
-        <Button Name="ButtonReadFromXml" Content="Read from Xml" HorizontalAlignment="Left" Margin="1409,52,0,0" VerticalAlignment="Top" Width="120" Height="37" Click="ButtonReadFromXml_Click"/>
+        <Button Name="ButtonWriteDbToXml" FontSize="20" Content="Write to xml" HorizontalAlignment="Left" Margin="1409,10,0,0" VerticalAlignment="Top" Width="112" Height="61" Click="ButtonWriteDbToXml_Click"/>
+        <Button Name="ButtonReadFromXml" FontSize="20" Content="Read from Xml" HorizontalAlignment="Left" Margin="1409,76,0,0" VerticalAlignment="Top" Width="112" Height="61" Click="ButtonReadFromXml_Click"/>
 
     </Grid>
 </Window>
