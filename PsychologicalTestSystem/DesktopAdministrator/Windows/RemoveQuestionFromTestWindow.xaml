@@ -1,11 +1,11 @@
 ﻿<Window x:Class="DesktopAdministrator.Windows.RemoveQuestionFromTestWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="RemoveQuestionFromTestWindow" Height="178.4" Width="534.4">
+        Title="Удаление вопроса из теста" Height="316.4" Width="794.8">
     <Grid>
-        <Button Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="89" Height="29" Click="ButtonCancel_Click"/>
-        <Button Name="ButtonRemove" Content="Удалить" HorizontalAlignment="Left" Margin="429,110,0,0" VerticalAlignment="Top" Width="89" Height="29" Click="ButtonRemove_Click"/>
-        <Label Content="Выберете ассоциацию для удаления" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="ComboBoxQuestionToTest" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="508" Height="56"/>
+        <Button FontSize="30" Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="168" Height="53" Click="ButtonCancel_Click"/>
+        <Button FontSize="30" Name="ButtonRemove" Content="Удалить" HorizontalAlignment="Left" Margin="588,207,0,0" VerticalAlignment="Top" Width="168" Height="53" Click="ButtonRemove_Click"/>
+        <Label FontSize="30" Content="Выберете ассоциацию для удаления" HorizontalAlignment="Left" Margin="129,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox FontSize="30" Name="ComboBoxQuestionToTest" HorizontalAlignment="Left" Margin="16,65,0,0" VerticalAlignment="Top" Width="740" Height="105"/>
     </Grid>
 </Window>

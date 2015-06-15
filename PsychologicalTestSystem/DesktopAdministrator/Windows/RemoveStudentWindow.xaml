@@ -1,15 +1,15 @@
 ﻿<Window x:Class="DesktopAdministrator.Windows.RemoveStudentWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="RemoveStudentWindow" Height="188" Width="230.4">
+        Title="Удаление пользователя" Height="269.6" Width="556">
     <Grid>
-        <Label Content="Выберете студента для удаления" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Группа" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <Label Content="Студент" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="ComboboxGroups" HorizontalAlignment="Left" Margin="80,44,0,0" VerticalAlignment="Top" Width="134" SelectionChanged="ComboboxGroups_SelectionChanged"/>
-        <ComboBox Name="ComboboxStudents" HorizontalAlignment="Left" Margin="80,75,0,0" VerticalAlignment="Top" Width="134"/>
-        <Button Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Width="89" Height="29" Click="ButtonCancel_Click"/>
-        <Button Name="ButtonRemove" Content="Удалить" HorizontalAlignment="Left" Margin="125,119,0,0" VerticalAlignment="Top" Width="89" Height="29" Click="ButtonRemove_Click"/>
+        <Label FontSize="30" Content="Выберете студента для удаления" HorizontalAlignment="Left" Margin="48,7,0,0" VerticalAlignment="Top"/>
+        <Label FontSize="30" Content="Группа" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top"/>
+        <Label FontSize="30" Content="Студент" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top"/>
+        <ComboBox FontSize="30" Name="ComboboxGroups" HorizontalAlignment="Left" Margin="277,65,0,0" VerticalAlignment="Top" Width="259" SelectionChanged="ComboboxGroups_SelectionChanged"/>
+        <ComboBox FontSize="30" Name="ComboboxStudents" HorizontalAlignment="Left" Margin="277,118,0,0" VerticalAlignment="Top" Width="259"/>
+        <Button FontSize="30" Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" Width="187" Height="46" Click="ButtonCancel_Click"/>
+        <Button FontSize="30" Name="ButtonRemove" Content="Удалить" HorizontalAlignment="Left" Margin="349,182,0,0" VerticalAlignment="Top" Width="187" Height="46" Click="ButtonRemove_Click"/>
 
     </Grid>
 </Window>
