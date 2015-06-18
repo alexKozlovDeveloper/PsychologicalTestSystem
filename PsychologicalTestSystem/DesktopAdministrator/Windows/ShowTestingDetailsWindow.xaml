@@ -5,6 +5,7 @@
     <Grid>
         <DataGrid FontSize="30" Name="DataGridTestingReport" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="10,10,10,10" VerticalAlignment="Top" AutoGenerateColumns="False">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Width="50" Binding="{Binding Path=Number}"/>
                 <DataGridTextColumn Header="Вопрос" Binding="{Binding Path=Message}"/>
                 <DataGridTextColumn Header="Ответ" Binding="{Binding Path=Answer}"/>
                 <DataGridTextColumn Header="В отчет" Binding="{Binding Path=ToReport}"/>

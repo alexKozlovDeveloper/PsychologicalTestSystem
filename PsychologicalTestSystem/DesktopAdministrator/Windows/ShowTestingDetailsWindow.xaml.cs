@@ -56,12 +56,12 @@ namespace DesktopAdministrator.Windows
             DataGridTestingReport.Width = this.Width - 20;
             DataGridTestingReport.Height = this.Height - 20;
 
-            var columnW = this.Width / 3 - 10;
+            var columnW = this.Width / 3 - 20;
 
-            foreach (var item in DataGridTestingReport.Columns)
+            for (int i = 1; i < DataGridTestingReport.Columns.Count; i++)
             {
-                item.Width = columnW;
-            }        
+                DataGridTestingReport.Columns[i].Width = columnW;
+            } 
         }
 
         private void InitTable()
@@ -98,7 +98,8 @@ namespace DesktopAdministrator.Windows
                 {
                     Message = question.Message,
                     Answer = answer,
-                    ToReport = toReport
+                    ToReport = toReport,
+                    Number = question.SortIndex
                 });
             }
 

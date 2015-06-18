@@ -81,7 +81,10 @@ namespace Db.Core.Loading
                     filePath = testsFolder + @"\" + test.Name.Substring(0, 10) + "_" + test.Id + ".xml";
                 }
 
-                FileReaderHelper.WriteInFileWithSerialize(xmlTest, filePath);
+                if (File.Exists(filePath) == false)
+                {
+                    FileReaderHelper.WriteInFileWithSerialize(xmlTest, filePath);                
+                }
             }
 
             //Groups
@@ -101,7 +104,10 @@ namespace Db.Core.Loading
 
                 var fileName = string.Format("{0}\\{1}{2}.xml", groupsFolder, "Group", item.Id.ToString());
 
-                FileReaderHelper.WriteInFileWithSerialize(xmlGroup, fileName);
+                if (File.Exists(fileName) == false)
+                {
+                    FileReaderHelper.WriteInFileWithSerialize(xmlGroup, fileName);
+                }
             }
 
             // TestT
@@ -119,7 +125,10 @@ namespace Db.Core.Loading
             {
                 var fileName = string.Format("{0}\\{1}{2}.xml", testTFoler, "TestT", item.Id.ToString());
 
-                FileReaderHelper.WriteInFileWithSerialize(item, fileName);
+                if (File.Exists(fileName) == false)
+                {
+                    FileReaderHelper.WriteInFileWithSerialize(item, fileName);
+                }
             }
 
             // QuestionT
@@ -137,7 +146,10 @@ namespace Db.Core.Loading
             {
                 var fileName = string.Format("{0}\\{1}{2}.xml", questionTFoler, "QuestionT", item.Id.ToString());
 
-                FileReaderHelper.WriteInFileWithSerialize(item, fileName);
+                if (File.Exists(fileName) == false)
+                {
+                    FileReaderHelper.WriteInFileWithSerialize(item, fileName);
+                }
             }
 
             // QuestionToTestT
@@ -155,7 +167,10 @@ namespace Db.Core.Loading
             {
                 var fileName = string.Format("{0}\\{1}{2}.xml", questionToTestTFoler, "QuestionToTestT", item.Id.ToString());
 
-                FileReaderHelper.WriteInFileWithSerialize(item, fileName);
+                if (File.Exists(fileName) == false)
+                {
+                    FileReaderHelper.WriteInFileWithSerialize(item, fileName);
+                }
             }
         }
     }

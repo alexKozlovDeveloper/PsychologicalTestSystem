@@ -167,12 +167,26 @@ namespace DesktopAdministrator
 
         private void ButtonWriteDbToXml_Click(object sender, RoutedEventArgs e)
         {
+            var win = new LoadingWindow();
+            win.LabelInfo.Content = "Сохранение";
+            win.Show();
             _repository.WriteToFolder(ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey]);
+            if (win != null)
+            {
+                win.Hide();
+            }            
         }
 
         private void ButtonReadFromXml_Click(object sender, RoutedEventArgs e)
         {
+            var win = new LoadingWindow();
+            win.LabelInfo.Content = "Загрузка";
+            win.Show();
             _repository.ReadFromFolder(ConfigurationManager.AppSettings[ConfigKeys.WorkFolderKey]);
+            if (win != null)
+            {
+                win.Hide();
+            }    
         }
 
         private void ComboBoxTestsOnStatistics_SelectionChanged(object sender, SelectionChangedEventArgs e)

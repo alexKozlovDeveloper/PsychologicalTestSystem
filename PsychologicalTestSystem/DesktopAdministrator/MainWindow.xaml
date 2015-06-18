@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Тестирование" Height="800" Width="1600">
     <Grid Background="Lavender">
-        <TabControl HorizontalAlignment="Left" Height="750" Margin="10,10,0,0" VerticalAlignment="Top" Width="1394">
+        <TabControl HorizontalAlignment="Left" Height="750" Margin="10,10,0,0" VerticalAlignment="Top" Width="1348">
             <TabItem Header="Студенты и группы" FontSize="30" Margin="-2,-2,-40.4,0.2">
                 <Grid Background="#FFE5E5E5">
                     <Label Content="Группы" HorizontalAlignment="Left" Margin="9,6,0,0" VerticalAlignment="Top" Width="298"/>
@@ -74,7 +74,7 @@
                     <Button Name="ButtonRemovePassingTest" Content="Удалить результат прохождения теста" HorizontalAlignment="Left" Margin="332,13,0,0" VerticalAlignment="Top" Width="580" Click="ButtonRemovePassingTest_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Статистика" FontSize="30" Height="60" Margin="175.8,-2,-283.2,2">
+            <TabItem Header="Статистика" FontSize="30" Height="60" Margin="175.8,-2,-260.2,2">
                 <Grid Background="Lavender">
                     <!--CadetBlue GhostWhite Lavender-->
                     <ScrollViewer FontSize="14" HorizontalAlignment="Left" Height="631" Margin="10,41,0,0" VerticalAlignment="Top" Width="682">
@@ -101,7 +101,7 @@
 
                 </Grid>
             </TabItem>
-            <TabItem FontSize="30" Header="Проблемы" Margin="282.4,-2,-346.4,0">
+            <TabItem FontSize="30" Header="Проблемы" Margin="259.4,-2,-323.4,0">
                 <Grid Background="#FFE5E5E5">
                     <ComboBox Name="ComboBoxProblemTests" HorizontalAlignment="Left" Margin="182,10,0,0" VerticalAlignment="Top" Width="338" SelectionChanged="ComboBoxProblemTests_SelectionChanged"/>
                     <Label Content="Тест" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="99"/>
@@ -116,8 +116,8 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Name="ButtonWriteDbToXml" FontSize="20" Content="Write to xml" HorizontalAlignment="Left" Margin="1409,10,0,0" VerticalAlignment="Top" Width="175" Height="61" Click="ButtonWriteDbToXml_Click"/>
-        <Button Name="ButtonReadFromXml" FontSize="20" Content="Read from Xml" HorizontalAlignment="Left" Margin="1409,76,0,0" VerticalAlignment="Top" Width="175" Height="61" Click="ButtonReadFromXml_Click"/>
+        <Button Name="ButtonWriteDbToXml" FontSize="20" Content="Сохранение &#xD;&#xA;изменений &#xD;&#xA;в рабочую папку" HorizontalAlignment="Left" Margin="1358,10,0,0" VerticalAlignment="Top" Width="172" Height="127" Click="ButtonWriteDbToXml_Click"/>
+        <Button Name="ButtonReadFromXml" FontSize="20" Content="Загрузка новых &#xD;&#xA;результатов&#xD;&#xA;тестирования" HorizontalAlignment="Left" Margin="1358,142,0,0" VerticalAlignment="Top" Width="172" Height="123" Click="ButtonReadFromXml_Click"/>
 
     </Grid>
 </Window>
