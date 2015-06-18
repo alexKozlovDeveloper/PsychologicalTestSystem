@@ -33,7 +33,35 @@ namespace DesktopAdministrator.Windows
             _mainWindow = mainWindow;
             _passingTestId = passingTestId;
 
+            SetWidth();
+
+            this.SizeChanged += ShowTestingDetailsWindow_SizeChanged;
+            this.StateChanged += ShowTestingDetailsWindow_StateChanged;
+
             InitTable();
+        }
+
+        void ShowTestingDetailsWindow_StateChanged(object sender, EventArgs e)
+        {
+            SetWidth();
+        }
+
+        void ShowTestingDetailsWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            SetWidth();
+        }
+
+        public void SetWidth()
+        {
+            DataGridTestingReport.Width = this.Width - 20;
+            DataGridTestingReport.Height = this.Height - 20;
+
+            var columnW = this.Width / 3 - 10;
+
+            foreach (var item in DataGridTestingReport.Columns)
+            {
+                item.Width = columnW;
+            }        
         }
 
         private void InitTable()

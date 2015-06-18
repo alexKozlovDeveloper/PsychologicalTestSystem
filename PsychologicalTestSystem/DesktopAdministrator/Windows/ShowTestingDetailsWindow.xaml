@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Отчет прохождения теста" Height="569.476" Width="876.369">
     <Grid>
-        <DataGrid FontSize="30" Name="DataGridTestingReport" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="10,10,0,0" VerticalAlignment="Top" Height="520" Width="850" AutoGenerateColumns="False">
+        <DataGrid FontSize="30" Name="DataGridTestingReport" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="10,10,10,10" VerticalAlignment="Top" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Вопрос" Binding="{Binding Path=Message}" Width="270"/>
-                <DataGridTextColumn Header="Ответ" Binding="{Binding Path=Answer}" Width="270"/>
-                <DataGridTextColumn Header="В отчет" Binding="{Binding Path=ToReport}" Width="310"/>
+                <DataGridTextColumn Header="Вопрос" Binding="{Binding Path=Message}"/>
+                <DataGridTextColumn Header="Ответ" Binding="{Binding Path=Answer}"/>
+                <DataGridTextColumn Header="В отчет" Binding="{Binding Path=ToReport}"/>
             </DataGrid.Columns>
         </DataGrid>
 

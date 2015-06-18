@@ -3,14 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="500"
-	Title="UserIntroduction">
+      mc:Ignorable="d"
+	Title="UserIntroduction" Height="382.4" Width="765.6">
 
     <Grid>
-        <Label Name="Label_IntroductionText" Content="Label" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="243" Width="480"/>
-        <Button Name="Button_StartTest" Content="Начать тест" HorizontalAlignment="Left" Margin="415,258,0,0" VerticalAlignment="Top" Width="75" Height="32"/>
-        <Button Name="Button_Back" Content="Назат" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Width="75" Height="32"/>
+        <TextBox FontSize="30" Name="Label_IntroductionText" IsReadOnly="True" HorizontalAlignment="Left" Height="301" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="746"/>
+
+        <Button FontSize="30" Name="Button_StartTest" Content="Начать тест" HorizontalAlignment="Left" Margin="560,316,0,0" VerticalAlignment="Top" Width="196" Height="56"/>
+        <Button FontSize="30" Name="Button_Back" Content="Назат" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Width="196" Height="56"/>
 
     </Grid>
 </Page>

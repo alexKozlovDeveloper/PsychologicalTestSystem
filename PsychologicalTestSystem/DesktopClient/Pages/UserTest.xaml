@@ -4,19 +4,19 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
-	Title="UserTest" Height="300" Width="500">
+	Title="UserTest" Height="374.4" Width="643.2">
 
     <Grid>
-        <Label Name="Label_Info_1" Content="Студент" HorizontalAlignment="Left" Margin="168,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.498,-0.301"/>
-        <Label Name="Label_StudentName" Content="Андрей Гаврилов" HorizontalAlignment="Left" Margin="226,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.369" Width="126"/>
-        <Label Name="Label_Info_2" Content="Группа №" HorizontalAlignment="Left" Margin="357,10,0,0" VerticalAlignment="Top"/>
-        <Label Name="Label_StedentGroupNumber" Content="105286" HorizontalAlignment="Left" Margin="427,10,0,0" VerticalAlignment="Top" Width="63"/>
-        <Button Name="Button_Yes" Content="Да" HorizontalAlignment="Left" Margin="10,259,0,0" VerticalAlignment="Top" Width="124" Height="31"/>
-        <Button Name="Button_Sometimes" Content="Иногда" HorizontalAlignment="Left" Margin="190,259,0,0" VerticalAlignment="Top" Width="124" Height="31"/>
-        <Button Name="Button_No" Content="Нет" HorizontalAlignment="Left" Margin="366,259,0,0" VerticalAlignment="Top" Width="124" Height="31"/>
-        <Label Name="Label_info" Content="Вопрос    #" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Name="Label_QuestionNumber" Content="1" HorizontalAlignment="Left" Margin="71,10,0,0" VerticalAlignment="Top" Width="63"/>
-        <TextBox Name="TextBox_Question" IsReadOnly="True" HorizontalAlignment="Left" Height="213" Margin="14,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="476"/>
+        <Label FontSize="20" Name="Label_Info_1" Content="Студент" HorizontalAlignment="Left" Margin="173,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.498,-0.301" Width="94"/>
+        <Label FontSize="20" Name="Label_StudentName" Content="Андрей Гаврилов" HorizontalAlignment="Left" Margin="267,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.369" Width="169"/>
+        <Label FontSize="20" Name="Label_Info_2" Content="Группа №" HorizontalAlignment="Left" Margin="441,10,0,0" VerticalAlignment="Top"/>
+        <Label FontSize="20" Name="Label_StedentGroupNumber" Content="105286" HorizontalAlignment="Left" Margin="548,10,0,0" VerticalAlignment="Top" Width="85"/>
+        <Button FontSize="30" Name="Button_Yes" Content="Да" HorizontalAlignment="Left" Margin="10,307,0,0" VerticalAlignment="Top" Width="181" Height="57"/>
+        <Button FontSize="30" Name="Button_Sometimes" Content="Иногда" HorizontalAlignment="Left" Margin="226,307,0,0" VerticalAlignment="Top" Width="192" Height="57"/>
+        <Button FontSize="30" Name="Button_No" Content="Нет" HorizontalAlignment="Left" Margin="452,307,0,0" VerticalAlignment="Top" Width="181" Height="57"/>
+        <Label FontSize="20" Name="Label_info" Content="Вопрос    #" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="113"/>
+        <Label FontSize="20" Name="Label_QuestionNumber" Content="1" HorizontalAlignment="Left" Margin="128,10,0,0" VerticalAlignment="Top" Width="63"/>
+        <TextBox FontSize="30" Name="TextBox_Question" IsReadOnly="True" HorizontalAlignment="Left" Height="250" Margin="10,52,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="623"/>
 
 
 

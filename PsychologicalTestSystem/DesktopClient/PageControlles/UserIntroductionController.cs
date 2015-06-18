@@ -53,7 +53,7 @@ namespace DesktopClient.PageControlles
         {
             _controllerWindow.Content = _controllerPage;
 
-            _controllerPage.Label_IntroductionText.Content = AppConfig.SelectedTest.Introduction;
+            _controllerPage.Label_IntroductionText.Text = AppConfig.SelectedTest.Introduction;
         }
     }
 }

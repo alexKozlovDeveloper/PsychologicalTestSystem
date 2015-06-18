@@ -4,11 +4,11 @@
         Title="Добавление нового пользователя" Height="360.6" Width="600.2">
     <Grid>
         <Label FontSize="30" Content="Добавление нового студента" HorizontalAlignment="Left" Margin="74,10,0,0" VerticalAlignment="Top"/>
-        <TextBox FontSize="30" Name="TextBoxFirstName" HorizontalAlignment="Left" Height="36" Margin="262,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="288"/>
-        <TextBox FontSize="30" Name="TextBoxLastName" HorizontalAlignment="Left" Height="40" Margin="262,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="288"/>
-        <Label FontSize="30" Content="Имя" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="247"/>
-        <Label FontSize="30" Content="Фамилия" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Width="247"/>
-        <Label FontSize="30" Content="Группа" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top" Width="247"/>
+        <TextBox FontSize="30" Name="TextBoxFirstName" HorizontalAlignment="Left" Height="46" Margin="262,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="288"/>
+        <TextBox FontSize="30" Name="TextBoxLastName" HorizontalAlignment="Left" Height="52" Margin="262,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="288"/>
+        <Label FontSize="30" Content="Имя" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="247" Height="50"/>
+        <Label FontSize="30" Content="Фамилия" HorizontalAlignment="Left" Margin="10,127,0,0" VerticalAlignment="Top" Width="247"/>
+        <Label FontSize="30" Content="Группа" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" Width="247"/>
         <ComboBox FontSize="30" Name="ComboBoxGroups" HorizontalAlignment="Left" Margin="262,182,0,0" VerticalAlignment="Top" Width="288"/>
         <Button FontSize="30" Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Left" Margin="401,269,0,0" VerticalAlignment="Top" Width="170" Click="ButtonAdd_Click"/>
         <Button FontSize="30" Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="23,269,0,0" VerticalAlignment="Top" Width="170" Click="ButtonCancel_Click"/>

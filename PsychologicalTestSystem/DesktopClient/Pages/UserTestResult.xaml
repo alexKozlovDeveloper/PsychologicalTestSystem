@@ -3,14 +3,13 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="500"
-	Title="UserTestResult">
+      mc:Ignorable="d"
+	Title="UserTestResult" Height="328" Width="573.6">
 
     <Grid>
 
 
-        <Button Name="Button_Exit" Content="Завершить" HorizontalAlignment="Left" Margin="196,256,0,0" VerticalAlignment="Top" Width="105" Height="34"/>
-        <TextBox Name="Label_ResultInfo" IsReadOnly="True" HorizontalAlignment="Left" Height="241" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="480"/>
+        <Button FontSize="30" Name="Button_Exit" Content="Завершить" HorizontalAlignment="Left" Margin="196,270,0,0" VerticalAlignment="Top" Width="216" Height="48"/>
+        <TextBox FontSize="30" Name="Label_ResultInfo" IsReadOnly="True" HorizontalAlignment="Left" Height="255" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="554"/>
     </Grid>
 </Page>

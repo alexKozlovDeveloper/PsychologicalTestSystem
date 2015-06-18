@@ -434,7 +434,7 @@ namespace DesktopAdministrator
 
                 if (user == null)
                 {
-                    MessageBox.Show("Не найден пользователь с идентификатором " + passingTest.UserId);
+                    //MessageBox.Show("Не найден пользователь с идентификатором " + passingTest.UserId);
                     continue;
                 }
 
@@ -482,7 +482,6 @@ namespace DesktopAdministrator
 
             DataGridAvailableGroups.ItemsSource = entityAvailableGroups;
         }
-
 
         public void UpdateComboBoxProblemTests()
         {

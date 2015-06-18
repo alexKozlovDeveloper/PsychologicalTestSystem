@@ -4,19 +4,19 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
-	Title="UserRegistration" Height="300" Width="500">
+	Title="UserRegistration" Height="364.8" Width="610.4">
 
     <Grid>
-        <Label Content="Введите ваши данные" HorizontalAlignment="Left" Margin="178,25,0,0" VerticalAlignment="Top" Height="30" Width="135"/>
-        <Label Content="Имя" HorizontalAlignment="Left" Margin="90,81,0,0" VerticalAlignment="Top" Width="164" Height="40"/>
-        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="90,121,0,0" VerticalAlignment="Top" Width="164" Height="40"/>
-        <Label Content="Номер группы" HorizontalAlignment="Left" Margin="90,161,0,0" VerticalAlignment="Top" Width="164" Height="40"/>
+        <Label FontSize="30" Content="Введите ваши данные" HorizontalAlignment="Left" Margin="140,10,0,0" VerticalAlignment="Top" Height="56" Width="385"/>
+        <Label FontSize="30" Content="Имя" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Width="277" Height="55"/>
+        <Label FontSize="30" Content="Фамилия" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top" Width="277" Height="55"/>
+        <Label FontSize="30" Content="Номер группы" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top" Width="277" Height="55"/>
 
-        <TextBox Name="TextBox_UserName" HorizontalAlignment="Left" Height="35" Margin="259,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
-        <TextBox Name="TextBox_UserLastname" HorizontalAlignment="Left" Height="35" Margin="259,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
+        <TextBox FontSize="30" Name="TextBox_UserName" HorizontalAlignment="Left" Height="55" Margin="292,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="308"/>
+        <TextBox FontSize="30" Name="TextBox_UserLastname" HorizontalAlignment="Left" Height="55" Margin="292,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="308"/>
 
-        <Button Name="ButtonRegistration" Content="Зарегистрировать" HorizontalAlignment="Left" Margin="355,254,0,0" VerticalAlignment="Top" Width="135" Height="36"/>
-        <ComboBox Name="ComboBoxGroups" HorizontalAlignment="Left" Margin="259,161,0,0" VerticalAlignment="Top" Width="158" Height="30"/>
-        <Button Name="ButtonCancel" Content="Назад" HorizontalAlignment="Left" Margin="10,254,0,0" VerticalAlignment="Top" Width="139" Height="36"/>
+        <Button FontSize="30" Name="ButtonRegistration" Content="Зарегистрировать" HorizontalAlignment="Left" Margin="313,285,0,0" VerticalAlignment="Top" Width="287" Height="70"/>
+        <ComboBox FontSize="30" Name="ComboBoxGroups" HorizontalAlignment="Left" Margin="292,191,0,0" VerticalAlignment="Top" Width="308" Height="55"/>
+        <Button FontSize="30" Name="ButtonCancel" Content="Назад" HorizontalAlignment="Left" Margin="10,285,0,0" VerticalAlignment="Top" Width="287" Height="70"/>
     </Grid>
 </Page>

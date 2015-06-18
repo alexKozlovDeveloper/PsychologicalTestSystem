@@ -78,7 +78,7 @@ namespace Db.Core.Statistic
                     }
                 }                
             }
-
+            //[37] = {[af717668-ad2e-425b-8026-5363e85edace, 6]}
             //foreach (var item in mainProblem)
             //{
             //    var ques = _repository.GetQuestion(item.Key);
@@ -111,6 +111,11 @@ namespace Db.Core.Statistic
                 if (mainProblem.Keys.Contains(item.Id) == true)
                 {
                     main = (mainProblem[item.Id] * 100) / count;
+
+                    if (main > 100)
+                    {
+                        main = 100;
+                    }
                 }
 
                 var weak = 0;
@@ -118,6 +123,11 @@ namespace Db.Core.Statistic
                 if (weakProblem.Keys.Contains(item.Id) == true)
                 {
                     weak = (weakProblem[item.Id] * 100) / count;
+
+                    if (weak > 100)
+                    {
+                        weak = 100;
+                    }
                 }
 
                 var pers = new TestingChartItem

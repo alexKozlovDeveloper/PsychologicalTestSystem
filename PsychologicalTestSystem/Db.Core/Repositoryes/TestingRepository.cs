@@ -1122,5 +1122,13 @@ namespace Db.Core.Repositoryes
 
             return res;
         }
+
+
+        public void ClearPassingTest(Guid passingTestId)
+        {
+            var testing = GetTesting(passingTestId);
+
+            
+        }
     }
 }

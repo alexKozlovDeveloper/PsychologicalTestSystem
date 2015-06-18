@@ -4,17 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d"
-	Title="UserChoice" Height="296.8" Width="458.6">
+	Title="UserChoice" Height="345.6" Width="583.4">
 
     <Grid>
-        <Button Name="ButtonRegistration" Content="Регистрация нового студента" HorizontalAlignment="Left" Margin="273,10,0,0" VerticalAlignment="Top" Width="176" Height="33"/>
-        <ComboBox Name="ComboBoxGroups" HorizontalAlignment="Left" Margin="90,64,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox Name="ComboBoxUsers" HorizontalAlignment="Left" Margin="90,95,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Группы" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label Content="Студенты" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Name="ButtonContinue" Content="Продолжить" HorizontalAlignment="Left" Margin="323,254,0,0" VerticalAlignment="Top" Width="126" Height="33"/>
-        <Button Name="ButtonExit" Content="Выход" HorizontalAlignment="Left" Margin="10,254,0,0" VerticalAlignment="Top" Width="119" Height="33"/>
-        <Label Content="Выбирете себя из списка студентов, если вас &#xD;&#xA;в нем нет, нажмине на кнопку регистрации." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="45" Width="258"/>
+        <Button FontSize="15" Name="ButtonRegistration" Content="Регистрация нового студента" HorizontalAlignment="Left" Margin="311,10,0,0" VerticalAlignment="Top" Width="262" Height="42"/>
+        <ComboBox FontSize="30" Name="ComboBoxGroups" HorizontalAlignment="Left" Margin="200,99,0,0" VerticalAlignment="Top" Width="373" Height="50"/>
+        <ComboBox FontSize="30" Name="ComboBoxUsers" HorizontalAlignment="Left" Margin="200,156,0,0" VerticalAlignment="Top" Width="373" Height="50"/>
+        <Label FontSize="30" Content="Группы" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Width="185" Height="53"/>
+        <Label FontSize="30" Content="Студенты" HorizontalAlignment="Left" Margin="10,156,0,0" VerticalAlignment="Top" Width="185"/>
+        <Button FontSize="30" Name="ButtonContinue" Content="Продолжить" HorizontalAlignment="Left" Margin="345,273,0,0" VerticalAlignment="Top" Width="228" Height="63"/>
+        <Button FontSize="30" Name="ButtonExit" Content="Выход" HorizontalAlignment="Left" Margin="10,273,0,0" VerticalAlignment="Top" Width="228" Height="63"/>
+        <Label FontSize="15" Content="Выбирете себя из списка студентов, если &#xD;&#xA;вас в нем нет, нажмине на кнопку &#xD;&#xA;регистрации." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="81" Width="296"/>
         <CheckBox Name="CheckBoxDbConnect" Visibility="Hidden" Content="Подключить базу данных" HorizontalAlignment="Left" Margin="273,52,0,0" VerticalAlignment="Top" Width="175"/>
 
     </Grid>

@@ -58,6 +58,8 @@ namespace DesktopClient.PageControlles
 
             var currentGroup = AppConfig.CurrenGroup;
 
+            _controllerPage.ComboBoxTests.Items.Clear();
+
             foreach (var test in tests)
             {
                 if (_controller.Repository.IsAvailableGroup(test.Id, currentGroup.Id) == true)

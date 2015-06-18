@@ -71,13 +71,13 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Name="ButtonRemovePassingTest" Content="Удалить результат прохождения теста" HorizontalAlignment="Left" Margin="332,13,0,0" VerticalAlignment="Top" Width="242" Click="ButtonRemovePassingTest_Click"/>
+                    <Button Name="ButtonRemovePassingTest" Content="Удалить результат прохождения теста" HorizontalAlignment="Left" Margin="332,13,0,0" VerticalAlignment="Top" Width="580" Click="ButtonRemovePassingTest_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Статистика" FontSize="30" Height="60" Margin="175.8,-2,-283.2,2">
                 <Grid Background="Lavender">
                     <!--CadetBlue GhostWhite Lavender-->
-                    <ScrollViewer HorizontalAlignment="Left" Height="639" Margin="10,10,0,0" VerticalAlignment="Top" Width="682">
+                    <ScrollViewer FontSize="14" HorizontalAlignment="Left" Height="631" Margin="10,41,0,0" VerticalAlignment="Top" Width="682">
                         <Grid Name="GridStatistic" Height="1830" Width="680">
                             <Rectangle Fill="Gray" HorizontalAlignment="Left" Height="14" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="591"/>
                             <Rectangle Fill="Gray" HorizontalAlignment="Left" Height="14" Margin="10,1798,0,0" Stroke="Black" VerticalAlignment="Top" Width="591"/>
@@ -96,6 +96,8 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button Name="ButtonUpdateStatistic" Content="Обновить" HorizontalAlignment="Left" Margin="1086,10,0,0" VerticalAlignment="Top" Width="292" Height="96" Click="ButtonUpdateStatistic_Click"/>
+                    <Label Content="Иногда" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Часто" HorizontalAlignment="Left" Margin="330,0,0,0" VerticalAlignment="Top"/>
 
                 </Grid>
             </TabItem>
@@ -114,8 +116,8 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button Name="ButtonWriteDbToXml" FontSize="20" Content="Write to xml" HorizontalAlignment="Left" Margin="1409,10,0,0" VerticalAlignment="Top" Width="112" Height="61" Click="ButtonWriteDbToXml_Click"/>
-        <Button Name="ButtonReadFromXml" FontSize="20" Content="Read from Xml" HorizontalAlignment="Left" Margin="1409,76,0,0" VerticalAlignment="Top" Width="112" Height="61" Click="ButtonReadFromXml_Click"/>
+        <Button Name="ButtonWriteDbToXml" FontSize="20" Content="Write to xml" HorizontalAlignment="Left" Margin="1409,10,0,0" VerticalAlignment="Top" Width="175" Height="61" Click="ButtonWriteDbToXml_Click"/>
+        <Button Name="ButtonReadFromXml" FontSize="20" Content="Read from Xml" HorizontalAlignment="Left" Margin="1409,76,0,0" VerticalAlignment="Top" Width="175" Height="61" Click="ButtonReadFromXml_Click"/>
 
     </Grid>
 </Window>

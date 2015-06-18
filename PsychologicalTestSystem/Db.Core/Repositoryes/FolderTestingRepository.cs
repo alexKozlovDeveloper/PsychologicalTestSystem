@@ -483,5 +483,11 @@ namespace Db.Core.Repositoryes
         {
             throw new NotImplementedException();
         }
+
+
+        public void ClearPassingTest(Guid passingTestId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

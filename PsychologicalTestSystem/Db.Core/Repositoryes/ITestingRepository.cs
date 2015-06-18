@@ -78,5 +78,6 @@ namespace Db.Core.Repositoryes
         void RemoveQuestion(Guid questionId);
 
         IEnumerable<User> GetUserWithStrongProblem(Guid testId, Guid QuestionId, Guid groupId);
+        void ClearPassingTest(Guid passingTestId);
     }
 }
