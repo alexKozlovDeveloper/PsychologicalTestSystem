@@ -32,7 +32,9 @@ namespace DesktopAdministrator.Windows
             _mainWindow = mainWindow;
 
             var tests = _repository.GetAllTest();
-            var questions = _repository.GetAllQuestion();
+            var questions = _repository.GetAllQuestion().ToList();
+
+            questions.Sort();
 
             ComboBoxTest.Items.Clear();
 

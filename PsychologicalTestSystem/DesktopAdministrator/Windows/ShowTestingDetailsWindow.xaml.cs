@@ -38,6 +38,12 @@ namespace DesktopAdministrator.Windows
             this.SizeChanged += ShowTestingDetailsWindow_SizeChanged;
             this.StateChanged += ShowTestingDetailsWindow_StateChanged;
 
+            var passingTest = _repository.GetPassingTest(_passingTestId);
+            var user = _repository.GetUser(passingTest.UserId);
+            var group = _repository.GetGroup(user.GroupId);
+
+            LabelUserName.Content = string.Format("Студент {0} {1}, группа {2}", user.FirstName, user.LastName, group.Number);
+
             InitTable();
         }
 
@@ -53,8 +59,8 @@ namespace DesktopAdministrator.Windows
 
         public void SetWidth()
         {
-            DataGridTestingReport.Width = this.Width - 20;
-            DataGridTestingReport.Height = this.Height - 20;
+            DataGridTestingReport.Width = this.Width - 40;
+            DataGridTestingReport.Height = this.Height - 120;
 
             var columnW = this.Width / 3 - 20;
 

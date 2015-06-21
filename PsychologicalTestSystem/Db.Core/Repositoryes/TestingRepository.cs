@@ -1130,5 +1130,24 @@ namespace Db.Core.Repositoryes
 
             
         }
+
+
+        public PassingTest GetPassingTest(Guid id)
+        {
+            using (var db = new CoreDbContextV9())
+            {
+                PassingTestT res = null;
+
+                foreach (var item in db.PassingsTest)
+                {
+                    if (item.Id == id)
+                    {
+                        res = item;
+                    }
+                }
+
+                return DbConverter.GetPassingTest(res);
+            }
+        }
     }
 }

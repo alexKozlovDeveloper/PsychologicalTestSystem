@@ -28,6 +28,7 @@ namespace Db.Core.Repositoryes
         Group GetGroup(Guid id);
         Test GetTest(Guid id);
         QuestionToTest GetQuestionToTest(Guid id);
+        PassingTest GetPassingTest(Guid id);
 
         IEnumerable<User> GetUserByGroup(Guid groupId);
 
